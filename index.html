@@ -17,853 +17,1397 @@
     gtag('js', new Date());
     gtag('config', 'G-YWY3G6RXWH');
   </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
   <style>
-    /* ── Reset & Base ── */
+    /* ══════════════════════════════
+       RESET & CSS VARIABLES
+    ══════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --primary:   #e85d04;
-      --secondary: #f48c06;
-      --accent:    #6a0572;
-      --bg:        #fefaf6;
-      --card-bg:   #ffffff;
-      --text:      #1a1a2e;
-      --muted:     #6b7280;
-      --radius:    14px;
-      --shadow:    0 4px 24px rgba(0,0,0,0.09);
+      --primary:    #ff6b35;
+      --primary-dk: #e85d04;
+      --secondary:  #f48c06;
+      --accent:     #7c3aed;
+      --accent-lt:  #a78bfa;
+      --success:    #10b981;
+      --bg:         #0f0f13;
+      --bg2:        #16161d;
+      --bg3:        #1e1e28;
+      --card:       #1a1a24;
+      --card-hover: #22222e;
+      --border:     rgba(255,255,255,0.08);
+      --text:       #f1f0f5;
+      --muted:      #9ca3af;
+      --radius:     16px;
+      --radius-lg:  24px;
+      --shadow:     0 8px 32px rgba(0,0,0,0.4);
+      --shadow-glow:0 0 40px rgba(255,107,53,0.15);
+      --font:       'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
     }
+
     html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: var(--font);
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ── Nav Bar ── */
+    /* ══════════════════════════════
+       SCROLLBAR
+    ══════════════════════════════ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 99px; }
+
+    /* ══════════════════════════════
+       NAVIGATION
+    ══════════════════════════════ */
     nav {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #f0e6d3;
-      padding: 0.75rem 1.25rem;
+      z-index: 1000;
+      background: rgba(15,15,19,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
     }
     .nav-logo {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--primary);
+      font-size: 1.15rem;
+      font-weight: 800;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       white-space: nowrap;
+    }
+    .nav-logo span {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .nav-links {
       display: flex;
-      gap: 1.2rem;
+      gap: 0.25rem;
       list-style: none;
-      flex-wrap: wrap;
     }
     .nav-links a {
       text-decoration: none;
-      color: var(--text);
-      font-size: 0.88rem;
+      color: var(--muted);
+      font-size: 0.875rem;
       font-weight: 500;
-      transition: color 0.2s;
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      transition: color var(--transition), background var(--transition);
     }
-    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
 
-    /* ── Hero ── */
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
     .hero {
-      background: linear-gradient(135deg, #fdf0e0 0%, #fce4ec 50%, #ede7f6 100%);
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       padding: 5rem 1.5rem 4rem;
-      position: relative;
       overflow: hidden;
     }
+    /* Animated mesh gradient background */
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 15% 30%, rgba(232,93,4,0.12) 0%, transparent 55%),
-        radial-gradient(circle at 85% 70%, rgba(106,5,114,0.10) 0%, transparent 55%);
+        radial-gradient(ellipse 80% 60% at 20% 20%, rgba(124,58,237,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(255,107,53,0.2) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 50% 50%, rgba(244,140,6,0.1) 0%, transparent 60%);
+      animation: meshShift 8s ease-in-out infinite alternate;
     }
+    @keyframes meshShift {
+      0%   { transform: scale(1) rotate(0deg); }
+      100% { transform: scale(1.1) rotate(3deg); }
+    }
+    /* Grid overlay */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
     .hero-badge {
-      display: inline-block;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: #fff;
-      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,107,53,0.12);
+      border: 1px solid rgba(255,107,53,0.3);
+      color: var(--primary);
+      font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 0.35rem 1rem;
+      padding: 0.4rem 1rem;
       border-radius: 999px;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 0.6s ease both;
     }
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
       font-weight: 800;
-      line-height: 1.15;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      animation: fadeInUp 0.7s ease 0.1s both;
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent-lt) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 1rem;
     }
     .hero p {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
       color: var(--muted);
-      max-width: 620px;
-      margin: 0 auto 2rem;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      animation: fadeInUp 0.7s ease 0.2s both;
     }
-    .hero-cta {
-      display: inline-block;
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.7s ease 0.3s both;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: #fff;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1rem;
-      padding: 0.85rem 2.2rem;
+      font-size: 0.95rem;
+      padding: 0.85rem 2rem;
       border-radius: 999px;
-      box-shadow: 0 6px 20px rgba(232,93,4,0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 24px rgba(255,107,53,0.35);
+      transition: transform var(--transition), box-shadow var(--transition);
     }
-    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(232,93,4,0.45); }
-    .hero-scroll-hint {
-      margin-top: 2.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(255,107,53,0.45); }
+    .btn-secondary {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-    }
-    .arrow { animation: bounce 1.5s infinite; display: inline-block; }
-    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
-
-    /* ── Section Wrapper ── */
-    .section { padding: 4rem 1.25rem; max-width: 1200px; margin: 0 auto; }
-    .section-header { text-align: center; margin-bottom: 2.5rem; }
-    .category-icon {
-      font-size: 2.6rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .section-header h2 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 800;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
       color: var(--text);
-    }
-    .section-header p {
-      color: var(--muted);
-      margin-top: 0.4rem;
-      font-size: 0.97rem;
-    }
-    .divider {
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.85rem 2rem;
       border-radius: 999px;
-      margin: 0.75rem auto 0;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+
+    /* Floating emoji */
+    .hero-floats {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .float-emoji {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.12;
+      animation: floatAround 6s ease-in-out infinite;
+    }
+    .float-emoji:nth-child(1)  { top: 15%; left: 8%;  animation-delay: 0s;   font-size: 2.5rem; }
+    .float-emoji:nth-child(2)  { top: 25%; right: 6%; animation-delay: 1s;   font-size: 1.8rem; }
+    .float-emoji:nth-child(3)  { bottom: 30%; left: 5%; animation-delay: 2s; font-size: 2.2rem; }
+    .float-emoji:nth-child(4)  { bottom: 20%; right: 8%; animation-delay: 3s; font-size: 1.6rem; }
+    .float-emoji:nth-child(5)  { top: 50%; left: 3%; animation-delay: 1.5s; font-size: 2rem; }
+    @keyframes floatAround {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-20px) rotate(10deg); }
     }
 
-    /* ── Category Band ── */
-    .category-band {
-      background: linear-gradient(135deg, #fff8f0, #fdf4ff);
-      border-top: 3px solid var(--primary);
-      border-bottom: 3px solid var(--primary);
-    }
-    .category-band:nth-child(even) {
-      background: linear-gradient(135deg, #f0f4ff, #fdf4ff);
-      border-color: var(--accent);
-    }
-
-    /* ── Product Grid ── */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 1.5rem;
-    }
-
-    /* ── Product Card ── */
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       flex-direction: column;
-      transition: transform 0.22s, box-shadow 0.22s;
-      border: 1px solid #f0e6d3;
-    }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(0,0,0,0.13); }
-    .card-top {
-      background: linear-gradient(135deg, #fdf0e0, #fce4ec);
-      display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 3.5rem;
-      padding: 1.5rem;
-      min-height: 110px;
-    }
-    .card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
-    .card-badge {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 0.4rem;
-    }
-    .card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-      line-height: 1.3;
-    }
-    .card p {
-      font-size: 0.875rem;
+      gap: 0.4rem;
       color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 0.9rem;
+      font-size: 0.75rem;
+      animation: fadeInUp 1s ease 0.6s both;
     }
-    .pros-label {
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--primary), transparent);
+      animation: scrollPulse 1.5s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* ══════════════════════════════
+       STATS STRIP
+    ══════════════════════════════ */
+    .stats {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+    }
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+    .stat-item {
+      padding: 1rem;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      transition: background var(--transition);
+    }
+    .stat-item:hover { background: rgba(255,107,53,0.06); }
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+    /* ══════════════════════════════
+       CATEGORY FILTER TABS
+    ══════════════════════════════ */
+    .filter-tabs {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 2.5rem 1.5rem 0;
+    }
+    .tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-family: var(--font);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .tab-btn:hover { border-color: rgba(255,107,53,0.4); color: var(--text); }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(255,107,53,0.3);
+    }
+
+    /* ══════════════════════════════
+       CATEGORY SECTION
+    ══════════════════════════════ */
+    .category-section {
+      padding: 3rem 1.5rem 4rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+    .section-tag::before,
+    .section-tag::after {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--primary);
+      opacity: 0.5;
+    }
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .section-header p { color: var(--muted); font-size: 0.97rem; }
+
+    /* Category dividers */
+    .cat-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ══════════════════════════════
+       PRODUCT GRID
+    ══════════════════════════════ */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ══════════════════════════════
+       PRODUCT CARD
+    ══════════════════════════════ */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      position: relative;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    .card.visible {
+      animation: cardReveal 0.5s ease forwards;
+    }
+    @keyframes cardReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,107,53,0.2);
+      border-color: rgba(255,107,53,0.25);
+    }
+
+    /* Glow on hover */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,107,53,0.5), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .card:hover::before { opacity: 1; }
+
+    .card-top {
+      position: relative;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .card-top-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,107,53,0.08), rgba(124,58,237,0.08));
+    }
+    .card-top-emoji {
+      position: relative;
+      z-index: 1;
+      transition: transform var(--transition);
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    }
+    .card:hover .card-top-emoji { transform: scale(1.15) rotate(-5deg); }
+
+    .card-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.65rem;
+    }
+    .card-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--primary);
+      background: rgba(255,107,53,0.1);
+      border: 1px solid rgba(255,107,53,0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+    }
+    .card-stars {
+      font-size: 0.75rem;
+      color: var(--secondary);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.65rem;
+      line-height: 1.4;
+    }
+    .card p {
+      font-size: 0.855rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .pros-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--success);
+      margin-bottom: 0.5rem;
     }
     .pros {
       list-style: none;
-      margin-bottom: 1.2rem;
-      flex: 1;
+      margin-bottom: 1.3rem;
     }
     .pros li {
-      font-size: 0.84rem;
+      font-size: 0.835rem;
       color: var(--text);
-      padding: 0.22rem 0;
+      padding: 0.26rem 0;
       display: flex;
       align-items: flex-start;
-      gap: 0.4rem;
+      gap: 0.5rem;
+      opacity: 0.85;
     }
-    .pros li::before { content: '✓'; color: #22c55e; font-weight: 800; flex-shrink: 0; }
-    .btn {
-      display: block;
-      text-align: center;
+    .pros li::before {
+      content: '✓';
+      color: var(--success);
+      font-weight: 800;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .btn-amazon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
       background: linear-gradient(135deg, #ff9900, #ff6600);
       color: #fff;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
+      font-family: var(--font);
       text-decoration: none;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      transition: filter 0.2s, transform 0.2s;
-      box-shadow: 0 3px 12px rgba(255,102,0,0.3);
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      transition: filter var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 16px rgba(255,102,0,0.25);
+      border: none;
+      cursor: pointer;
     }
-    .btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
-    .btn-icon { margin-right: 0.35rem; }
+    .btn-amazon:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(255,102,0,0.4);
+    }
 
-    /* ── Stats Strip ── */
-    .stats-strip {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #fff;
-      padding: 2rem 1.25rem;
-      text-align: center;
+    /* ══════════════════════════════
+       BUYING GUIDE
+    ══════════════════════════════ */
+    .buying-guide {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 1.5rem;
     }
-    .stats-inner {
-      max-width: 800px;
+    .guide-grid {
+      max-width: 1100px;
+      margin: 2.5rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .guide-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .guide-card:hover { transform: translateY(-3px); border-color: rgba(255,107,53,0.3); }
+    .guide-accent {
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+    }
+    .guide-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .guide-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .guide-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+    .guide-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: gap var(--transition);
+    }
+    .guide-link:hover { gap: 0.6rem; }
+
+    /* ══════════════════════════════
+       BLOG SECTION
+    ══════════════════════════════ */
+    .blog-section {
+      padding: 4rem 1.5rem;
+      max-width: 1100px;
       margin: 0 auto;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .blog-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .blog-card:hover { transform: translateY(-4px); border-color: rgba(124,58,237,0.3); }
+    .blog-card-top {
+      height: 90px;
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
-      gap: 2rem;
+      font-size: 3rem;
+      background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(255,107,53,0.08));
     }
-    .stat h3 { font-size: 2rem; font-weight: 800; }
-    .stat p  { font-size: 0.85rem; opacity: 0.85; }
+    .blog-card-body { padding: 1.4rem; }
+    .blog-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-lt);
+      margin-bottom: 0.5rem;
+    }
+    .blog-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.65rem; line-height: 1.4; }
+    .blog-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
+    .blog-meta { display: flex; gap: 1rem; margin-top: 1rem; }
+    .blog-meta span { font-size: 0.75rem; color: var(--muted); }
 
-    /* ── Footer ── */
+    /* ══════════════════════════════
+       BACK TO TOP
+    ══════════════════════════════ */
+    #backToTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(255,107,53,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity var(--transition), transform var(--transition);
+      z-index: 999;
+    }
+    #backToTop.show { opacity: 1; transform: translateY(0); }
+    #backToTop:hover { transform: translateY(-2px); }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
     footer {
-      background: #1a1a2e;
-      color: #d1d5db;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem 2rem;
       text-align: center;
-      padding: 2.5rem 1.25rem;
     }
-    footer .footer-logo {
-      font-size: 1.3rem;
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.4rem;
       font-weight: 800;
-      color: var(--secondary);
-      margin-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
     }
-    footer p { font-size: 0.8rem; line-height: 1.7; max-width: 680px; margin: 0.4rem auto; }
-    footer .footer-name { color: #f9fafb; font-weight: 600; margin-top: 1rem; font-size: 0.85rem; }
-    footer .footer-copy { color: #6b7280; font-size: 0.75rem; margin-top: 0.5rem; }
+    .footer-logo span {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .footer-disclosure {
+      font-size: 0.79rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 680px;
+      margin: 0 auto 1.25rem;
+      padding: 1.25rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .footer-disclosure strong { color: var(--text); }
+    .footer-name { color: var(--muted); font-size: 0.87rem; margin-bottom: 0.5rem; }
+    .footer-name span { color: var(--secondary); font-weight: 700; }
+    .footer-copy { color: #4b5563; font-size: 0.75rem; }
 
-    /* ── Responsive tweaks ── */
-    @media (max-width: 480px) {
+    /* ══════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════ */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+    @media (max-width: 768px) {
       .nav-links { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      #backToTop { bottom: 1rem; right: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── Navigation ── -->
+  <!-- ══════════════════════════════
+       NAVIGATION
+  ══════════════════════════════ -->
   <nav>
-    <a class="nav-logo" href="#">🎨 ArtCraft Picks</a>
+    <a class="nav-logo" href="#">🎨 <span>ArtCraft Picks</span></a>
     <ul class="nav-links">
       <li><a href="#basic-supplies">Basic Supplies</a></li>
       <li><a href="#craft-materials">Craft Materials</a></li>
       <li><a href="#kits-bundles">Kits &amp; Bundles</a></li>
       <li><a href="#buying-guide">Buying Guide</a></li>
-      <li><a href="#blog">Tips &amp; Tricks</a></li>
+      <li><a href="#blog">Blog</a></li>
     </ul>
   </nav>
 
-  <!-- ── Hero ── -->
+  <!-- ══════════════════════════════
+       HERO
+  ══════════════════════════════ -->
   <section class="hero">
-    <span class="hero-badge">Amazon's Top Picks 2025</span>
-    <h1>Discover the Best<br>Art &amp; Craft Products</h1>
-    <p>Hand-picked supplies, materials, and kits to unleash your creativity — whether you're a beginner or a seasoned artist.</p>
-    <a href="#basic-supplies" class="hero-cta">Explore Products</a>
-    <div class="hero-scroll-hint">
-      Scroll to browse <span class="arrow">↓</span>
+    <div class="hero-floats" aria-hidden="true">
+      <span class="float-emoji">🖌️</span>
+      <span class="float-emoji">✏️</span>
+      <span class="float-emoji">🎨</span>
+      <span class="float-emoji">✂️</span>
+      <span class="float-emoji">🧵</span>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">✨ Amazon's Top Picks 2025</div>
+      <h1>Discover the Best<br><span class="gradient-text">Art &amp; Craft</span> Products</h1>
+      <p>18 hand-picked supplies, materials, and kits to unleash your creativity — curated for beginners, hobbyists, and seasoned artists alike.</p>
+      <div class="hero-buttons">
+        <a href="#basic-supplies" class="btn-primary">🛍️ Shop Products</a>
+        <a href="#buying-guide" class="btn-secondary">📖 Buying Guide</a>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ── Stats Strip ── -->
-  <div class="stats-strip">
+  <!-- ══════════════════════════════
+       STATS
+  ══════════════════════════════ -->
+  <div class="stats">
     <div class="stats-inner">
-      <div class="stat"><h3>18</h3><p>Curated Products</p></div>
-      <div class="stat"><h3>3</h3><p>Categories</p></div>
-      <div class="stat"><h3>★ 4.5+</h3><p>Average Rating</p></div>
-      <div class="stat"><h3>100%</h3><p>Amazon Verified</p></div>
+      <div class="stat-item">
+        <div class="stat-number">18</div>
+        <div class="stat-label">Curated Products</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">★ 4.5+</div>
+        <div class="stat-label">Avg. Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Amazon Verified</div>
+      </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════
+       FILTER TABS
+  ══════════════════════════════ -->
+  <div class="filter-tabs" role="tablist">
+    <button class="tab-btn active" onclick="filterProducts('all')">🎨 All Products</button>
+    <button class="tab-btn" onclick="filterProducts('basic')">✏️ Basic Supplies</button>
+    <button class="tab-btn" onclick="filterProducts('craft')">✂️ Craft Materials</button>
+    <button class="tab-btn" onclick="filterProducts('kits')">🎁 Kits &amp; Bundles</button>
+  </div>
+
+  <!-- ══════════════════════════════
        CATEGORY 1 — BASIC SUPPLIES
-  ══════════════════════════════════════════ -->
-  <div class="category-band" id="basic-supplies">
-    <div class="section">
-      <div class="section-header">
-        <span class="category-icon">✏️</span>
-        <h2>Basic Supplies</h2>
-        <p>Essential tools every artist needs in their toolkit</p>
-        <div class="divider"></div>
-      </div>
-      <div class="grid">
-
-        <!-- Product 1 -->
-        <div class="card">
-          <div class="card-top">🖌️</div>
-          <div class="card-body">
-            <div class="card-badge">Basic Supplies</div>
-            <h3>Artify 15-Piece Professional Paint Brush Set</h3>
-            <p>This premium brush set includes a variety of nylon-hair brushes designed for watercolor, acrylic, and oil painting. Each brush features an ergonomic wooden handle for precise control during long creative sessions.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>15 brush types — from fine liners to wide fan brushes</li>
-              <li>Rust-proof ferrules prevent shedding</li>
-              <li>Includes a protective carrying case</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=professional+paint+brush+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="card">
-          <div class="card-top">✏️</div>
-          <div class="card-body">
-            <div class="card-badge">Basic Supplies</div>
-            <h3>Faber-Castell Graphite Pencil Set (12 Grades)</h3>
-            <p>Faber-Castell's legendary pencil set spans 12 grades from 6H to 6B, giving artists smooth layering and deep, expressive shadows. The hexagonal barrel prevents rolling and reduces hand fatigue during detailed work.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Break-resistant SV bonded lead</li>
-              <li>Ideal for sketching, shading &amp; technical drawing</li>
-              <li>Eco-friendly cedar wood casing</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=faber+castell+graphite+pencil+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="card">
-          <div class="card-top">🎨</div>
-          <div class="card-body">
-            <div class="card-badge">Basic Supplies</div>
-            <h3>Winsor &amp; Newton Cotman Watercolor Set (24 Half Pans)</h3>
-            <p>Winsor &amp; Newton's Cotman range is the gold standard for beginner and intermediate watercolorists, offering 24 vibrant, lightfast pigments in a compact metal tin. The included mixing lid and brush make it ready-to-use right out of the box.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Lightfast, transparent pigments blend effortlessly</li>
-              <li>Portable metal tin — perfect for plein-air painting</li>
-              <li>Trusted brand with 180+ years of heritage</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=winsor+newton+cotman+watercolor+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 4 — NEW -->
-        <div class="card">
-          <div class="card-top">🖍️</div>
-          <div class="card-body">
-            <div class="card-badge">Basic Supplies</div>
-            <h3>Prismacolor Premier Colored Pencils (48 Count)</h3>
-            <p>Prismacolor's Premier range is loved by professional illustrators for its thick, soft cores that blend and layer like butter. The 48-color set covers every shade from subtle skin tones to vivid botanical greens, making it perfect for portrait, nature, and fantasy art.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Thick soft core — smooth, rich colour payoff</li>
-              <li>Blends effortlessly without streaking</li>
-              <li>Lightfast pigments that won't fade over time</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=prismacolor+premier+colored+pencils+48&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 5 — NEW -->
-        <div class="card">
-          <div class="card-top">🗒️</div>
-          <div class="card-body">
-            <div class="card-badge">Basic Supplies</div>
-            <h3>Strathmore 400 Series Watercolor Paper Pad (12x9 inch)</h3>
-            <p>Strathmore's 400 Series watercolor pad features 140lb cold-press paper that handles heavy washes without buckling or warping. Each 12x9 inch sheet has a natural white surface with a subtle texture that gives watercolors beautiful depth and granulation.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>140lb paper — handles multiple wet layers</li>
-              <li>Acid-free for archival quality artwork</li>
-              <li>Works with watercolor, gouache &amp; ink</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=strathmore+400+watercolor+paper+pad&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 6 — NEW -->
-        <div class="card">
-          <div class="card-top">🎨</div>
-          <div class="card-body">
-            <div class="card-badge">Basic Supplies</div>
-            <h3>U.S. Art Supply 10-Color Acrylic Paint Set (Large 75ml Tubes)</h3>
-            <p>These large 75ml acrylic tubes give you far more paint than standard sets, making them ideal for canvas painting, murals, and mixed-media projects. The highly pigmented formula dries to a vibrant, water-resistant finish and mixes beautifully to create unlimited colour combinations.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Large 75ml tubes — great value for money</li>
-              <li>Highly pigmented, water-resistant finish</li>
-              <li>Non-toxic &amp; safe for all ages</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=us+art+supply+acrylic+paint+set+75ml&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-      </div>
+  ══════════════════════════════ -->
+  <section class="category-section" id="basic-supplies" data-category="basic">
+    <div class="section-header">
+      <div class="section-tag">Category 01</div>
+      <h2>✏️ Basic Supplies</h2>
+      <p>Essential tools every artist needs in their toolkit</p>
     </div>
-  </div>
+    <div class="grid">
 
-  <!-- ══════════════════════════════════════════
+      <div class="card" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">🖌️</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Artify 15-Piece Professional Paint Brush Set</h3>
+          <p>This premium brush set includes a variety of nylon-hair brushes designed for watercolor, acrylic, and oil painting. Each brush features an ergonomic wooden handle for precise control during long creative sessions.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>15 brush types — from fine liners to wide fan brushes</li>
+            <li>Rust-proof ferrules prevent shedding</li>
+            <li>Includes a protective carrying case</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=professional+paint+brush+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">✏️</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Faber-Castell Graphite Pencil Set (12 Grades)</h3>
+          <p>Faber-Castell's legendary pencil set spans 12 grades from 6H to 6B, giving artists smooth layering and deep, expressive shadows. The hexagonal barrel prevents rolling and reduces hand fatigue during detailed work.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Break-resistant SV bonded lead</li>
+            <li>Ideal for sketching, shading &amp; technical drawing</li>
+            <li>Eco-friendly cedar wood casing</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=faber+castell+graphite+pencil+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">🎨</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Winsor &amp; Newton Cotman Watercolor Set (24 Half Pans)</h3>
+          <p>Winsor &amp; Newton's Cotman range is the gold standard for beginner and intermediate watercolorists, offering 24 vibrant, lightfast pigments in a compact metal tin. The included mixing lid and brush make it ready-to-use right out of the box.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Lightfast, transparent pigments blend effortlessly</li>
+            <li>Portable metal tin — perfect for plein-air painting</li>
+            <li>Trusted brand with 180+ years of heritage</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=winsor+newton+cotman+watercolor+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">🖍️</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Prismacolor Premier Colored Pencils (48 Count)</h3>
+          <p>Prismacolor's Premier range is loved by professional illustrators for its thick, soft cores that blend and layer like butter. The 48-color set covers every shade from subtle skin tones to vivid botanical greens.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Thick soft core — smooth, rich colour payoff</li>
+            <li>Blends effortlessly without streaking</li>
+            <li>Lightfast pigments that won't fade over time</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=prismacolor+premier+colored+pencils+48&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">📒</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★☆</span>
+          </div>
+          <h3>Strathmore 400 Series Watercolor Paper Pad (12x9 inch)</h3>
+          <p>Strathmore's 400 Series watercolor pad features 140lb cold-press paper that handles heavy washes without buckling or warping. Each sheet has a natural white surface with a subtle texture that gives watercolors beautiful depth.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>140lb paper — handles multiple wet layers</li>
+            <li>Acid-free for archival quality artwork</li>
+            <li>Works with watercolor, gouache &amp; ink</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=strathmore+400+watercolor+paper+pad&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">🖼️</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>U.S. Art Supply 10-Color Acrylic Paint Set (75ml Tubes)</h3>
+          <p>These large 75ml acrylic tubes give you far more paint than standard sets, making them ideal for canvas painting, murals, and mixed-media projects. The highly pigmented formula dries to a vibrant, water-resistant finish.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Large 75ml tubes — great value for money</li>
+            <li>Highly pigmented, water-resistant finish</li>
+            <li>Non-toxic &amp; safe for all ages</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=us+art+supply+acrylic+paint+set+75ml&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="cat-divider">
+
+  <!-- ══════════════════════════════
        CATEGORY 2 — CRAFT MATERIALS
-  ══════════════════════════════════════════ -->
-  <div class="category-band" id="craft-materials">
-    <div class="section">
-      <div class="section-header">
-        <span class="category-icon">✂️</span>
-        <h2>Craft Materials</h2>
-        <p>Quality materials to bring your creative visions to life</p>
-        <div class="divider"></div>
-      </div>
-      <div class="grid">
-
-        <!-- Product 4 -->
-        <div class="card">
-          <div class="card-top">🧵</div>
-          <div class="card-body">
-            <div class="card-badge">Craft Materials</div>
-            <h3>Caydo 42-Color Embroidery Floss Kit with Storage Box</h3>
-            <p>This comprehensive embroidery kit contains 42 vivid cotton thread colors neatly organized in a clear plastic box with bobbin cards — no more tangled threads. The threads are colorfast and strong, suitable for cross-stitch, friendship bracelets, and textile art.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Pre-wound bobbins save setup time</li>
-              <li>Colorfast threads that won't bleed or fade</li>
-              <li>Includes threader needle and instruction cards</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=embroidery+floss+kit+42+colors&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 5 -->
-        <div class="card">
-          <div class="card-top">👕</div>
-          <div class="card-body">
-            <div class="card-badge">Craft Materials</div>
-            <h3>Cricut Smart Iron-On Vinyl Sampler (16 Sheets)</h3>
-            <p>Cricut's Smart Iron-On Vinyl makes heat-transfer projects a breeze, offering 16 colorful sheets that adhere firmly to fabric with a standard household iron. The HTV material is durable, stretchy, and compatible with any cutting machine.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>No-liner easy-cut design speeds up workflow</li>
-              <li>Machine-washable after application</li>
-              <li>Works on cotton, polyester &amp; canvas</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=cricut+smart+iron+on+vinyl+sampler&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 6 -->
-        <div class="card">
-          <div class="card-top">🏺</div>
-          <div class="card-body">
-            <div class="card-badge">Craft Materials</div>
-            <h3>LotFancy Air-Dry Clay 36-Color Modeling Set</h3>
-            <p>This ultra-soft, non-toxic air-dry clay set includes 36 ready-to-use colors that dry to a hard, paintable finish without a kiln. Ideal for sculpting, jewelry making, and classroom projects, the clay stays workable for hours and doesn't crack when dry.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Non-toxic &amp; safe for all ages</li>
-              <li>Colors blend easily like play dough</li>
-              <li>Lightweight finish — no kiln required</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=air+dry+clay+36+color+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 7 — NEW -->
-        <div class="card">
-          <div class="card-top">🔫</div>
-          <div class="card-body">
-            <div class="card-badge">Craft Materials</div>
-            <h3>Gorilla Dual Temp Mini Hot Glue Gun with 45 Sticks</h3>
-            <p>Gorilla's mini hot glue gun heats up in just 3 minutes and features a dual-temperature setting for delicate and heavy-duty projects alike. The included 45 glue sticks provide a strong, clear bond on fabric, wood, ribbon, foam, and more.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Dual temp — safe for delicate materials</li>
-              <li>Drip-resistant nozzle keeps projects clean</li>
-              <li>Comes with 45 glue sticks included</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=gorilla+mini+hot+glue+gun+with+sticks&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 8 — NEW -->
-        <div class="card">
-          <div class="card-top">🎀</div>
-          <div class="card-body">
-            <div class="card-badge">Craft Materials</div>
-            <h3>mt Washi Tape Set — 20 Decorative Rolls</h3>
-            <p>This vibrant 20-roll washi tape set features floral, geometric, and solid colour patterns that are perfect for journaling, scrapbooking, gift wrapping, and planner decoration. The tape is repositionable, easy to tear by hand, and leaves no residue when removed.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>20 unique patterns — florals, stripes &amp; geometrics</li>
-              <li>Repositionable — sticks and removes cleanly</li>
-              <li>Perfect for journals, planners &amp; gifting</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=washi+tape+set+20+rolls+decorative&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 9 — NEW -->
-        <div class="card">
-          <div class="card-top">💎</div>
-          <div class="card-body">
-            <div class="card-badge">Craft Materials</div>
-            <h3>Amazing Clear Cast Epoxy Resin Kit (32oz)</h3>
-            <p>This crystal-clear epoxy resin kit is self-levelling and bubble-resistant, producing a glass-like finish ideal for making jewellery, coasters, artwork, and tabletops. The 1:1 mix ratio is beginner-friendly, and the kit includes measuring cups, mixing sticks, and gloves.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Crystal clear, self-levelling formula</li>
-              <li>Beginner-friendly 1:1 mix ratio</li>
-              <li>UV resistant — won't yellow over time</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=clear+cast+epoxy+resin+kit+32oz&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-      </div>
+  ══════════════════════════════ -->
+  <section class="category-section" id="craft-materials" data-category="craft">
+    <div class="section-header">
+      <div class="section-tag">Category 02</div>
+      <h2>✂️ Craft Materials</h2>
+      <p>Quality materials to bring your creative visions to life</p>
     </div>
-  </div>
+    <div class="grid">
 
-  <!-- ══════════════════════════════════════════
+      <div class="card" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">🧵</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Caydo 42-Color Embroidery Floss Kit with Storage Box</h3>
+          <p>This comprehensive embroidery kit contains 42 vivid cotton thread colors neatly organized in a clear plastic box with bobbin cards — no more tangled threads. The threads are colorfast and strong, suitable for cross-stitch, friendship bracelets, and textile art.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Pre-wound bobbins save setup time</li>
+            <li>Colorfast threads that won't bleed or fade</li>
+            <li>Includes threader needle and instruction cards</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=embroidery+floss+kit+42+colors&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">👕</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Cricut Smart Iron-On Vinyl Sampler (16 Sheets)</h3>
+          <p>Cricut's Smart Iron-On Vinyl makes heat-transfer projects a breeze, offering 16 colorful sheets that adhere firmly to fabric with a standard household iron. The HTV material is durable, stretchy, and compatible with any cutting machine.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>No-liner easy-cut design speeds up workflow</li>
+            <li>Machine-washable after application</li>
+            <li>Works on cotton, polyester &amp; canvas</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=cricut+smart+iron+on+vinyl+sampler&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">🏺</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★☆</span>
+          </div>
+          <h3>LotFancy Air-Dry Clay 36-Color Modeling Set</h3>
+          <p>This ultra-soft, non-toxic air-dry clay set includes 36 ready-to-use colors that dry to a hard, paintable finish without a kiln. Ideal for sculpting, jewelry making, and classroom projects, the clay stays workable for hours.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Non-toxic &amp; safe for all ages</li>
+            <li>Colors blend easily like play dough</li>
+            <li>Lightweight finish — no kiln required</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=air+dry+clay+36+color+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">🔫</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Gorilla Dual Temp Mini Hot Glue Gun with 45 Sticks</h3>
+          <p>Gorilla's mini hot glue gun heats up in just 3 minutes and features a dual-temperature setting for delicate and heavy-duty projects alike. The included 45 glue sticks provide a strong, clear bond on fabric, wood, ribbon, foam, and more.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Dual temp — safe for delicate materials</li>
+            <li>Drip-resistant nozzle keeps projects clean</li>
+            <li>Comes with 45 glue sticks included</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=gorilla+mini+hot+glue+gun+with+sticks&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">🎀</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>mt Washi Tape Set — 20 Decorative Rolls</h3>
+          <p>This vibrant 20-roll washi tape set features floral, geometric, and solid colour patterns perfect for journaling, scrapbooking, gift wrapping, and planner decoration. The tape is repositionable, easy to tear by hand, and leaves no residue.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>20 unique patterns — florals, stripes &amp; geometrics</li>
+            <li>Repositionable — sticks and removes cleanly</li>
+            <li>Perfect for journals, planners &amp; gifting</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=washi+tape+set+20+rolls+decorative&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">💎</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Amazing Clear Cast Epoxy Resin Kit (32oz)</h3>
+          <p>This crystal-clear epoxy resin kit is self-levelling and bubble-resistant, producing a glass-like finish ideal for making jewellery, coasters, artwork, and tabletops. The beginner-friendly 1:1 mix ratio includes measuring cups, mixing sticks, and gloves.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Crystal clear, self-levelling formula</li>
+            <li>Beginner-friendly 1:1 mix ratio</li>
+            <li>UV resistant — won't yellow over time</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=clear+cast+epoxy+resin+kit+32oz&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="cat-divider">
+
+  <!-- ══════════════════════════════
        CATEGORY 3 — KITS & BUNDLES
-  ══════════════════════════════════════════ -->
-  <div class="category-band" id="kits-bundles">
-    <div class="section">
-      <div class="section-header">
-        <span class="category-icon">🎁</span>
-        <h2>Kits &amp; Bundles</h2>
-        <p>All-in-one sets — perfect for gifting or jumpstarting a new hobby</p>
-        <div class="divider"></div>
-      </div>
-      <div class="grid">
-
-        <!-- Product 7 -->
-        <div class="card">
-          <div class="card-top">🖼️</div>
-          <div class="card-body">
-            <div class="card-badge">Kits &amp; Bundles</div>
-            <h3>Sip &amp; Paint Diamond Painting Kit — Butterfly Garden</h3>
-            <p>This relaxing diamond painting kit comes with everything needed to create a stunning mosaic portrait — pre-printed canvas, 40+ color diamond drills, a wax pen, and a tray for organizing your gems. The finished piece measures a generous 30×40 cm and comes with a self-adhesive frame-ready backing.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Complete kit — no extras needed</li>
-              <li>Stress-relieving, meditative activity</li>
-              <li>Beautiful wall art when finished</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=diamond+painting+kit+butterfly&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 8 -->
-        <div class="card">
-          <div class="card-top">🧶</div>
-          <div class="card-body">
-            <div class="card-badge">Kits &amp; Bundles</div>
-            <h3>Boye Learn-to-Knit Starter Kit for Beginners</h3>
-            <p>The Boye Beginner Knitting Kit includes two pairs of aluminum needles, a chunky skein of super-soft yarn, stitch markers, and a 20-page illustrated instruction booklet covering casting on, knitting, purling, and binding off. Everything fits neatly in a reusable zip pouch, making it a perfect gift for aspiring knitters of all ages.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Detailed beginner instructions included</li>
-              <li>High-quality aluminum needles — snag-free</li>
-              <li>Compact carry pouch for on-the-go crafting</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=boye+learn+to+knit+starter+kit&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 9 -->
-        <div class="card">
-          <div class="card-top">🖌️</div>
-          <div class="card-body">
-            <div class="card-badge">Kits &amp; Bundles</div>
-            <h3>Mont Marte Complete Acrylic Painting Kit (83 Pieces)</h3>
-            <p>Mont Marte's all-inclusive 83-piece acrylic kit bundles 24 vibrant acrylic tubes, 10 brushes, 3 stretched canvases, a palette, and a painting knife into one impressive set. It's thoughtfully curated for beginners stepping into canvas painting for the first time, while still offering enough range for intermediate artists.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>83 pieces — nothing else to buy</li>
-              <li>Vibrant, richly pigmented acrylic paints</li>
-              <li>Great value — makes an outstanding gift</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=mont+marte+acrylic+painting+kit&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-      </div>
+  ══════════════════════════════ -->
+  <section class="category-section" id="kits-bundles" data-category="kits">
+    <div class="section-header">
+      <div class="section-tag">Category 03</div>
+      <h2>🎁 Kits &amp; Bundles</h2>
+      <p>All-in-one sets — perfect for gifting or jumpstarting a new hobby</p>
     </div>
-  </div>
+    <div class="grid">
 
-        <!-- Product 10 — NEW -->
-        <div class="card">
-          <div class="card-top">✒️</div>
-          <div class="card-body">
-            <div class="card-badge">Kits &amp; Bundles</div>
-            <h3>Tombow Calligraphy Brush Pen Set (12 Colors)</h3>
-            <p>Tombow's dual-tip calligraphy pens are the go-to choice for hand lettering artists and bullet journal enthusiasts worldwide. Each pen has a flexible brush tip for flowing scripts and a fine tip for detail work, with 12 rich, blendable ink colours in every set.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Dual tip — brush + fine liner in one pen</li>
-              <li>Water-based ink — blendable with a water brush</li>
-              <li>Perfect for lettering, cards &amp; journaling</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=tombow+dual+brush+pen+calligraphy+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
+      <div class="card" data-cat="kits">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">🖼️</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kits &amp; Bundles</span>
+            <span class="card-stars">★★★★★</span>
           </div>
+          <h3>Sip &amp; Paint Diamond Painting Kit — Butterfly Garden</h3>
+          <p>This relaxing diamond painting kit comes with everything needed — pre-printed canvas, 40+ color diamond drills, a wax pen, and a tray for organizing your gems. The finished piece measures a generous 30×40 cm with a self-adhesive frame-ready backing.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Complete kit — no extras needed</li>
+            <li>Stress-relieving, meditative activity</li>
+            <li>Beautiful wall art when finished</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=diamond+painting+kit+butterfly&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
         </div>
-
-        <!-- Product 11 — NEW -->
-        <div class="card">
-          <div class="card-top">📸</div>
-          <div class="card-body">
-            <div class="card-badge">Kits &amp; Bundles</div>
-            <h3>Scrapbooking Kit — 600 Piece Deluxe Set</h3>
-            <p>This all-in-one scrapbooking kit contains 600 pieces including patterned paper sheets, stickers, border punches, photo corners, and adhesive — everything you need to create stunning memory albums. The variety of themes covers birthdays, holidays, travel, and everyday moments.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>600 pieces — covers every occasion</li>
-              <li>Acid-free materials protect your photos</li>
-              <li>Great gift for memory keepers &amp; crafters</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=scrapbooking+kit+deluxe+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 12 — NEW -->
-        <div class="card">
-          <div class="card-top">🔮</div>
-          <div class="card-body">
-            <div class="card-badge">Kits &amp; Bundles</div>
-            <h3>Resin Art Starter Kit with Pigments &amp; Molds</h3>
-            <p>This complete resin art kit includes epoxy resin, 20 pigment powders, 6 silicone moulds, gloves, and mixing tools — everything a beginner needs to create jewellery, coasters, and decorative pieces. The step-by-step guide makes it easy to achieve professional-looking results on your very first try.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Complete kit — nothing extra to buy</li>
-              <li>20 pigment colours for endless creativity</li>
-              <li>Includes silicone moulds for jewellery &amp; coasters</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=resin+art+starter+kit+with+molds+pigments&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </div>
 
-  <!-- ══════════════════════════════════════════
+      <div class="card" data-cat="kits">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">🧶</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kits &amp; Bundles</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Boye Learn-to-Knit Starter Kit for Beginners</h3>
+          <p>The Boye Beginner Knitting Kit includes two pairs of aluminum needles, a chunky skein of super-soft yarn, stitch markers, and a 20-page illustrated instruction booklet. Everything fits neatly in a reusable zip pouch — a perfect gift for aspiring knitters.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Detailed beginner instructions included</li>
+            <li>High-quality aluminum needles — snag-free</li>
+            <li>Compact carry pouch for on-the-go crafting</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=boye+learn+to+knit+starter+kit&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="kits">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">🖌️</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kits &amp; Bundles</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Mont Marte Complete Acrylic Painting Kit (83 Pieces)</h3>
+          <p>Mont Marte's all-inclusive 83-piece acrylic kit bundles 24 vibrant acrylic tubes, 10 brushes, 3 stretched canvases, a palette, and a painting knife. Thoughtfully curated for beginners yet offering enough range for intermediate artists.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>83 pieces — nothing else to buy</li>
+            <li>Vibrant, richly pigmented acrylic paints</li>
+            <li>Great value — makes an outstanding gift</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=mont+marte+acrylic+painting+kit&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="kits">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">✒️</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kits &amp; Bundles</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Tombow Calligraphy Brush Pen Set (12 Colors)</h3>
+          <p>Tombow's dual-tip calligraphy pens are the go-to choice for hand lettering artists and bullet journal enthusiasts worldwide. Each pen has a flexible brush tip for flowing scripts and a fine tip for detail work, with 12 rich, blendable ink colours.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Dual tip — brush + fine liner in one pen</li>
+            <li>Water-based ink — blendable with a water brush</li>
+            <li>Perfect for lettering, cards &amp; journaling</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=tombow+dual+brush+pen+calligraphy+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="kits">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">📸</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kits &amp; Bundles</span>
+            <span class="card-stars">★★★★☆</span>
+          </div>
+          <h3>Scrapbooking Kit — 600 Piece Deluxe Set</h3>
+          <p>This all-in-one scrapbooking kit contains 600 pieces including patterned paper sheets, stickers, border punches, photo corners, and adhesive. The variety of themes covers birthdays, holidays, travel, and everyday moments.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>600 pieces — covers every occasion</li>
+            <li>Acid-free materials protect your photos</li>
+            <li>Great gift for memory keepers &amp; crafters</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=scrapbooking+kit+deluxe+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="kits">
+        <div class="card-top"><div class="card-top-bg"></div><span class="card-top-emoji">🔮</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kits &amp; Bundles</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Resin Art Starter Kit with Pigments &amp; Molds</h3>
+          <p>This complete resin art kit includes epoxy resin, 20 pigment powders, 6 silicone moulds, gloves, and mixing tools — everything a beginner needs to create jewellery, coasters, and decorative pieces. The step-by-step guide ensures professional-looking results on your first try.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Complete kit — nothing extra to buy</li>
+            <li>20 pigment colours for endless creativity</li>
+            <li>Includes silicone moulds for jewellery &amp; coasters</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=resin+art+starter+kit+with+molds+pigments&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
        BUYING GUIDE
-  ══════════════════════════════════════════ -->
-  <section id="buying-guide" style="background: linear-gradient(135deg,#fff8f0,#fdf4ff); padding: 4rem 1.25rem;">
-    <div style="max-width:900px; margin:0 auto;">
+  ══════════════════════════════ -->
+  <div class="buying-guide" id="buying-guide">
+    <div style="max-width:1100px; margin:0 auto;">
       <div class="section-header">
-        <span class="category-icon">🛒</span>
-        <h2>Beginner's Buying Guide</h2>
+        <div class="section-tag">Helpful Resource</div>
+        <h2>🛒 Beginner's Buying Guide</h2>
         <p>Not sure where to start? We've got you covered.</p>
-        <div class="divider"></div>
       </div>
+      <div class="guide-grid">
 
-      <!-- Guide Cards -->
-      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem; margin-top:2rem;">
-
-        <div style="background:#fff; border-radius:14px; padding:1.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.07); border-left:4px solid #e85d04;">
-          <div style="font-size:2rem; margin-bottom:0.75rem;">🎨</div>
-          <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem; color:#1a1a2e;">Are You a Complete Beginner?</h3>
-          <p style="font-size:0.85rem; color:#6b7280; line-height:1.7;">Start with a <strong>watercolor set</strong> or an <strong>all-in-one acrylic kit</strong>. They are forgiving, easy to clean, and budget-friendly. Avoid oil paints at first — they require solvents and long drying times.</p>
-          <a href="#basic-supplies" style="display:inline-block; margin-top:1rem; font-size:0.82rem; font-weight:700; color:#e85d04; text-decoration:none;">→ See Basic Supplies</a>
+        <div class="guide-card">
+          <div class="guide-accent" style="background:#e85d04;"></div>
+          <div class="guide-icon">🎨</div>
+          <h3>Are You a Complete Beginner?</h3>
+          <p>Start with a watercolor set or an all-in-one acrylic kit. They are forgiving, easy to clean, and budget-friendly. Avoid oil paints at first — they require solvents and long drying times.</p>
+          <a href="#basic-supplies" class="guide-link" style="color:#e85d04;">→ See Basic Supplies</a>
         </div>
 
-        <div style="background:#fff; border-radius:14px; padding:1.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.07); border-left:4px solid #6a0572;">
-          <div style="font-size:2rem; margin-bottom:0.75rem;">✂️</div>
-          <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem; color:#1a1a2e;">Into DIY & Crafts?</h3>
-          <p style="font-size:0.85rem; color:#6b7280; line-height:1.7;">Go for <strong>embroidery floss</strong>, <strong>iron-on vinyl</strong>, or <strong>air-dry clay</strong>. These materials are versatile, affordable, and need no special equipment — just your hands and imagination.</p>
-          <a href="#craft-materials" style="display:inline-block; margin-top:1rem; font-size:0.82rem; font-weight:700; color:#6a0572; text-decoration:none;">→ See Craft Materials</a>
+        <div class="guide-card">
+          <div class="guide-accent" style="background:#7c3aed;"></div>
+          <div class="guide-icon">✂️</div>
+          <h3>Into DIY &amp; Crafts?</h3>
+          <p>Go for embroidery floss, iron-on vinyl, or air-dry clay. These materials are versatile, affordable, and need no special equipment — just your hands and imagination.</p>
+          <a href="#craft-materials" class="guide-link" style="color:#a78bfa;">→ See Craft Materials</a>
         </div>
 
-        <div style="background:#fff; border-radius:14px; padding:1.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.07); border-left:4px solid #f48c06;">
-          <div style="font-size:2rem; margin-bottom:0.75rem;">🎁</div>
-          <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem; color:#1a1a2e;">Buying as a Gift?</h3>
-          <p style="font-size:0.85rem; color:#6b7280; line-height:1.7;">You can't go wrong with a <strong>complete kit or bundle</strong>. They include everything the recipient needs and feel impressive to unbox. Pick one based on their hobby — knitting, painting, or diamond art.</p>
-          <a href="#kits-bundles" style="display:inline-block; margin-top:1rem; font-size:0.82rem; font-weight:700; color:#f48c06; text-decoration:none;">→ See Kits & Bundles</a>
+        <div class="guide-card">
+          <div class="guide-accent" style="background:#f48c06;"></div>
+          <div class="guide-icon">🎁</div>
+          <h3>Buying as a Gift?</h3>
+          <p>You can't go wrong with a complete kit or bundle. They include everything the recipient needs and feel impressive to unbox. Pick one based on their hobby — knitting, painting, or diamond art.</p>
+          <a href="#kits-bundles" class="guide-link" style="color:#f48c06;">→ See Kits &amp; Bundles</a>
         </div>
 
-        <div style="background:#fff; border-radius:14px; padding:1.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.07); border-left:4px solid #22c55e;">
-          <div style="font-size:2rem; margin-bottom:0.75rem;">💰</div>
-          <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem; color:#1a1a2e;">On a Tight Budget?</h3>
-          <p style="font-size:0.85rem; color:#6b7280; line-height:1.7;">The <strong>embroidery floss kit</strong> and <strong>graphite pencil set</strong> are both under $15 and incredibly high value. You don't need expensive supplies to create beautiful art — skill matters more than price.</p>
-          <a href="#craft-materials" style="display:inline-block; margin-top:1rem; font-size:0.82rem; font-weight:700; color:#22c55e; text-decoration:none;">→ Shop Budget Picks</a>
+        <div class="guide-card">
+          <div class="guide-accent" style="background:#10b981;"></div>
+          <div class="guide-icon">💰</div>
+          <h3>On a Tight Budget?</h3>
+          <p>The embroidery floss kit and graphite pencil set are both under $15 and incredibly high value. Skill matters more than price — you don't need expensive supplies to create beautiful art.</p>
+          <a href="#craft-materials" class="guide-link" style="color:#10b981;">→ Shop Budget Picks</a>
         </div>
 
-        <div style="background:#fff; border-radius:14px; padding:1.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.07); border-left:4px solid #3b82f6;">
-          <div style="font-size:2rem; margin-bottom:0.75rem;">👧</div>
-          <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem; color:#1a1a2e;">Buying for Kids?</h3>
-          <p style="font-size:0.85rem; color:#6b7280; line-height:1.7;">Choose <strong>non-toxic</strong> options like air-dry clay or watercolors. Avoid products with small parts for children under 5. Kits with step-by-step instructions keep kids engaged and learning independently.</p>
-          <a href="#kits-bundles" style="display:inline-block; margin-top:1rem; font-size:0.82rem; font-weight:700; color:#3b82f6; text-decoration:none;">→ See Kid-Friendly Kits</a>
+        <div class="guide-card">
+          <div class="guide-accent" style="background:#3b82f6;"></div>
+          <div class="guide-icon">👧</div>
+          <h3>Buying for Kids?</h3>
+          <p>Choose non-toxic options like air-dry clay or watercolors. Avoid products with small parts for children under 5. Kits with step-by-step instructions keep kids engaged and learning independently.</p>
+          <a href="#kits-bundles" class="guide-link" style="color:#3b82f6;">→ See Kid-Friendly Kits</a>
         </div>
 
-        <div style="background:#fff; border-radius:14px; padding:1.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.07); border-left:4px solid #ec4899;">
-          <div style="font-size:2rem; margin-bottom:0.75rem;">📦</div>
-          <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem; color:#1a1a2e;">What to Check Before Buying</h3>
-          <p style="font-size:0.85rem; color:#6b7280; line-height:1.7;">Always check: <strong>number of pieces</strong>, <strong>age recommendation</strong>, <strong>material quality</strong> (nylon vs. natural bristles), and <strong>Amazon reviews with photos</strong>. A 4.5★ rating with 500+ reviews is a reliable indicator.</p>
-          <a href="#basic-supplies" style="display:inline-block; margin-top:1rem; font-size:0.82rem; font-weight:700; color:#ec4899; text-decoration:none;">→ Browse All Products</a>
+        <div class="guide-card">
+          <div class="guide-accent" style="background:#ec4899;"></div>
+          <div class="guide-icon">📦</div>
+          <h3>What to Check Before Buying</h3>
+          <p>Always check: number of pieces, age recommendation, material quality, and Amazon reviews with photos. A 4.5★ rating with 500+ reviews is a reliable indicator of a great product.</p>
+          <a href="#basic-supplies" class="guide-link" style="color:#ec4899;">→ Browse All Products</a>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       BLOG / TIPS SECTION
-  ══════════════════════════════════════════ -->
-  <section id="blog" style="background:#fefaf6; padding:4rem 1.25rem;">
-    <div style="max-width:900px; margin:0 auto;">
-      <div class="section-header">
-        <span class="category-icon">📝</span>
-        <h2>Tips & Tricks for Artists</h2>
-        <p>Quick reads to help you create better art and get more from your supplies</p>
-        <div class="divider"></div>
-      </div>
-
-      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:1.5rem; margin-top:2rem;">
-
-        <!-- Blog Post 1 -->
-        <article style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.07); border:1px solid #f0e6d3; display:flex; flex-direction:column;">
-          <div style="background:linear-gradient(135deg,#fdf0e0,#fce4ec); padding:1.5rem; font-size:2.5rem; text-align:center;">🖌️</div>
-          <div style="padding:1.25rem; flex:1; display:flex; flex-direction:column;">
-            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; color:#e85d04; letter-spacing:0.07em;">Painting Tips</span>
-            <h3 style="font-size:1rem; font-weight:700; color:#1a1a2e; margin:0.4rem 0 0.6rem; line-height:1.35;">5 Mistakes Beginners Make with Acrylic Paint (And How to Fix Them)</h3>
-            <p style="font-size:0.84rem; color:#6b7280; line-height:1.7; flex:1;">Acrylic paint dries fast — that's both its superpower and its biggest trap. The #1 mistake beginners make is using too little water, leading to streaky, unblended colors. Always keep a spray bottle nearby to keep your palette moist, and thin your paint slightly with water for smoother coverage. The second mistake is overworking the canvas — once acrylics start to dry, leave them alone and layer on top instead of pushing wet paint around.</p>
-            <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid #f0e6d3; font-size:0.78rem; color:#6b7280;">⏱ 3 min read &nbsp;·&nbsp; 🎨 Beginner Friendly</div>
-          </div>
-        </article>
-
-        <!-- Blog Post 2 -->
-        <article style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.07); border:1px solid #f0e6d3; display:flex; flex-direction:column;">
-          <div style="background:linear-gradient(135deg,#ede7f6,#fce4ec); padding:1.5rem; font-size:2.5rem; text-align:center;">✏️</div>
-          <div style="padding:1.25rem; flex:1; display:flex; flex-direction:column;">
-            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; color:#6a0572; letter-spacing:0.07em;">Sketching Guide</span>
-            <h3 style="font-size:1rem; font-weight:700; color:#1a1a2e; margin:0.4rem 0 0.6rem; line-height:1.35;">How to Use Different Pencil Grades: From 6H to 6B Explained</h3>
-            <p style="font-size:0.84rem; color:#6b7280; line-height:1.7; flex:1;">Not all pencils are equal — and knowing which grade to use makes a huge difference in your drawings. <strong>H pencils</strong> (hard) produce light, crisp lines ideal for technical work and initial outlines. <strong>B pencils</strong> (soft) lay down rich, dark marks perfect for shading and expressive strokes. Start your sketch with a 2H for structure, build mid-tones with HB, and deepen shadows with 4B or 6B for dramatic contrast.</p>
-            <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid #f0e6d3; font-size:0.78rem; color:#6b7280;">⏱ 4 min read &nbsp;·&nbsp; ✏️ All Levels</div>
-          </div>
-        </article>
-
-        <!-- Blog Post 3 -->
-        <article style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.07); border:1px solid #f0e6d3; display:flex; flex-direction:column;">
-          <div style="background:linear-gradient(135deg,#e0f2fe,#ede7f6); padding:1.5rem; font-size:2.5rem; text-align:center;">🧵</div>
-          <div style="padding:1.25rem; flex:1; display:flex; flex-direction:column;">
-            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; color:#3b82f6; letter-spacing:0.07em;">Craft Ideas</span>
-            <h3 style="font-size:1rem; font-weight:700; color:#1a1a2e; margin:0.4rem 0 0.6rem; line-height:1.35;">10 Easy Embroidery Projects You Can Finish in a Weekend</h3>
-            <p style="font-size:0.84rem; color:#6b7280; line-height:1.7; flex:1;">Embroidery doesn't have to mean complex patterns that take months to finish. Some of the most beautiful pieces are simple and fast — a floral hoop, a personalised name on a tote bag, or a tiny cactus on a denim jacket. All you need is a basic floss kit, a hoop, fabric, and a needle. Start with a backstitch outline, fill with satin stitch, and you'll have a finished piece in just a few hours.</p>
-            <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid #f0e6d3; font-size:0.78rem; color:#6b7280;">⏱ 5 min read &nbsp;·&nbsp; 🧵 Beginner Friendly</div>
-          </div>
-        </article>
 
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ── Footer ── -->
+  <!-- ══════════════════════════════
+       BLOG / TIPS
+  ══════════════════════════════ -->
+  <div class="blog-section" id="blog">
+    <div class="section-header">
+      <div class="section-tag">Tips &amp; Inspiration</div>
+      <h2>📖 Artist's Blog</h2>
+      <p>Quick reads to help you create better art</p>
+    </div>
+    <div class="blog-grid">
+
+      <div class="blog-card">
+        <div class="blog-card-top">🖌️</div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Painting Tips</div>
+          <h3>5 Mistakes Beginners Make with Acrylic Paint (And How to Fix Them)</h3>
+          <p>Acrylic paint dries fast — that's both its superpower and its biggest trap. The #1 mistake beginners make is using too little water, leading to streaky, unblended colors. Always keep a spray bottle nearby to keep your palette moist, and thin your paint slightly for smoother coverage.</p>
+          <div class="blog-meta">
+            <span>⏱ 3 min read</span>
+            <span>🎨 Beginner Friendly</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-card-top">✏️</div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Sketching Guide</div>
+          <h3>How to Use Different Pencil Grades: From 6H to 6B Explained</h3>
+          <p>Not all pencils are equal — knowing which grade to use makes a huge difference in your drawings. H pencils produce light, crisp lines ideal for technical work. B pencils lay down rich, dark marks perfect for shading. Start with 2H for structure, HB for mid-tones, and 4B for deep shadows.</p>
+          <div class="blog-meta">
+            <span>⏱ 4 min read</span>
+            <span>✏️ All Levels</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-card-top">🧵</div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Craft Ideas</div>
+          <h3>10 Easy Embroidery Projects You Can Finish in a Weekend</h3>
+          <p>Embroidery doesn't have to mean complex patterns that take months. Some of the most beautiful pieces are simple and fast — a floral hoop, a personalised name on a tote bag, or a tiny cactus on a denim jacket. All you need is a basic floss kit, a hoop, fabric, and a needle.</p>
+          <div class="blog-meta">
+            <span>⏱ 5 min read</span>
+            <span>🧵 Beginner Friendly</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       BACK TO TOP
+  ══════════════════════════════ -->
+  <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
   <footer>
-    <div class="footer-logo">🎨 ArtCraft Picks</div>
-    <p>
-      <strong style="color:#f9fafb;">Affiliate Disclosure:</strong> ArtCraft Picks is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. When you click "Check Price on Amazon" and make a purchase, we may earn a small commission at no extra cost to you. We only recommend products we genuinely believe offer great value for crafters and artists.
-    </p>
-    <p class="footer-name">Curated with ❤️ by <span style="color:var(--secondary);">Kalpana</span></p>
+    <div class="footer-logo">🎨 <span>ArtCraft Picks</span></div>
+    <div class="footer-disclosure">
+      <strong>Affiliate Disclosure:</strong> ArtCraft Picks is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. When you click "Check Price on Amazon" and make a purchase, we may earn a small commission at no extra cost to you. We only recommend products we genuinely believe offer great value for crafters and artists.
+    </div>
+    <p class="footer-name">Curated with ❤️ by <span>Kalpana</span></p>
     <p class="footer-copy">© 2025 ArtCraft Picks · All product names and trademarks are the property of their respective owners.</p>
   </footer>
+
+  <!-- ══════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════ -->
+  <script>
+    /* ── Scroll Animations ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+    /* ── Back to Top ── */
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+
+    /* ── Category Filter ── */
+    function filterProducts(cat) {
+      // Update tab buttons
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Show/hide cards
+      document.querySelectorAll('.card').forEach(card => {
+        const match = cat === 'all' || card.dataset.cat === cat;
+        card.style.display = match ? 'flex' : 'none';
+      });
+
+      // Show/hide section headers
+      document.querySelectorAll('.category-section').forEach(sec => {
+        const match = cat === 'all' || sec.dataset.category === cat;
+        sec.style.display = match ? 'block' : 'none';
+      });
+
+      // Show/hide dividers
+      document.querySelectorAll('.cat-divider').forEach(d => {
+        d.style.display = cat === 'all' ? 'block' : 'none';
+      });
+
+      // Scroll to first visible section
+      if (cat !== 'all') {
+        const target = document.querySelector(`[data-category="${cat}"]`);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    /* ── Active Nav on Scroll ── */
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--primary)' : '';
+      });
+    });
+  </script>
 
 </body>
 </html>
