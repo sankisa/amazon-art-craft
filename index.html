@@ -2205,5 +2205,21 @@
     });
   </script>
 
+  <!-- Product Click Tracking -->
+  <script>
+    document.querySelectorAll('.btn-amazon').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var card = btn.closest('.card');
+        var productName = card ? (card.querySelector('h3') ? card.querySelector('h3').innerText : 'Unknown Product') : 'Unknown Product';
+        var category = card ? (card.getAttribute('data-cat') || 'unknown') : 'unknown';
+        gtag('event', 'amazon_click', {
+          'event_category': 'Product',
+          'event_label': productName,
+          'product_category': category
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
