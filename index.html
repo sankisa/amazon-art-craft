@@ -739,6 +739,17 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+    .affiliate-bar {
+      background: rgba(255,153,0,0.08);
+      border-bottom: 1px solid rgba(255,153,0,0.2);
+      text-align: center;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .affiliate-bar a { color: var(--secondary); text-decoration: none; }
+    .affiliate-bar a:hover { text-decoration: underline; }
+
     .footer-disclosure {
       font-size: 0.79rem;
       color: var(--muted);
@@ -803,6 +814,11 @@
       <li><a href="#blog">Blog</a></li>
     </ul>
   </nav>
+
+  <!-- Affiliate Disclosure Bar -->
+  <div class="affiliate-bar">
+    🛒 <strong>Disclosure:</strong> As an Amazon Associate I earn from qualifying purchases — at <strong>no extra cost to you</strong>. <a href="#footer-disclosure">Learn more ↓</a>
+  </div>
 
   <!-- ══════════════════════════════
        HERO
@@ -2287,8 +2303,8 @@
   ══════════════════════════════ -->
   <footer>
     <div class="footer-logo"><img src="logo.png" alt="ArtCraft Deals" style="height:220px;width:auto;display:block;margin:0 auto 0.5rem;"></div>
-    <div class="footer-disclosure">
-      <strong>Affiliate Disclosure:</strong> ArtCraft Deals is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. When you click "Check Price on Amazon" and make a purchase, we may earn a small commission at no extra cost to you. We only recommend products we genuinely believe offer great value for crafters and artists.
+    <div class="footer-disclosure" id="footer-disclosure">
+      <strong>⚠️ Affiliate Disclosure:</strong> As an Amazon Associate I earn from qualifying purchases. ArtCraft Deals is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. When you click any product link and make a purchase, we may earn a small commission at <strong>no extra cost to you</strong>. We only recommend products we genuinely believe offer great value for crafters and artists.
     </div>
     <p class="footer-name">Curated with ❤️ by <span>Kalpana</span></p>
     <p class="footer-copy">© 2026 ArtCraft Deals · All product names and trademarks are the property of their respective owners.</p>
