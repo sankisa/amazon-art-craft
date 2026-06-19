@@ -6,13 +6,6 @@
   <title>Amazon Prime Day Art & Craft Deals 2026 | artcraftdeals.com</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --prime: #FF9900;
-      --prime-dark: #cc6600;
-      --text: #1a1a2e;
-      --muted: #6b7280;
-    }
-    html { scroll-behavior: smooth; }
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       background: #0F1111;
@@ -21,8 +14,6 @@
       display: flex;
       flex-direction: column;
     }
-
-    /* ── Nav ── */
     nav {
       background: rgba(0,0,0,0.6);
       backdrop-filter: blur(10px);
@@ -31,20 +22,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
     }
-    .nav-logo {
-      font-size: 1.1rem; font-weight: 700;
-      color: var(--prime); text-decoration: none;
-    }
-    .back-link {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none; font-size: 0.88rem;
-      font-weight: 500; transition: color 0.2s;
-    }
-    .back-link:hover { color: var(--prime); }
-
-    /* ── Alert Strip ── */
+    .nav-logo { font-size: 1.1rem; font-weight: 700; color: #FF9900; text-decoration: none; }
+    .back-link { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.88rem; font-weight: 500; }
+    .back-link:hover { color: #FF9900; }
     .alert-strip {
       background: linear-gradient(90deg, #FF9900, #ff6600, #FF9900);
       background-size: 200% auto;
@@ -52,12 +33,9 @@
       color: #fff; text-align: center;
       padding: 0.55rem 1rem;
       font-size: 0.82rem; font-weight: 700;
-      letter-spacing: 0.02em;
     }
     @keyframes shimmer { to { background-position: 200% center; } }
-
-    /* ── Main Hero ── */
-    .hero {
+    main {
       flex: 1;
       display: flex;
       align-items: center;
@@ -67,7 +45,7 @@
       position: relative;
       overflow: hidden;
     }
-    .hero::before {
+    main::before {
       content: '';
       position: absolute; inset: 0;
       background:
@@ -75,25 +53,18 @@
         radial-gradient(circle at 80% 50%, rgba(232,93,4,0.12) 0%, transparent 55%);
       pointer-events: none;
     }
-    .hero-content {
-      position: relative; z-index: 1;
-      max-width: 700px; margin: 0 auto;
-    }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
     .prime-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
+      display: inline-block;
       background: rgba(255,153,0,0.12);
       border: 1px solid rgba(255,153,0,0.35);
       border-radius: 999px; padding: 0.4rem 1.2rem;
       font-size: 0.78rem; font-weight: 700;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--prime); margin-bottom: 1.75rem;
+      color: #FF9900; margin-bottom: 1.75rem;
     }
-    .hero h1 {
-      font-size: clamp(2.2rem, 6vw, 4.2rem);
-      font-weight: 900; line-height: 1.1;
-      margin-bottom: 0.75rem;
-    }
-    .hero h1 span { color: var(--prime); }
+    h1 { font-size: clamp(2.2rem, 6vw, 4.2rem); font-weight: 900; line-height: 1.1; margin-bottom: 0.75rem; }
+    h1 span { color: #FF9900; }
     .dates-pill {
       display: inline-block;
       background: rgba(255,153,0,0.15);
@@ -101,55 +72,20 @@
       border-radius: 10px;
       padding: 0.55rem 1.75rem;
       font-size: clamp(1rem, 3vw, 1.4rem);
-      font-weight: 800; color: #fff;
-      margin: 1rem 0 0.5rem;
-      letter-spacing: 0.02em;
+      font-weight: 800; margin: 1rem 0 0.5rem;
     }
-    .hero-sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.65);
-      max-width: 500px; margin: 0.75rem auto 2.5rem;
-    }
-
-    /* ── Countdown ── */
-    .countdown-wrap {
-      display: flex; justify-content: center;
-      gap: 1rem; flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
+    .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 500px; margin: 0.75rem auto 2.5rem; }
+    .countdown-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 0.6rem; }
+    .live-msg { font-size: 1.1rem; font-weight: 700; color: #FF9900; margin-bottom: 2rem; display: none; }
+    .countdown-wrap { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
     .countdown-box {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,153,0,0.25);
-      border-radius: 14px;
-      padding: 1rem 1.4rem;
+      border-radius: 14px; padding: 1rem 1.4rem;
       min-width: 82px; text-align: center;
-      backdrop-filter: blur(6px);
     }
-    .countdown-box .num {
-      font-size: 2.6rem; font-weight: 900;
-      color: var(--prime); line-height: 1;
-      font-variant-numeric: tabular-nums;
-    }
-    .countdown-box .lbl {
-      font-size: 0.65rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.5); margin-top: 0.35rem;
-    }
-    .live-msg {
-      font-size: 1.1rem; font-weight: 700;
-      color: var(--prime); margin-bottom: 2rem;
-      display: none;
-    }
-
-    /* ── Coming Soon label ── */
-    .coming-soon-label {
-      font-size: 0.8rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 0.6rem;
-    }
-
-    /* ── CTA button ── */
+    .countdown-box .num { font-size: 2.6rem; font-weight: 900; color: #FF9900; line-height: 1; }
+    .countdown-box .lbl { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-top: 0.35rem; }
     .cta-btn {
       display: inline-block;
       background: linear-gradient(135deg, #FF9900, #cc6600);
@@ -160,43 +96,21 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(255,153,0,0.55); }
-
-    /* ── Divider ── */
-    .divider {
-      width: 60px; height: 3px;
-      background: linear-gradient(90deg, #FF9900, #cc6600);
-      border-radius: 999px; margin: 2rem auto;
-      opacity: 0.5;
-    }
-
-    /* ── Teaser grid ── */
-    .teaser-row {
-      display: flex; flex-wrap: wrap;
-      justify-content: center; gap: 1.25rem;
-      margin-top: 0.5rem;
-    }
+    .divider { width: 60px; height: 3px; background: linear-gradient(90deg,#FF9900,#cc6600); border-radius:999px; margin: 2rem auto; opacity: 0.5; }
+    .teaser-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
     .teaser-chip {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,153,0,0.2);
-      border-radius: 999px;
-      padding: 0.45rem 1rem;
+      border-radius: 999px; padding: 0.45rem 1rem;
       font-size: 0.82rem; color: rgba(255,255,255,0.7);
-      font-weight: 500;
     }
-
-    /* ── Footer ── */
     footer {
       background: rgba(0,0,0,0.5);
       border-top: 1px solid rgba(255,153,0,0.15);
       text-align: center; padding: 1.5rem 1.25rem;
     }
-    footer p {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.35);
-      max-width: 600px; margin: 0 auto;
-    }
-    footer a { color: var(--prime); text-decoration: none; }
-
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.35); max-width: 600px; margin: 0 auto; }
+    footer a { color: #FF9900; text-decoration: none; }
     @media (max-width: 480px) {
       .countdown-box .num { font-size: 2rem; }
       .countdown-box { min-width: 65px; padding: 0.75rem 1rem; }
@@ -205,323 +119,78 @@
 </head>
 <body>
 
-<!-- Nav -->
 <nav>
   <a href="index.html" class="nav-logo">🎨 ArtCraftDeals</a>
   <a href="index.html" class="back-link">← Back to Main Site</a>
 </nav>
 
-<!-- Alert Strip -->
 <div class="alert-strip">
   🔥 Amazon Prime Day is coming — June 23–26, 2026! Exclusive deals for Prime members only!
 </div>
 
-<!-- Hero -->
-<main class="hero">
+<main>
   <div class="hero-content">
-
     <div class="prime-badge">🔥 Amazon Prime Day 2026</div>
-
     <h1>Big <span>Art & Craft</span><br>Deals Coming!</h1>
-
     <div class="dates-pill">📅 June 23 – 26, 2026</div>
-
     <p class="hero-sub">Hand-picked top rated art & craft deals just for you — exclusively for Amazon Prime members!</p>
 
-    <!-- Countdown label -->
-    <div class="coming-soon-label" id="countdown-label">Sale starts in</div>
+    <div class="countdown-label" id="countdown-label">Sale starts in</div>
     <div class="live-msg" id="live-msg">🔥 PRIME DAY IS LIVE — Deals End Soon!</div>
 
-    <!-- Countdown Timer -->
-    <div class="countdown-wrap" id="countdown-wrap">
+    <div class="countdown-wrap">
       <div class="countdown-box"><div class="num" id="cd-days">00</div><div class="lbl">Days</div></div>
       <div class="countdown-box"><div class="num" id="cd-hours">00</div><div class="lbl">Hours</div></div>
       <div class="countdown-box"><div class="num" id="cd-mins">00</div><div class="lbl">Mins</div></div>
       <div class="countdown-box"><div class="num" id="cd-secs">00</div><div class="lbl">Secs</div></div>
     </div>
 
-    <a href="#deals" class="cta-btn">🛒 See Prime Day Deals ↓</a>
+    <a href="index.html#amazon-haul" class="cta-btn">🛍️ Browse Current Deals</a>
 
+    <div class="divider"></div>
+
+    <p style="font-size:0.82rem;color:rgba(255,255,255,0.45);margin-bottom:1rem;">Categories coming on Prime Day</p>
+    <div class="teaser-row">
+      <span class="teaser-chip">🖊️ Markers & Pens</span>
+      <span class="teaser-chip">🎨 Acrylic Paint Sets</span>
+      <span class="teaser-chip">💎 Resin & Epoxy</span>
+      <span class="teaser-chip">🖼️ Easels & Kits</span>
+      <span class="teaser-chip">🌸 Pressed Flowers</span>
+      <span class="teaser-chip">✂️ Cutting Mats</span>
+      <span class="teaser-chip">🧵 Sewing Supplies</span>
+      <span class="teaser-chip">🗂️ Art Organizers</span>
+    </div>
   </div>
 </main>
 
-<!-- ── Prime Day Products ── -->
-<section id="deals" style="background:#0F1111;padding:3rem 1.25rem;">
-  <div style="max-width:1200px;margin:0 auto;">
-
-    <div style="text-align:center;margin-bottom:2.5rem;">
-      <div style="font-size:2rem;margin-bottom:0.5rem;">🎨</div>
-      <h2 style="font-size:clamp(1.4rem,4vw,2rem);font-weight:800;color:#fff;">Art &amp; Craft Prime Day Deals</h2>
-      <p style="color:rgba(255,255,255,0.5);margin-top:0.4rem;font-size:0.95rem;">Top rated picks from the official Prime Day deals list</p>
-      <div style="width:60px;height:3px;background:linear-gradient(90deg,#FF9900,#cc6600);border-radius:999px;margin:0.75rem auto 0;"></div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;">
-
-      <!-- 1 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🖊️</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.8</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Ohuhu Alcohol Markers 200 Colors</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Double-tipped chisel &amp; fine tip art markers. AP certified, refillable, loved by professional artists.</p>
-          <a href="https://www.amazon.com/dp/B07WPS5TH4?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 2 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">📓</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.8</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Ohuhu Hardcover Marker Pad</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Bleed-proof premium marker paper in a sturdy hardcover pad. Perfect for alcohol markers and detailed artwork.</p>
-          <a href="https://www.amazon.com/dp/B089Y2K38D?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🎨</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.8</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">6/12/24 Painting Brush Palette Set</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Versatile brush and palette combo set — choose 6, 12, or 24 pieces. Great for all skill levels.</p>
-          <a href="https://www.amazon.com/dp/B0FK4KFWNJ?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🧵</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.8</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">25 Pcs Sewing Machine Bobbins — Class 15</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Class 15 / SA156 bobbins with storage case. Fits most Brother and Singer sewing machines.</p>
-          <a href="https://www.amazon.com/dp/B0BBVJ716S?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🔑</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.8</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Audab 360 Pcs Keychain Bulk for Crafts</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">360 pieces including keychain rings, chains, jump rings and screw eye pins. Perfect for jewellery making.</p>
-          <a href="https://www.amazon.com/dp/B0FHD2BJ8V?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🖨️</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.8</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">HTVRONT Sublimation Paper — 120 Sheets</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">120 sheets of premium sublimation paper for mugs, shirts and more DIY transfer projects.</p>
-          <a href="https://www.amazon.com/dp/B09QMWG1WL?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 7 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🖼️</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">MEEDEN Professional Art Set with French Easel</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Complete kit with French easel, acrylic paints, brushes and canvas. Everything a beginner or pro needs.</p>
-          <a href="https://www.amazon.com/dp/B07VTL4S15?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 8 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🗂️</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">WEWLINE Art Storage Organizer</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Keep markers, pens, brushes and small craft supplies perfectly organised. Multiple compartments.</p>
-          <a href="https://www.amazon.com/dp/B08LCDMHS6?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 9 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">✂️</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">WORKLION 9"×12" Self Healing Cutting Mat</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Double sided gridded PVC cutting board — great for quilting, sewing, scrapbooking and craft projects.</p>
-          <a href="https://www.amazon.com/dp/B07MX1KXQ2?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 10 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🧼</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Velona MILK Glycerin Soap Base — Melt &amp; Pour</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">SLS/SLES free natural soap base — easy melt and pour process, great for DIY handmade soap crafting.</p>
-          <a href="https://www.amazon.com/dp/B0CD8793TP?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 11 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🌈</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Peryiter 500 Pcs Pipe Cleaners for DIY</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">500 colorful chenille stems for DIY flower bouquets, graduation decorations and kids craft projects.</p>
-          <a href="https://www.amazon.com/dp/B0DDCJ1HDD?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 12 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">💎</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Teexpert Crystal Clear Epoxy Resin Kit</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Food safe, bubble-free, anti-yellowing epoxy resin. Perfect for jewellery, coasters and art projects.</p>
-          <a href="https://www.amazon.com/dp/B0D7VSQKCK?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 13 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🌸</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Nuanchu Pressed Flowers Bulk Dried Wildflowers</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Real dried wildflowers and leaves for resin art, card making, scrapbooking and candle decorating.</p>
-          <a href="https://www.amazon.com/dp/B0DT6WFMHH?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 14 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🖌️</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Artist Paint Brush Set of 18</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">18 brushes plus palette knife, sponge and organiser case. Works with acrylic, oil and watercolor.</p>
-          <a href="https://www.amazon.com/dp/B07YYHC6RB?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 15 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">📌</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Ceenna 100 Pcs Enamel Pins Bulk — Lapel Pins</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">100 colorful enamel brooches — perfect for backpack decoration, gifting and accessory craft projects.</p>
-          <a href="https://www.amazon.com/dp/B0GHK2JY2X?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 16 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🎀</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Flezoo 25 Yards Satin Ribbon 1.5 inch</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Silky polyester satin ribbon — great for hair bows, gift wrapping, sewing and craft decorations.</p>
-          <a href="https://www.amazon.com/dp/B0D17S5511?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 17 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🎨</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Caliart Acrylic Paint Set with 12 Brushes</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Rich vibrant acrylic paints bundled with 12 professional brushes — works on canvas, wood and paper.</p>
-          <a href="https://www.amazon.com/dp/B0F66PGD8R?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 18 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🧪</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Smooth-Cast 300 Liquid Plastic</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Bright white ultra low viscosity liquid plastic for casting molds, figurines and 3D creative projects.</p>
-          <a href="https://www.amazon.com/dp/B0B2KVZRG7?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 19 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">✍️</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Coogert Dual Tip Acrylic Paint Markers</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">Fine tip and brush tip permanent acrylic markers — great for rocks, canvas, wood and most surfaces.</p>
-          <a href="https://www.amazon.com/dp/B0D6LHF267?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-      <!-- 20 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,153,0,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="background:rgba(255,153,0,0.08);padding:1.5rem;text-align:center;font-size:3rem;">🎨</div>
-        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;">
-          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#FF9900;margin-bottom:0.4rem;">🔥 Prime Day Deal · ⭐ 4.7</div>
-          <h3 style="font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.35;">Shuttle Art Acrylic Paint Set</h3>
-          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem;flex:1;">High quality acrylic paints in vivid shades — fast drying, thick and smooth on canvas, paper and fabric.</p>
-          <a href="https://www.amazon.com/dp/B0DRTC656B?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;padding:0.7rem 1rem;border-radius:8px;">🛒 Shop Prime Deal</a>
-        </div>
-      </div>
-
-    </div><!-- /grid -->
-  </div>
-</section>
-
-<!-- Footer -->
 <footer>
   <p>As an Amazon Associate I earn from qualifying purchases. Prime Day deals valid June 23–26, 2026 for Prime members. &nbsp;|&nbsp; <a href="index.html">artcraftdeals.com</a></p>
 </footer>
 
-<!-- Countdown Script -->
 <script>
   const primeStart = new Date('2026-06-23T00:00:00');
   const primeEnd   = new Date('2026-06-26T23:59:59');
 
   function update() {
     const now = new Date();
-
     if (now >= primeEnd) {
-      document.getElementById('countdown-wrap').style.display = 'none';
+      document.getElementById('countdown-wrap') && (document.querySelector('.countdown-wrap').style.display = 'none');
       document.getElementById('countdown-label').style.display = 'none';
       document.getElementById('live-msg').style.display = 'block';
       document.getElementById('live-msg').textContent = '⏰ Prime Day has ended. Check back for more deals!';
       return;
     }
-
     const target = now < primeStart ? primeStart : primeEnd;
     const diff   = target - now;
-
-    const days  = Math.floor(diff / 864e5);
-    const hours = Math.floor((diff % 864e5) / 36e5);
-    const mins  = Math.floor((diff % 36e5) / 6e4);
-    const secs  = Math.floor((diff % 6e4) / 1e3);
-
-    document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
-    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
-    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
-    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
-
+    document.getElementById('cd-days').textContent  = String(Math.floor(diff / 864e5)).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(Math.floor((diff % 864e5) / 36e5)).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(Math.floor((diff % 36e5) / 6e4)).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(Math.floor((diff % 6e4) / 1e3)).padStart(2,'0');
     if (now >= primeStart) {
       document.getElementById('countdown-label').textContent = 'Sale ends in';
       document.getElementById('live-msg').style.display = 'block';
     }
   }
-
   update();
   setInterval(update, 1000);
 </script>
