@@ -3,321 +3,943 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Best Art & Craft Products on Amazon</title>
-  <style>
-    /* ── Reset & Base ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --primary:   #e85d04;
-      --secondary: #f48c06;
-      --accent:    #6a0572;
-      --bg:        #fefaf6;
-      --card-bg:   #ffffff;
-      --text:      #1a1a2e;
-      --muted:     #6b7280;
-      --radius:    14px;
-      --shadow:    0 4px 24px rgba(0,0,0,0.09);
+  <meta name="description" content="Elevate your creativity with our hand-picked art supplies and craft supplies. ArtCraftDeals provides exceptional painting supplies and kits for every creator." />
+  <meta name="keywords" content="art supplies, craft materials, Amazon art products, painting kits, embroidery, watercolor, acrylic" />
+  <meta property="og:title" content="Best Art & Craft Products on Amazon 2026" />
+  <meta property="og:description" content="Hand-picked art and craft supplies, materials, and kits to unleash your creativity." />
+  <meta property="og:type" content="website" />
+  <title>Premium Art Supplies, Craft Supplies &amp; Painting Supplies | ArtCraftDeals</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWY3G6RXWH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YWY3G6RXWH');
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <!-- FAQ Schema for Google Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are the best art supplies for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For beginners, we recommend starting with a basic art supply kit that includes acrylic paints, a paint brush set, a sketch pad, and colored pencils. All Basic Supplies picks on ArtCraftDeals are beginner-friendly and available on Amazon with Prime shipping."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What craft supplies are good for kids?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our Kids Crafts section features safe, mess-friendly kits like air dry clay sets, charm bracelet kits, and tie-dye kits — all highly rated by parents on Amazon. Great for rainy days, school breaks, and birthday parties!"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are all products on ArtCraftDeals from Amazon?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Every product on ArtCraftDeals is an Amazon affiliate link. When you click and buy, you get Amazon's trusted buyer protection, fast delivery, and easy returns — at no extra cost to you."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Website Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ArtCraftDeals",
+    "url": "https://artcraftdeals.com",
+    "description": "Hand-picked art supplies, craft supplies, and painting supplies from Amazon — curated for beginners and professionals.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://artcraftdeals.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
     }
+  }
+  </script>
+
+  <style>
+    /* ══════════════════════════════
+       RESET & CSS VARIABLES
+    ══════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:    #ff6b35;
+      --primary-dk: #e85d04;
+      --secondary:  #f48c06;
+      --accent:     #7c3aed;
+      --accent-lt:  #a78bfa;
+      --success:    #10b981;
+      --bg:         #0f0f13;
+      --bg2:        #16161d;
+      --bg3:        #1e1e28;
+      --card:       #1a1a24;
+      --card-hover: #22222e;
+      --border:     rgba(255,255,255,0.08);
+      --text:       #f1f0f5;
+      --muted:      #9ca3af;
+      --radius:     16px;
+      --radius-lg:  24px;
+      --shadow:     0 8px 32px rgba(0,0,0,0.4);
+      --shadow-glow:0 0 40px rgba(255,107,53,0.15);
+      --font:       'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
     html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: var(--font);
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ── Nav Bar ── */
+    /* ══════════════════════════════
+       SCROLLBAR
+    ══════════════════════════════ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 99px; }
+
+    /* ══════════════════════════════
+       NAVIGATION
+    ══════════════════════════════ */
     nav {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #f0e6d3;
-      padding: 0.75rem 1.25rem;
+      z-index: 1000;
+      background: rgba(15,15,19,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      height: 130px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
     }
     .nav-logo {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--primary);
+      font-size: 1.15rem;
+      font-weight: 800;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       white-space: nowrap;
+    }
+    .nav-logo span {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .nav-links {
       display: flex;
-      gap: 1.2rem;
+      gap: 0.25rem;
       list-style: none;
-      flex-wrap: wrap;
     }
     .nav-links a {
       text-decoration: none;
-      color: var(--text);
-      font-size: 0.88rem;
+      color: var(--muted);
+      font-size: 0.875rem;
       font-weight: 500;
-      transition: color 0.2s;
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      transition: color var(--transition), background var(--transition);
     }
-    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
 
-    /* ── Hero ── */
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
     .hero {
-      background: linear-gradient(135deg, #fdf0e0 0%, #fce4ec 50%, #ede7f6 100%);
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       padding: 5rem 1.5rem 4rem;
-      position: relative;
       overflow: hidden;
     }
+    /* Animated mesh gradient background */
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 15% 30%, rgba(232,93,4,0.12) 0%, transparent 55%),
-        radial-gradient(circle at 85% 70%, rgba(106,5,114,0.10) 0%, transparent 55%);
+        radial-gradient(ellipse 80% 60% at 20% 20%, rgba(124,58,237,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(255,107,53,0.2) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 50% 50%, rgba(244,140,6,0.1) 0%, transparent 60%);
+      animation: meshShift 8s ease-in-out infinite alternate;
     }
+    @keyframes meshShift {
+      0%   { transform: scale(1) rotate(0deg); }
+      100% { transform: scale(1.1) rotate(3deg); }
+    }
+    /* Grid overlay */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
     .hero-badge {
-      display: inline-block;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: #fff;
-      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,107,53,0.12);
+      border: 1px solid rgba(255,107,53,0.3);
+      color: var(--primary);
+      font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 0.35rem 1rem;
+      padding: 0.4rem 1rem;
       border-radius: 999px;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 0.6s ease both;
     }
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
       font-weight: 800;
-      line-height: 1.15;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      animation: fadeInUp 0.7s ease 0.1s both;
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent-lt) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 1rem;
     }
     .hero p {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
       color: var(--muted);
-      max-width: 620px;
-      margin: 0 auto 2rem;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      animation: fadeInUp 0.7s ease 0.2s both;
     }
-    .hero-cta {
-      display: inline-block;
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.7s ease 0.3s both;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: #fff;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1rem;
-      padding: 0.85rem 2.2rem;
+      font-size: 0.95rem;
+      padding: 0.85rem 2rem;
       border-radius: 999px;
-      box-shadow: 0 6px 20px rgba(232,93,4,0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 24px rgba(255,107,53,0.35);
+      transition: transform var(--transition), box-shadow var(--transition);
     }
-    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(232,93,4,0.45); }
-    .hero-scroll-hint {
-      margin-top: 2.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(255,107,53,0.45); }
+    .btn-secondary {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-    }
-    .arrow { animation: bounce 1.5s infinite; display: inline-block; }
-    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
-
-    /* ── Section Wrapper ── */
-    .section { padding: 4rem 1.25rem; max-width: 1200px; margin: 0 auto; }
-    .section-header { text-align: center; margin-bottom: 2.5rem; }
-    .category-icon {
-      font-size: 2.6rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .section-header h2 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 800;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
       color: var(--text);
-    }
-    .section-header p {
-      color: var(--muted);
-      margin-top: 0.4rem;
-      font-size: 0.97rem;
-    }
-    .divider {
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.85rem 2rem;
       border-radius: 999px;
-      margin: 0.75rem auto 0;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+
+    /* Floating emoji */
+    .hero-floats {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .float-emoji {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.12;
+      animation: floatAround 6s ease-in-out infinite;
+    }
+    .float-emoji:nth-child(1)  { top: 15%; left: 8%;  animation-delay: 0s;   font-size: 2.5rem; }
+    .float-emoji:nth-child(2)  { top: 25%; right: 6%; animation-delay: 1s;   font-size: 1.8rem; }
+    .float-emoji:nth-child(3)  { bottom: 30%; left: 5%; animation-delay: 2s; font-size: 2.2rem; }
+    .float-emoji:nth-child(4)  { bottom: 20%; right: 8%; animation-delay: 3s; font-size: 1.6rem; }
+    .float-emoji:nth-child(5)  { top: 50%; left: 3%; animation-delay: 1.5s; font-size: 2rem; }
+    @keyframes floatAround {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-20px) rotate(10deg); }
     }
 
-    /* ── Category Band ── */
-    .category-band {
-      background: linear-gradient(135deg, #fff8f0, #fdf4ff);
-      border-top: 3px solid var(--primary);
-      border-bottom: 3px solid var(--primary);
-    }
-    .category-band:nth-child(even) {
-      background: linear-gradient(135deg, #f0f4ff, #fdf4ff);
-      border-color: var(--accent);
-    }
-
-    /* ── Product Grid ── */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 1.5rem;
-    }
-
-    /* ── Product Card ── */
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       flex-direction: column;
-      transition: transform 0.22s, box-shadow 0.22s;
-      border: 1px solid #f0e6d3;
-    }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(0,0,0,0.13); }
-    .card-top {
-      background: linear-gradient(135deg, #fdf0e0, #fce4ec);
-      display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 3.5rem;
-      padding: 1.5rem;
-      min-height: 110px;
+      gap: 0.4rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      animation: fadeInUp 1s ease 0.6s both;
     }
-    .card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
-    .card-badge {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--primary);
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--primary), transparent);
+      animation: scrollPulse 1.5s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* ══════════════════════════════
+       STATS STRIP
+    ══════════════════════════════ */
+    .stats {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+    }
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+    .stat-item {
+      padding: 1rem;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      transition: background var(--transition);
+    }
+    .stat-item:hover { background: rgba(255,107,53,0.06); }
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+    /* ══════════════════════════════
+       SEO BODY TEXT SECTION
+    ══════════════════════════════ */
+    .seo-section {
+      max-width: 900px;
+      margin: 0 auto 2.5rem;
+      padding: 2.5rem 2rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .seo-section h1 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.85rem;
+    }
+    .seo-section h2 {
+      font-size: 1.15rem;
+      color: var(--text);
+      margin: 1.5rem 0 0.6rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .seo-section h3 {
+      font-size: 1rem;
+      color: var(--accent-lt);
+      margin: 1.1rem 0 0.5rem;
+    }
+    .seo-section p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+    .seo-section b { color: var(--secondary); }
+    .seo-section ul {
+      padding-left: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .seo-section ul li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
       margin-bottom: 0.4rem;
     }
-    .card h3 {
-      font-size: 1.05rem;
+    .seo-section .seo-cta {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.65rem 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
       font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-      line-height: 1.3;
-    }
-    .card p {
       font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 0.9rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: filter var(--transition), transform var(--transition);
     }
-    .pros-label {
+    .seo-section .seo-cta:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+    /* ══════════════════════════════
+       CATEGORY FILTER TABS
+    ══════════════════════════════ */
+    .filter-tabs {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 64px;
+      z-index: 99;
+      background: rgba(15,15,19,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-family: var(--font);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .tab-btn:hover { border-color: rgba(255,107,53,0.4); color: var(--text); }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(255,107,53,0.3);
+    }
+
+    /* ══════════════════════════════
+       CATEGORY SECTION
+    ══════════════════════════════ */
+    .category-section {
+      padding: 3rem 1.5rem 4rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+    .section-tag::before,
+    .section-tag::after {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--primary);
+      opacity: 0.5;
+    }
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .section-header p { color: var(--muted); font-size: 0.97rem; }
+
+    /* Category dividers */
+    .cat-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ══════════════════════════════
+       PRODUCT GRID
+    ══════════════════════════════ */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ══════════════════════════════
+       PRODUCT CARD
+    ══════════════════════════════ */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      position: relative;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    .card.visible {
+      animation: cardReveal 0.5s ease forwards;
+    }
+    @keyframes cardReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,107,53,0.2);
+      border-color: rgba(255,107,53,0.25);
+    }
+
+    /* Glow on hover */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,107,53,0.5), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .card:hover::before { opacity: 1; }
+
+    .card-top {
+      position: relative;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .card-top-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,107,53,0.08), rgba(124,58,237,0.08));
+    }
+    .card-top-emoji {
+      position: relative;
+      z-index: 1;
+      transition: transform var(--transition);
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    }
+    .card:hover .card-top-emoji { transform: scale(1.15) rotate(-5deg); }
+    .card-product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
+      transition: transform var(--transition);
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+    }
+    .card:hover .card-product-img { transform: scale(1.08); }
+
+    .card-top::after {
+      content: 'View on Amazon →';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      opacity: 0;
+      transition: opacity var(--transition);
+      z-index: 3;
+      pointer-events: none;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .card-top:hover::after { opacity: 1; }
+
+    .card-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.65rem;
+    }
+    .card-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--primary);
+      background: rgba(255,107,53,0.1);
+      border: 1px solid rgba(255,107,53,0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+    }
+    .card-stars {
+      font-size: 0.75rem;
+      color: var(--secondary);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.65rem;
+      line-height: 1.4;
+    }
+    .card p {
+      font-size: 0.855rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .pros-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--success);
+      margin-bottom: 0.5rem;
     }
     .pros {
       list-style: none;
-      margin-bottom: 1.2rem;
-      flex: 1;
+      margin-bottom: 1.3rem;
     }
     .pros li {
-      font-size: 0.84rem;
+      font-size: 0.835rem;
       color: var(--text);
-      padding: 0.22rem 0;
+      padding: 0.26rem 0;
       display: flex;
       align-items: flex-start;
-      gap: 0.4rem;
+      gap: 0.5rem;
+      opacity: 0.85;
     }
-    .pros li::before { content: '✓'; color: #22c55e; font-weight: 800; flex-shrink: 0; }
-    .btn {
-      display: block;
-      text-align: center;
+    .pros li::before {
+      content: '✓';
+      color: var(--success);
+      font-weight: 800;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .btn-amazon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
       background: linear-gradient(135deg, #ff9900, #ff6600);
       color: #fff;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
+      font-family: var(--font);
       text-decoration: none;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      transition: filter 0.2s, transform 0.2s;
-      box-shadow: 0 3px 12px rgba(255,102,0,0.3);
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      transition: filter var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 16px rgba(255,102,0,0.25);
+      border: none;
+      cursor: pointer;
     }
-    .btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
-    .btn-icon { margin-right: 0.35rem; }
+    .btn-amazon:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(255,102,0,0.4);
+    }
 
-    /* ── Stats Strip ── */
-    .stats-strip {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #fff;
-      padding: 2rem 1.25rem;
-      text-align: center;
+    /* ══════════════════════════════
+       BUYING GUIDE
+    ══════════════════════════════ */
+    .buying-guide {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 1.5rem;
     }
-    .stats-inner {
-      max-width: 800px;
+    .guide-grid {
+      max-width: 1100px;
+      margin: 2.5rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .guide-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .guide-card:hover { transform: translateY(-3px); border-color: rgba(255,107,53,0.3); }
+    .guide-accent {
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+    }
+    .guide-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .guide-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .guide-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+    .guide-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: gap var(--transition);
+    }
+    .guide-link:hover { gap: 0.6rem; }
+
+    /* ══════════════════════════════
+       BLOG SECTION
+    ══════════════════════════════ */
+    .blog-section {
+      padding: 4rem 1.5rem;
+      max-width: 1100px;
       margin: 0 auto;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .blog-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .blog-card:hover { transform: translateY(-4px); border-color: rgba(124,58,237,0.3); }
+    .blog-card-top {
+      height: 90px;
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
-      gap: 2rem;
+      font-size: 3rem;
+      background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(255,107,53,0.08));
     }
-    .stat h3 { font-size: 2rem; font-weight: 800; }
-    .stat p  { font-size: 0.85rem; opacity: 0.85; }
+    .blog-card-body { padding: 1.4rem; }
+    .blog-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-lt);
+      margin-bottom: 0.5rem;
+    }
+    .blog-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.65rem; line-height: 1.4; }
+    .blog-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
+    .blog-meta { display: flex; gap: 1rem; margin-top: 1rem; }
+    .blog-meta span { font-size: 0.75rem; color: var(--muted); }
 
-    /* ── Footer ── */
+    /* ══════════════════════════════
+       BACK TO TOP
+    ══════════════════════════════ */
+    #backToTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(255,107,53,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity var(--transition), transform var(--transition);
+      z-index: 999;
+    }
+    #backToTop.show { opacity: 1; transform: translateY(0); }
+    #backToTop:hover { transform: translateY(-2px); }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
     footer {
-      background: #1a1a2e;
-      color: #d1d5db;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem 2rem;
       text-align: center;
-      padding: 2.5rem 1.25rem;
     }
-    footer .footer-logo {
-      font-size: 1.3rem;
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.4rem;
       font-weight: 800;
-      color: var(--secondary);
-      margin-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
     }
-    footer p { font-size: 0.8rem; line-height: 1.7; max-width: 680px; margin: 0.4rem auto; }
-    footer .footer-name { color: #f9fafb; font-weight: 600; margin-top: 1rem; font-size: 0.85rem; }
-    footer .footer-copy { color: #6b7280; font-size: 0.75rem; margin-top: 0.5rem; }
+    .footer-logo span {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .affiliate-bar {
+      background: rgba(255,153,0,0.08);
+      border-bottom: 1px solid rgba(255,153,0,0.2);
+      text-align: center;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .affiliate-bar a { color: var(--secondary); text-decoration: none; }
+    .affiliate-bar a:hover { text-decoration: underline; }
 
-    /* ── Responsive tweaks ── */
-    @media (max-width: 480px) {
+    .review-section {
+      margin-top: 0.75rem;
+      padding: 0.7rem 0.85rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--secondary);
+      border-radius: 10px;
+    }
+    .review-stars { color: #fbbf24; font-size: 0.78rem; margin-bottom: 0.2rem; }
+    .review-quote { font-size: 0.78rem; color: var(--muted); font-style: italic; line-height: 1.55; margin-bottom: 0.25rem; }
+    .review-author { font-size: 0.7rem; color: var(--success); font-weight: 600; }
+
+    .footer-disclosure {
+      font-size: 0.79rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 680px;
+      margin: 0 auto 1.25rem;
+      padding: 1.25rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .footer-disclosure strong { color: var(--text); }
+    .footer-name { color: var(--muted); font-size: 0.87rem; margin-bottom: 0.5rem; }
+    .footer-name span { color: var(--secondary); font-weight: 700; }
+    .footer-copy { color: #4b5563; font-size: 0.75rem; }
+
+    /* ══════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════ */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+    @media (max-width: 768px) {
       .nav-links { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      #backToTop { bottom: 1rem; right: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── Navigation ── -->
+  <!-- ══════════════════════════════
+       NAVIGATION
+  ══════════════════════════════ -->
   <nav>
-    <a class="nav-logo" href="#">🎨 ArtCraft Picks</a>
+    <a class="nav-logo" href="#"><img src="logo.png" alt="ArtCraft Deals" style="height:120px;width:auto;display:block;filter:drop-shadow(0 0 8px rgba(255,255,255,0.4)) brightness(1.3);"></a>
     <ul class="nav-links">
       <li><a href="#basic-supplies">Basic Supplies</a></li>
       <li><a href="#craft-materials">Craft Materials</a></li>
       <li><a href="#kits-bundles">Kits &amp; Bundles</a></li>
+      <li><a href="#easter-crafts">🐰 Easter</a></li>
+      <li><a href="#kids-crafts">🧒 Kids Crafts</a></li>
+      <li><a href="#drawing-sketching">✏️ Drawing</a></li>
+      <li><a href="#handcrafted">🧺 Handcrafted</a></li>
+      <li><a href="#amazon-haul" style="color:#FF9900;">🛍️ Amazon Haul</a></li>
+      <li><a href="#buying-guide">Buying Guide</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="prime-day.html" style="background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;padding:0.25rem 0.75rem;border-radius:999px;font-weight:700;animation:pd-pulse 2s infinite;">🔥 Prime Day</a></li>
     </ul>
-    <a href="prime-day.html" style="background:linear-gradient(135deg,#FF9900,#cc6600);color:#fff;font-size:0.78rem;font-weight:700;padding:0.3rem 0.85rem;border-radius:999px;text-decoration:none;white-space:nowrap;animation:pd-pulse 2s infinite;">🔥 Prime Day Deals</a>
   </nav>
 
-  <!-- ── Prime Day Banner ── -->
-  <a href="prime-day.html" style="display:block;background:linear-gradient(90deg,#0F1111,#1a1a2e,#2d1b00);color:#fff;text-align:center;padding:0.85rem 1rem;text-decoration:none;position:relative;overflow:hidden;">
-    <span style="position:relative;z-index:1;font-size:0.92rem;font-weight:700;">
-      🔥 <span style="color:#FF9900;">AMAZON PRIME DAY</span> — June 23–26 · Best Art &amp; Craft Deals! &nbsp;
-      <span style="background:#FF9900;color:#fff;padding:0.2rem 0.75rem;border-radius:999px;font-size:0.78rem;font-weight:800;">SHOP NOW →</span>
-    </span>
-  </a>
   <style>
     @keyframes pd-pulse {
       0%,100% { box-shadow: 0 0 0 0 rgba(255,153,0,0.5); }
@@ -325,258 +947,1954 @@
     }
   </style>
 
-  <!-- ── Hero ── -->
+  <!-- Prime Day Banner -->
+  <a href="prime-day.html" style="display:block;background:linear-gradient(90deg,#0F1111,#1a1a2e,#2d1b00);color:#fff;text-align:center;padding:0.85rem 1rem;text-decoration:none;">
+    <span style="font-size:0.92rem;font-weight:700;">
+      🔥 <span style="color:#FF9900;">AMAZON PRIME DAY</span> — June 23–26 · Best Art &amp; Craft Deals! &nbsp;
+      <span style="background:#FF9900;color:#fff;padding:0.2rem 0.75rem;border-radius:999px;font-size:0.78rem;font-weight:800;">SHOP NOW →</span>
+    </span>
+  </a>
+
+  <!-- Affiliate Disclosure Bar -->
+  <div class="affiliate-bar">
+    🛒 <strong>Disclosure:</strong> As an Amazon Associate I earn from qualifying purchases — at <strong>no extra cost to you</strong>. <a href="#footer-disclosure">Learn more ↓</a>
+  </div>
+
+  <!-- ══════════════════════════════
+       HERO
+  ══════════════════════════════ -->
   <section class="hero">
-    <span class="hero-badge">Amazon's Top Picks 2025</span>
-    <h1>Discover the Best<br>Art &amp; Craft Products</h1>
-    <p>Hand-picked supplies, materials, and kits to unleash your creativity — whether you're a beginner or a seasoned artist.</p>
-    <a href="#basic-supplies" class="hero-cta">Explore Products</a>
-    <div class="hero-scroll-hint">
-      Scroll to browse <span class="arrow">↓</span>
+    <div class="hero-floats" aria-hidden="true">
+      <span class="float-emoji">🖌️</span>
+      <span class="float-emoji">✏️</span>
+      <span class="float-emoji">🎨</span>
+      <span class="float-emoji">✂️</span>
+      <span class="float-emoji">🧵</span>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">✨ Amazon's Top Picks 2026</div>
+      <h1>Discover the Best<br><span class="gradient-text">Art &amp; Craft</span> Products</h1>
+      <p>42 hand-picked supplies, materials, and kits to unleash your creativity — curated for beginners, hobbyists, and seasoned artists alike.</p>
+      <div class="hero-buttons">
+        <a href="#basic-supplies" class="btn-primary">🛍️ Shop Products</a>
+        <a href="#buying-guide" class="btn-secondary">📖 Buying Guide</a>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ── Stats Strip ── -->
-  <div class="stats-strip">
+  <!-- ══════════════════════════════
+       STATS
+  ══════════════════════════════ -->
+  <div class="stats">
     <div class="stats-inner">
-      <div class="stat"><h3>9</h3><p>Curated Products</p></div>
-      <div class="stat"><h3>3</h3><p>Categories</p></div>
-      <div class="stat"><h3>★ 4.5+</h3><p>Average Rating</p></div>
-      <div class="stat"><h3>100%</h3><p>Amazon Verified</p></div>
+      <div class="stat-item">
+        <div class="stat-number">51</div>
+        <div class="stat-label">Curated Products</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">★ 4.5+</div>
+        <div class="stat-label">Avg. Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Amazon Verified</div>
+      </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════
+       SEO BODY TEXT
+  ══════════════════════════════ -->
+  <div class="seo-section">
+    <h1>Best Art Supplies &amp; Craft Supplies on Amazon — Curated by ArtCraftDeals</h1>
+    <p>Welcome to <b>ArtCraftDeals</b> — your trusted source for the best <b>art supplies</b>, <b>craft supplies</b>, and <b>painting supplies</b> on Amazon. Whether you're a beginner looking for a starter kit or a professional artist stocking up on premium materials, we've done all the research for you. Every product featured here is hand-picked based on 4.5⭐ ratings, thousands of real customer reviews, and proven value for money.</p>
+
+    <h2>🎨 Best Art Supplies for Beginners &amp; Professionals</h2>
+    <p>Searching for <b>art supplies for beginners</b> or professional-grade materials? Our curated Amazon picks include <b>acrylic paint sets</b>, <b>watercolor kits</b>, <b>paint brush sets</b>, <b>sketch pencils</b>, and <b>drawing pads</b> — everything you need to start or level up your creative journey. All listed products are available on Amazon with fast Prime delivery and hassle-free returns.</p>
+
+    <h3>🖌️ Top Painting Supplies — Acrylics, Watercolors &amp; More</h3>
+    <p>Our <b>painting supplies</b> selection covers the most popular and highly rated products on Amazon, including <b>acrylic paints for beginners</b>, <b>professional watercolor sets</b>, <b>canvas boards</b>, and <b>artist paint brushes</b>. We compare hundreds of options so you can shop confidently and spend less time searching and more time creating.</p>
+
+    <h2>✂️ Craft Supplies — Kits, Bundles &amp; DIY Sets for All Ages</h2>
+    <p>From <b>kids' craft kits</b> and <b>Easter craft supplies</b> to adult <b>resin art kits</b>, <b>embroidery sets</b>, and <b>air dry clay</b> — our <b>craft supplies</b> section has something for every age and skill level. We feature the most popular <b>DIY craft kits on Amazon</b> with real customer feedback so you know exactly what you're buying. Perfect for home crafting, school projects, or gifting!</p>
+
+    <h3>🏆 Why Shop via ArtCraftDeals?</h3>
+    <ul>
+      <li><b>✅ Verified Amazon Picks:</b> Every product links directly to Amazon — rated 4.5⭐ or higher with hundreds of verified reviews.</li>
+      <li><b>✅ Best Art Supplies for Every Budget:</b> From affordable <b>beginner art sets</b> under $15 to professional kits — all price ranges covered.</li>
+      <li><b>✅ Craft Supplies for Kids &amp; Adults:</b> Safe, age-appropriate kits for children alongside premium supplies for adults.</li>
+      <li><b>✅ Seasonal &amp; Gift Ideas:</b> <b>Easter craft kits</b>, holiday art sets, and birthday gift ideas updated regularly.</li>
+    </ul>
+
+    <h2>❓ Frequently Asked Questions</h2>
+    <h3>What are the best art supplies for beginners?</h3>
+    <p>For beginners, we recommend starting with a <b>basic art supply kit</b> that includes acrylic paints, a paint brush set, a sketch pad, and colored pencils. All our <a href="#basic-supplies">Basic Supplies</a> picks are beginner-friendly and available on Amazon with Prime shipping.</p>
+    <h3>What craft supplies are good for kids?</h3>
+    <p>Our <a href="#kids-crafts">Kids Crafts</a> section features safe, mess-friendly kits like <b>air dry clay sets</b>, <b>charm bracelet kits</b>, and <b>tie-dye kits</b> — all highly rated by parents on Amazon. Great for rainy days, school breaks, and birthday parties!</p>
+    <h3>Are all products on ArtCraftDeals from Amazon?</h3>
+    <p>Yes! Every product on ArtCraftDeals is an Amazon affiliate link. When you click and buy, you get Amazon's trusted buyer protection, fast delivery, and easy returns — at no extra cost to you.</p>
+
+    <p>💡 <b>Pro Tip:</b> Bookmark this page! We regularly update our picks with the latest and best-rated <b>art and craft supplies on Amazon</b> so you always find the top products in one place.</p>
+    <a href="#basic-supplies" class="seo-cta">🛍️ Browse All Top Picks on Amazon →</a>
+  </div>
+
+  <!-- ══════════════════════════════
+       FILTER TABS
+  ══════════════════════════════ -->
+  <div class="filter-tabs" role="tablist">
+    <button class="tab-btn active" onclick="filterProducts('all')">🎨 All Products</button>
+    <button class="tab-btn" onclick="filterProducts('basic')">✏️ Basic Supplies</button>
+    <button class="tab-btn" onclick="filterProducts('craft')">✂️ Craft Materials</button>
+    <button class="tab-btn" onclick="filterProducts('kits')">🎁 Kits &amp; Bundles</button>
+    <button class="tab-btn" onclick="filterProducts('easter')" style="border-color:rgba(236,72,153,0.4);color:#f9a8d4;">🐰 Easter Crafts</button>
+    <button class="tab-btn" onclick="filterProducts('kids')" style="border-color:rgba(34,197,94,0.4);color:#86efac;">🧒 Kids Crafts</button>
+    <button class="tab-btn" onclick="filterProducts('drawing')" style="border-color:rgba(99,102,241,0.4);color:#a5b4fc;">✏️ Drawing & Sketching</button>
+    <button class="tab-btn" onclick="filterProducts('handcrafted')" style="border-color:rgba(217,119,6,0.4);color:#fcd34d;">🧺 Handcrafted</button>
+    <button class="tab-btn" onclick="filterProducts('haul')" style="border-color:rgba(255,153,0,0.4);color:#FF9900;">🛍️ Amazon Haul</button>
+  </div>
+
+  <!-- ══════════════════════════════
        CATEGORY 1 — BASIC SUPPLIES
-  ══════════════════════════════════════════ -->
-  <div class="category-band" id="basic-supplies">
-    <div class="section">
-      <div class="section-header">
-        <span class="category-icon">✏️</span>
-        <h2>Basic Supplies</h2>
-        <p>Essential tools every artist needs in their toolkit</p>
-        <div class="divider"></div>
-      </div>
-      <div class="grid">
-
-        <!-- Product 1 -->
-        <div class="card">
-          <div class="card-top">🖌️</div>
-          <div class="card-body">
-            <div class="card-badge">Basic Supplies</div>
-            <h3>Artify 15-Piece Professional Paint Brush Set</h3>
-            <p>This premium brush set includes a variety of nylon-hair brushes designed for watercolor, acrylic, and oil painting. Each brush features an ergonomic wooden handle for precise control during long creative sessions.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>15 brush types — from fine liners to wide fan brushes</li>
-              <li>Rust-proof ferrules prevent shedding</li>
-              <li>Includes a protective carrying case</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=professional+paint+brush+set&tag=youraffid-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="card">
-          <div class="card-top">📐</div>
-          <div class="card-body">
-            <div class="card-badge">Basic Supplies</div>
-            <h3>Faber-Castell Graphite Pencil Set (12 Grades)</h3>
-            <p>Faber-Castell's legendary pencil set spans 12 grades from 6H to 6B, giving artists smooth layering and deep, expressive shadows. The hexagonal barrel prevents rolling and reduces hand fatigue during detailed work.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Break-resistant SV bonded lead</li>
-              <li>Ideal for sketching, shading &amp; technical drawing</li>
-              <li>Eco-friendly cedar wood casing</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=faber+castell+graphite+pencil+set&tag=youraffid-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="card">
-          <div class="card-top">🎨</div>
-          <div class="card-body">
-            <div class="card-badge">Basic Supplies</div>
-            <h3>Winsor &amp; Newton Cotman Watercolor Set (24 Half Pans)</h3>
-            <p>Winsor &amp; Newton's Cotman range is the gold standard for beginner and intermediate watercolorists, offering 24 vibrant, lightfast pigments in a compact metal tin. The included mixing lid and brush make it ready-to-use right out of the box.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Lightfast, transparent pigments blend effortlessly</li>
-              <li>Portable metal tin — perfect for plein-air painting</li>
-              <li>Trusted brand with 180+ years of heritage</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=winsor+newton+cotman+watercolor+set&tag=youraffid-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-      </div>
+  ══════════════════════════════ -->
+  <section class="category-section" id="basic-supplies" data-category="basic">
+    <div class="section-header">
+      <div class="section-tag">Category 01</div>
+      <h2>✏️ Basic Supplies</h2>
+      <p>Essential tools every artist needs in their toolkit</p>
     </div>
-  </div>
+    <div class="grid">
 
-  <!-- ══════════════════════════════════════════
+      <div class="card" id="artify-brush-set" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://www.amazon.com/dp/B08DV1XT1Q?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/basic art supplies/Artify-Brush-removebg-preview.png" alt="ARTIFY Brush Set" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>ARTIFY 25-Piece Professional Paint Brush Set — Expert Series</h3>
+          <p>This expert-level 25-piece brush set features synthetic nylon brushes designed for acrylic, oil, watercolor, and gouache painting. Comes with a canvas roll case and palette knife — a perfect gift for artists of all levels with absolutely no shedding!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>25 brushes — synthetic nylon, no shedding</li>
+            <li>Includes canvas roll case & palette knife</li>
+            <li>Works for acrylic, oil, watercolor & gouache</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Absolutely no shedding! These brushes are worth every penny. The canvas roll case keeps everything so organized."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://www.amazon.com/dp/B08DV1XT1Q?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="faber-castell-pencils" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://www.amazon.com/dp/B000I5MNC0?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/basic art supplies/Faber-Castell-removebg-preview.png" alt="Faber-Castell Pencils" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Faber-Castell 9000 Graphite Sketch Pencil Set — 8B to 2H (12 Pencils)</h3>
+          <p>The iconic Faber-Castell 9000 series is the go-to choice for artists, architects, and illustrators worldwide. This set of 12 pencils spans 8B to 2H grades, offering a full range from ultra-soft expressive shading to precise hard lines — all in a beautiful tin case.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>12 grades from 8B to 2H — full range for any sketch</li>
+            <li>Break-resistant SV bonded lead</li>
+            <li>Eco-friendly cedar wood casing</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"The range from 8B to 2H is perfect for any sketch. These are the only pencils I'll ever use — the quality is unmatched."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://www.amazon.com/dp/B000I5MNC0?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="winsor-watercolor" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://www.amazon.com/s?k=winsor+newton+cotman+watercolor+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/basic art supplies/Winsor-watercolor.jpg-removebg-preview.png" alt="Winsor Newton Watercolor" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Winsor &amp; Newton Cotman Watercolor Set (24 Half Pans)</h3>
+          <p>Winsor &amp; Newton's Cotman range is the gold standard for beginner and intermediate watercolorists, offering 24 vibrant, lightfast pigments in a compact metal tin. The included mixing lid and brush make it ready-to-use right out of the box.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Lightfast, transparent pigments blend effortlessly</li>
+            <li>Portable metal tin — perfect for plein-air painting</li>
+            <li>Trusted brand with 180+ years of heritage</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Vibrant colors that blend beautifully. Been using Cotman sets for years and they never disappoint — great for travel!"</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://www.amazon.com/s?k=winsor+newton+cotman+watercolor+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="prismacolor-pencils" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://www.amazon.com/s?k=prismacolor+premier+colored+pencils+48&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/basic art supplies/prismacolor-pencils-removebg-preview.png" alt="Prismacolor Pencils" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Prismacolor Premier Colored Pencils (48 Count)</h3>
+          <p>Prismacolor's Premier range is loved by professional illustrators for its thick, soft cores that blend and layer like butter. The 48-color set covers every shade from subtle skin tones to vivid botanical greens.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Thick soft core — smooth, rich colour payoff</li>
+            <li>Blends effortlessly without streaking</li>
+            <li>Lightfast pigments that won't fade over time</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Buttery smooth laydown — the colors are so rich and blend effortlessly. Worth every cent compared to cheaper brands!"</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://www.amazon.com/s?k=prismacolor+premier+colored+pencils+48&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="strathmore-watercolor-pad" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://www.amazon.com/s?k=strathmore+400+watercolor+paper+pad&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/basic art supplies/Strathmore_400_Series-removebg-preview.png" alt="Strathmore Watercolor Pad" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★☆</span>
+          </div>
+          <h3>Strathmore 400 Series Watercolor Paper Pad (12x9 inch)</h3>
+          <p>Strathmore's 400 Series watercolor pad features 140lb cold-press paper that handles heavy washes without buckling or warping. Each sheet has a natural white surface with a subtle texture that gives watercolors beautiful depth.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>140lb paper — handles multiple wet layers</li>
+            <li>Acid-free for archival quality artwork</li>
+            <li>Works with watercolor, gouache &amp; ink</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"This paper holds up to heavy washes without buckling at all. My go-to watercolor pad — I always keep a few on hand!"</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://www.amazon.com/s?k=strathmore+400+watercolor+paper+pad&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="us-art-acrylic" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://www.amazon.com/s?k=us+art+supply+acrylic+paint+set+75ml&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/basic art supplies/U.S._Art-supply-removebg-preview.png" alt="U.S. Art Supply Acrylic Paint Set" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>U.S. Art Supply 10-Color Acrylic Paint Set (75ml Tubes)</h3>
+          <p>These large 75ml acrylic tubes give you far more paint than standard sets, making them ideal for canvas painting, murals, and mixed-media projects. The highly pigmented formula dries to a vibrant, water-resistant finish.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Large 75ml tubes — great value for money</li>
+            <li>Highly pigmented, water-resistant finish</li>
+            <li>Non-toxic &amp; safe for all ages</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Great value! The 75ml tubes last a really long time and the colors dry bright and vivid. Perfect for canvas painting."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://www.amazon.com/s?k=us+art+supply+acrylic+paint+set+75ml&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="rainbow-pencils" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://www.amazon.com/dp/B0D5QTCX98?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/basic art supplies/12-Rainbow_Colored_pencils-removebg-preview.png" alt="12 Rainbow Colored Pencils" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>12 Rainbow Colored Pencils — Easter Basket Stuffers for Kids & Teens</h3>
+          <p>Bright rainbow colored pencils perfect as Easter basket stuffers for kids ages 5-12! Great art supplies for school, drawing, and creative projects. A fun and practical gift for teen girls and young artists!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>12 vibrant rainbow colors</li>
+            <li>Perfect Easter basket stuffer for kids & teens</li>
+            <li>Great gift for girls ages 5-12</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"My daughter absolutely loved these in her Easter basket! Gorgeous bright colors and great quality for the price."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://www.amazon.com/dp/B0D5QTCX98?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="artistro-paint-markers" data-cat="basic">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4uYOrf7" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/basic art supplies/Artistro-_24_Vibrant_Colors-removebg-preview.png" alt="ARTISTRO 24 Acrylic Paint Markers" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Basic Supplies</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>ARTISTRO 24 Acrylic Paint Markers — Brush & Fine Tips</h3>
+          <p>24 vibrant acrylic paint pens with dual brush & fine tips — perfect for fabric, rock, glass, wood, DIY Easter eggs & more! Great for adults, teens & kids!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>24 vivid colors — brush & fine tip</li>
+            <li>Works on fabric, rock, glass, wood & eggs</li>
+            <li>Perfect Easter basket stuffer for all ages</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"These work on literally everything — rocks, glass, wood, fabric. The colors are incredibly vivid and don't fade!"</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://amzn.to/4uYOrf7" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="cat-divider">
+
+  <!-- ══════════════════════════════
        CATEGORY 2 — CRAFT MATERIALS
-  ══════════════════════════════════════════ -->
-  <div class="category-band" id="craft-materials">
-    <div class="section">
-      <div class="section-header">
-        <span class="category-icon">✂️</span>
-        <h2>Craft Materials</h2>
-        <p>Quality materials to bring your creative visions to life</p>
-        <div class="divider"></div>
-      </div>
-      <div class="grid">
-
-        <!-- Product 4 -->
-        <div class="card">
-          <div class="card-top">🧵</div>
-          <div class="card-body">
-            <div class="card-badge">Craft Materials</div>
-            <h3>Caydo 42-Color Embroidery Floss Kit with Storage Box</h3>
-            <p>This comprehensive embroidery kit contains 42 vivid cotton thread colors neatly organized in a clear plastic box with bobbin cards — no more tangled threads. The threads are colorfast and strong, suitable for cross-stitch, friendship bracelets, and textile art.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Pre-wound bobbins save setup time</li>
-              <li>Colorfast threads that won't bleed or fade</li>
-              <li>Includes threader needle and instruction cards</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=embroidery+floss+kit+42+colors&tag=youraffid-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 5 -->
-        <div class="card">
-          <div class="card-top">📄</div>
-          <div class="card-body">
-            <div class="card-badge">Craft Materials</div>
-            <h3>Cricut Smart Iron-On Vinyl Sampler (16 Sheets)</h3>
-            <p>Cricut's Smart Iron-On Vinyl makes heat-transfer projects a breeze, offering 16 colorful sheets that adhere firmly to fabric with a standard household iron. The HTV material is durable, stretchy, and compatible with any cutting machine.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>No-liner easy-cut design speeds up workflow</li>
-              <li>Machine-washable after application</li>
-              <li>Works on cotton, polyester &amp; canvas</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=cricut+smart+iron+on+vinyl+sampler&tag=youraffid-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-        <!-- Product 6 -->
-        <div class="card">
-          <div class="card-top">🪡</div>
-          <div class="card-body">
-            <div class="card-badge">Craft Materials</div>
-            <h3>LotFancy Air-Dry Clay 36-Color Modeling Set</h3>
-            <p>This ultra-soft, non-toxic air-dry clay set includes 36 ready-to-use colors that dry to a hard, paintable finish without a kiln. Ideal for sculpting, jewelry making, and classroom projects, the clay stays workable for hours and doesn't crack when dry.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Non-toxic &amp; safe for all ages</li>
-              <li>Colors blend easily like play dough</li>
-              <li>Lightweight finish — no kiln required</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=air+dry+clay+36+color+set&tag=youraffid-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
-        </div>
-
-      </div>
+  ══════════════════════════════ -->
+  <section class="category-section" id="craft-materials" data-category="craft">
+    <div class="section-header">
+      <div class="section-tag">Category 02</div>
+      <h2>✂️ Craft Materials</h2>
+      <p>Quality materials to bring your creative visions to life</p>
     </div>
-  </div>
+    <div class="grid">
 
-  <!-- ══════════════════════════════════════════
+      <div class="card" id="caydo-embroidery" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4svPfG8" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Craft Materials/200pcs+ Embroidery Floss kit, Friendship Bracelet String Kit.png" alt="200pcs Embroidery Floss Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>200pcs+ Embroidery Floss Kit — Friendship Bracelet String Kit with Organizer Box</h3>
+          <p>Everything you need in one box! 100 friendship bracelet floss threads, organizer box, cross-stitch supplies and more. A perfect gift for kids, teens and beginners who love crafting friendship bracelets and needlework projects.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>200+ pieces — great value complete kit</li>
+            <li>Includes organizer box — no tangled threads</li>
+            <li>Perfect for friendship bracelets &amp; cross stitch</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"200+ pieces and everything is neatly organized. My kids love making friendship bracelets with this kit!"</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://amzn.to/4svPfG8" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="cricut-iron-on" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4cdQhjW" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Craft Materials/Cricut Value Iron-On.png" alt="Cricut Value Iron-On Rainbow Sampler" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Cricut Value Iron-On Rainbow Sampler — 12in x 3ft (10 ct)</h3>
+          <p>Add a pop of color to any fabric project with this rainbow iron-on sampler from Cricut! 10 vibrant colors in one pack, easy to cut and apply with a household iron. Perfect for T-shirts, tote bags, hats and DIY fashion projects.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>10 rainbow colors — great variety in one pack</li>
+            <li>Easy iron-on application — no machine needed</li>
+            <li>Machine-washable after application</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"The rainbow colors are so vibrant! Stuck perfectly to my shirts and still looks great after many washes."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://amzn.to/4cdQhjW" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="lotfancy-clay" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4vguf8N" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Craft Materials/ifergoo Air Dry Clay, 36 Colors Magic Foam DIY Molding Clay.png" alt="ifergoo Air Dry Clay 36 Colors" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>ifergoo Air Dry Clay — 36 Colors Magic Foam DIY Molding Clay</h3>
+          <p>Super lightweight magic foam clay in 36 vivid colors — great for slime add-ins, slime supplies, and kids' DIY projects! Easy to mold, blend and shape. A wonderful gift for young artists and creative kids.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>36 vibrant colors — great for slime &amp; sculpting</li>
+            <li>Lightweight magic foam — easy for kids to use</li>
+            <li>Non-toxic &amp; safe — perfect gift for kids</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"My kids can't stop playing with this clay! Super soft, easy to mold and the colors are so bright and fun."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://amzn.to/4vguf8N" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="gorilla-glue-gun" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4cvH5bN" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Craft Materials/Gorilla hot glue gun.png" alt="Gorilla Mini Hot Glue Gun Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Gorilla Mini Hot Glue Gun Kit — With 75 Glue Sticks</h3>
+          <p>The trusted Gorilla brand delivers a precision mini hot glue gun with dual temperature control and an easy squeeze trigger. Comes with 75 glue sticks for lasting use — perfect for fabric, foam, wood, ribbon and all your DIY craft projects.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Dual temp — precision nozzle for clean application</li>
+            <li>Easy squeeze trigger — great for long crafting sessions</li>
+            <li>Includes 75 glue sticks — great value</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Heats up super fast and barely any dripping at all. The 75 sticks included is such a great bonus — love this gun!"</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://amzn.to/4cvH5bN" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="washi-tape" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/3Qbu6mV" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Craft Materials/Washi Tape 20 rolls set.png" alt="30 Rolls Colorful Washi Tape Set" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>30 Rolls Colorful Washi Tape Set — Different Colorful Patterns</h3>
+          <p>30 rolls of beautiful, colorful washi tape with unique patterns — perfect for scrapbooking, junk journaling, bullet journaling, gift wrapping and more! Each roll is 0.6" x 79" — writable, repositionable, and easy to tear by hand.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>30 rolls — tons of colorful patterns to mix &amp; match</li>
+            <li>Writable surface — great for bullet journaling</li>
+            <li>Repositionable — sticks and removes cleanly</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"30 rolls with so many beautiful patterns! Perfect for my bullet journal. The tape tears cleanly and sticks perfectly."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://amzn.to/3Qbu6mV" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="epoxy-resin" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/41SF1EB" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Craft Materials/Epoxy Resin.png" alt="SigWong Epoxy Resin 32oz" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>SigWong Epoxy Resin 32oz — Crystal Clear Coating Kit</h3>
+          <p>Crystal clear, no-bubble, no-yellowing epoxy resin with an easy 1:1 mix ratio! Perfect for art, jewelry making, river tables and craft projects. Beginner-friendly formula that self-levels for a stunning glass-like finish every time.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Crystal clear — no bubbles, no yellowing</li>
+            <li>Easy 1:1 ratio — perfect for beginners</li>
+            <li>Great for jewelry, art, river tables &amp; crafts</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Crystal clear results with zero bubbles. So easy to mix and the glass-like finish is absolutely stunning!"</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://amzn.to/41SF1EB" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="mica-powder" data-cat="craft">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/3Qrpkle" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Craft Materials/Mica Powder.png" alt="CHANGTIKEJI Mica Powder 24 Colors" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Craft Materials</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>CHANGTIKEJI Mica Powder — 24 Colors, 10g/Bottle Natural Pigment</h3>
+          <p>24 stunning natural pigment colors — 10g per bottle! Perfect for epoxy resin, soap making, candle making, lip gloss, car freshies, dye, nail polish and bath bombs. A must-have for any crafter!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>24 vibrant colors — generous 10g per bottle</li>
+            <li>Works for resin, soap, candles &amp; nail art</li>
+            <li>Natural pigment — safe &amp; versatile</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"The colors are incredibly pigmented and vibrant! Works perfectly in resin and soap making. Great value for 24 colors."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <a href="https://amzn.to/3Qrpkle" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="cat-divider">
+
+  <!-- ══════════════════════════════
        CATEGORY 3 — KITS & BUNDLES
-  ══════════════════════════════════════════ -->
-  <div class="category-band" id="kits-bundles">
-    <div class="section">
-      <div class="section-header">
-        <span class="category-icon">🎁</span>
-        <h2>Kits &amp; Bundles</h2>
-        <p>All-in-one sets — perfect for gifting or jumpstarting a new hobby</p>
-        <div class="divider"></div>
+  ══════════════════════════════ -->
+  <section class="category-section" id="kits-bundles" data-category="kits">
+    <div class="section-header">
+      <div class="section-tag">Category 03</div>
+      <h2>🎁 Kits &amp; Bundles</h2>
+      <p>All-in-one sets — perfect for gifting or jumpstarting a new hobby</p>
+    </div>
+    <div class="grid">
+
+      <div class="card" id="diamond-painting" data-cat="kits">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4dT6JZp" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kit And Bundles/Diamond-Painting.png" alt="Vcekract Butterfly Diamond Painting Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kits &amp; Bundles</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Vcekract 8 Pcs Butterfly Diamond Painting Kits — Garden Decor Stakes</h3>
+          <p>8 beautiful butterfly diamond painting kits perfect for garden decor! Complete diamond art kits for adults — everything included to create stunning butterfly stakes for your garden. A relaxing and rewarding craft for all skill levels.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>8 butterfly designs — great variety</li>
+            <li>Perfect for garden decor &amp; gifting</li>
+            <li>Complete kit — no extras needed</li>
+          </ul>
+          <a href="https://amzn.to/4dT6JZp" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
       </div>
-      <div class="grid">
 
-        <!-- Product 7 -->
-        <div class="card">
-          <div class="card-top">🖼️</div>
-          <div class="card-body">
-            <div class="card-badge">Kits &amp; Bundles</div>
-            <h3>Sip &amp; Paint Diamond Painting Kit — Butterfly Garden</h3>
-            <p>This relaxing diamond painting kit comes with everything needed to create a stunning mosaic portrait — pre-printed canvas, 40+ color diamond drills, a wax pen, and a tray for organizing your gems. The finished piece measures a generous 30×40 cm and comes with a self-adhesive frame-ready backing.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Complete kit — no extras needed</li>
-              <li>Stress-relieving, meditative activity</li>
-              <li>Beautiful wall art when finished</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=diamond+painting+kit+butterfly&tag=youraffid-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
+      <div class="card" id="knit-kit" data-cat="kits">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/48ATDMC" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kit And Bundles/Coopay Crochet Kit.png" alt="Coopay Crochet Kit for Beginners" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kits &amp; Bundles</span>
+            <span class="card-stars">★★★★★</span>
           </div>
+          <h3>Coopay Crochet Kit for Beginners — Blanket &amp; Granny Squares</h3>
+          <p>Everything you need to start crocheting! This beginner-friendly crochet starter kit includes all supplies for making blankets and granny squares, plus video instructions to guide you every step of the way. Perfect for first-time crafters!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Includes video instructions — easy to follow</li>
+            <li>Perfect for blankets &amp; granny squares</li>
+            <li>Complete starter kit — great gift for beginners</li>
+          </ul>
+          <a href="https://amzn.to/48ATDMC" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="mont-marte-kit" data-cat="kits">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4vm2mw8" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kit And Bundles/Mont Marte Acrylic Paint Kit.png" alt="Mont Marte Acrylic Paint Set 24pc" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kits &amp; Bundles</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Mont Marte Acrylic Paint Set Signature 24pc (36ml each)</h3>
+          <p>24 rich acrylic colors in generous 36ml tubes — ideal for canvas, wood, air-dried clay, cardboard and more! A great beginner acrylic paint set with vibrant, highly pigmented colors that blend beautifully for any art project.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>24 colors in large 36ml tubes — great value</li>
+            <li>Works on canvas, wood, clay &amp; cardboard</li>
+            <li>Perfect beginner set — highly pigmented</li>
+          </ul>
+          <a href="https://amzn.to/4vm2mw8" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="calligraphy-kit" data-cat="kits">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4sYij9Z" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kit And Bundles/Tombow brush pen.png" alt="Tombow Fudenosuke Brush Pen 2-Pack" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kits &amp; Bundles</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Tombow Fudenosuke Brush Pen 2-Pack — Soft &amp; Hard Tip</h3>
+          <p>The beloved Tombow Fudenosuke pens — soft and hard tip in one pack! Perfect for calligraphy, hand lettering and art drawings. These flexible brush pens give beautiful line variation for stunning lettering projects and journaling.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Soft &amp; hard tip — 2 pens in one pack</li>
+            <li>Perfect for calligraphy &amp; hand lettering</li>
+            <li>Great for art drawings &amp; bullet journaling</li>
+          </ul>
+          <a href="https://amzn.to/4sYij9Z" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="scrapbooking-kit" data-cat="kits">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/3QbxgHj" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kit And Bundles/348 Pcs Scrapbooking.png" alt="348 Pcs Scrapbooking Supplies Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kits &amp; Bundles</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>348 Pcs Scrapbooking Supplies Kit — Vintage Aesthetic Junk Journal</h3>
+          <p>A gorgeous vintage aesthetic scrapbook kit with 348 pieces including an A6 grid notebook, stationery and DIY journaling supplies. Perfect birthday craft gift for teen girls, kids and women who love bullet journaling and creative expression.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>348 pieces — includes A6 grid notebook</li>
+            <li>Vintage aesthetic — perfect for junk journaling</li>
+            <li>Great birthday gift for teen girls &amp; women</li>
+          </ul>
+          <a href="https://amzn.to/3QbxgHj" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="resin-art-kit" data-cat="kits">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4mhuX1v" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kit And Bundles/Hey Clear Epoxy Resin Kit.png" alt="HeyClear Epoxy Resin Kit with Molds" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kits &amp; Bundles</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>HeyClear Epoxy Resin Kit with Molds — 18oz Super Clear for Beginners</h3>
+          <p>A complete craft supplies set for beginners! 18oz of super clear, hard epoxy resin with molds — perfect for casting arts, crafts, jewelry making and DIY gifts. Everything included to start creating beautiful resin pieces right away.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>18oz super clear &amp; hard resin — no yellowing</li>
+            <li>Includes molds — perfect for beginners</li>
+            <li>Great for jewelry, casting &amp; DIY gifts</li>
+          </ul>
+          <a href="https://amzn.to/4mhuX1v" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="cat-divider">
+
+  <!-- ══════════════════════════════
+       CATEGORY 4 — EASTER BUNNY CRAFTS
+  ══════════════════════════════ -->
+  <section class="category-section" id="easter-crafts" data-category="easter">
+    <div class="section-header">
+      <div class="section-tag">🐣 Seasonal Special</div>
+      <h2>🐰 Easter Bunny Crafts</h2>
+      <p>Hop into creativity with these fun Easter craft picks — perfect for kids & families!</p>
+    </div>
+    <div class="grid">
+
+      <!-- Easter Product 1 -->
+      <div class="card" id="julbear-foam-stickers" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/4sY63Gt" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/JULBEAR 36 Sets Easter Crafts.png" alt="JULBEAR 36 Sets Easter Crafts" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>JULBEAR 36 Sets Easter Foam Stickers DIY Bookmarks Kit</h3>
+          <p>This JULBEAR 36-set Easter craft kit includes spring foam stickers, DIY bookmarks, rhinestones and self-adhesive materials — perfect for classroom activities, party favours and Easter decorations. Kids love creating their own unique Easter ornaments with this all-inclusive art project set that's ideal for school parties and family celebrations.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>36 sets — perfect for classroom & parties</li>
+            <li>Includes rhinestones & self-adhesive foam stickers</li>
+            <li>Great Easter party favour & activity set</li>
+          </ul>
+          <a href="https://amzn.to/4sY63Gt" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 2 -->
+      <div class="card" id="joyin-egg-spinner" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/4mhOUFj" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/JOYIN Motorized Easter Egg Decorator Kit,.png" alt="JOYIN Motorized Easter Egg Decorator Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>JOYIN Motorized Easter Egg Decorator Kit — Egg Spinner Whirler Machine</h3>
+          <p>This incredible JOYIN motorized Easter egg decorating machine spins eggs automatically while kids draw with the included non-toxic markers — creating stunning swirl patterns effortlessly! The kit includes 10 non-toxic markers and is perfect for kids craft activities, making Easter egg decorating faster, easier and way more fun than ever before.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Motorized spinner creates stunning swirl patterns</li>
+            <li>Includes 10 non-toxic markers for kids</li>
+            <li>Perfect Easter craft activity for the whole family</li>
+          </ul>
+          <a href="https://amzn.to/4mhOUFj" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 3 -->
+      <div class="card" id="roundfunny-ceramic-bunny" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/4mj9tBn" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/RoundFunny 12 Pcs Easter Ceramic Painting Kit Ready to Paint.png" alt="RoundFunny 12 Pcs Easter Ceramic Painting Kit Ready to Paint" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>RoundFunny 12 Pcs Easter Ceramic Painting Kit — 3D Hanging Bunny Ornaments</h3>
+          <p>This RoundFunny 12-piece Easter ceramic painting kit includes ready-to-paint 3D hanging bunny statues — perfect for Easter basket stuffers, party favours and DIY home décor. Each bunny ornament is beautifully detailed and comes ready to personalise with paints, making it a wonderful Easter art project for kids and families alike.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>12 pieces — great value bulk set</li>
+            <li>3D hanging bunny ornaments — beautiful décor</li>
+            <li>Perfect Easter basket stuffer & party favour</li>
+          </ul>
+          <a href="https://amzn.to/4mj9tBn" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 4 -->
+      <div class="card" id="easter-wreath-kit" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/48krgSO" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/12 Sets Easter Wreath Decorations DIY Foam Easter Wreath Signs .png" alt="12 Sets Easter Wreath Decorations DIY Foam Easter Wreath Signs" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★☆</span>
+          </div>
+          <h3>12 Sets Easter Wreath DIY Foam Craft Kit — Eggs, Bunny &amp; Chick Decorations</h3>
+          <p>This 12-set Easter wreath craft kit includes DIY foam wreath signs, Easter egg, bunny and chick foam stickers, pom-poms and googly eyes — everything needed for a fun Easter art project! Perfect for kids party favours, classroom activities and home decorations, this complete set makes Easter crafting easy and enjoyable for all ages.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>12 sets — perfect for classrooms & parties</li>
+            <li>Includes pom-poms, googly eyes & foam stickers</li>
+            <li>Easter eggs, bunny & chick designs included</li>
+          </ul>
+          <a href="https://amzn.to/48krgSO" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 5 -->
+      <div class="card" id="easter-bunny-plush" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/3Q0uFzU" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/easter-bunny-plush.png" alt="KRAFUN Sewing Kit for Kids Beginner — Bunny Doll Stuffed Animal" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>KRAFUN Sewing Kit for Kids Beginner — Bunny Doll Stuffed Animal</h3>
+          <p>A perfect learn-to-sew kit for kids ages 7-12! Includes a cute bunny doll stuffed animal, plush felt materials, instructions and everything needed to learn sewing and embroidery. A wonderful creative gift for girls!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Learn to sew & embroider — perfect for beginners</li>
+            <li>Includes adorable bunny stuffed animal</li>
+            <li>Great gift for kids ages 7–12</li>
+          </ul>
+          <a href="https://amzn.to/3Q0uFzU" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 6 -->
+      <div class="card" id="xuhal-diamond-magnets" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/48iet3i" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/xuhal-diamond-magnet.png" alt="Xuhal 30 Pcs Easter Diamond Painting Magnets" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Xuhal 30 Pcs Easter Diamond Painting Magnets — Bunny Flower &amp; Animal Fridge Stickers</h3>
+          <p>This Xuhal 30-piece Easter diamond painting magnets kit lets you create stunning 5D rhinestone fridge stickers featuring bunnies, flowers, chickens and animals. Perfect for adults and kids alike, each magnetic sticker is beautifully detailed with sparkling rhinestones — making gorgeous Easter gifts, fridge decorations and DIY craft projects.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>30 pieces — incredible value set</li>
+            <li>5D rhinestone magnets — stunning sparkle effect</li>
+            <li>Perfect Easter gift & fridge decoration</li>
+          </ul>
+          <a href="https://amzn.to/48iet3i" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 7 — NEW TRENDING -->
+      <div class="card" id="easter-slime-kit" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/47QFN8D" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/Mini Galaxy-Slime Kit .png" alt="Mini Galaxy Slime Kit for Girls 6-12" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Mini Galaxy Slime Kit for Girls 6-12 — Glimmer, Crunchy, Foam & Butter Slime</h3>
+          <p>4 types of slime in one kit — glimmer, crunchy, foam and butter slime! Perfect stress relief toy, party favor and Easter basket stuffer for girls ages 6-12. Great Christmas and Easter gift idea!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>4 slime types — glimmer, crunchy, foam & butter</li>
+            <li>Perfect Easter basket stuffer for girls 6-12</li>
+            <li>Great party favor & stress relief toy</li>
+          </ul>
+          <a href="https://amzn.to/47QFN8D" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 8 — NEW TRENDING -->
+      <div class="card" id="sensory-bin-kit" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/4cu2su5" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/Creativity for Kids Sensory Pack Farm, Sensory Toys for Toddlers (1).png" alt="Creativity for Kids Sensory Pack Farm — Toddler Sensory Toys" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Creativity for Kids Sensory Pack: Farm — Toddler Sensory Toys & Easter Basket Stuffers</h3>
+          <p>A fun farm-themed sensory pack for toddlers ages 3+! Includes pretend play farm animals for imaginative play. Perfect toddler travel toy and Easter basket stuffer. Develops sensory skills through creative play!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Farm-themed sensory play for toddlers 3+</li>
+            <li>Includes pretend play farm animals</li>
+            <li>Perfect Easter basket stuffer & travel toy</li>
+          </ul>
+          <a href="https://amzn.to/4cu2su5" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 9 — NEW TRENDING -->
+      <div class="card" id="suncatcher-kit" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/4cc7av9" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/24 Sets Easter Eggs Suncatchers Craft.png" alt="24 Sets Easter Eggs Suncatchers Craft" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>24 Sets Easter Eggs Suncatchers Craft — DIY Religious Easter Wooden Egg Decorations</h3>
+          <p>24 DIY religious Easter wooden egg suncatcher kits — perfect for Christian Sunday school activities, spring classroom projects and party favors! A meaningful and creative Easter craft for kids and families.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>24 sets — great for classrooms & Sunday school</li>
+            <li>Religious Easter theme — meaningful craft activity</li>
+            <li>Perfect spring party favors & decorations</li>
+          </ul>
+          <a href="https://amzn.to/4cc7av9" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 10 — NEW TRENDING -->
+      <div class="card" id="easter-gnome-kit" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/3PWSxEE" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/Arrowbash 6 Pcs Easter Ceramics to Draw Ready to Paint Your Own Gnome.png" alt="Arrowbash 6 Pcs Easter Ceramics to Paint — Gnome, Egg & Rabbit Figurines DIY Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Arrowbash 6 Pcs Easter Ceramics to Paint — Gnome, Egg & Rabbit Figurines DIY Kit</h3>
+          <p>6 ready-to-paint Easter ceramic figurines — gnomes, eggs and rabbits! Includes brush and palette. A fun DIY white plaster crafts kit perfect for Easter decorating, family activities and creative gifting.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>6 ceramic figurines — gnome, egg & rabbit designs</li>
+            <li>Includes brush & palette — ready to paint</li>
+            <li>Fun family Easter activity & decoration</li>
+          </ul>
+          <a href="https://amzn.to/3PWSxEE" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 11 — NEW TRENDING -->
+      <div class="card" id="rock-painting-kit" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/4t2n56B" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/Rock Painting Kit.png" alt="Rock Painting Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Glow in the Dark Rock Painting Kit — Arts & Crafts for Kids Ages 6-12</h3>
+          <p>This amazing rock painting kit glows in the dark! Perfect for kids aged 6–12, it includes smooth rocks, metallic and glow-in-the-dark paints, brushes, and art supplies to spark creativity. A fantastic birthday party gift or activity for boys and girls who love arts and crafts.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Glow in the dark + metallic paints included</li>
+            <li>Great birthday party gift for ages 6–12</li>
+            <li>Boosts creativity with rock art projects</li>
+          </ul>
+          <a href="https://amzn.to/4t2n56B" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 12 — NEW TRENDING -->
+      <div class="card" id="candle-mold-kit" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/3PUBBi8" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/MGLIFEUL Easter Egg Mold Silicone Candle Resin Wax Mold for Candles .png" alt="MGLIFEUL Easter Egg Mold Silicone Candle Resin Wax Mold for Candles" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Easter Egg Silicone Mold for Candle & Resin Making</h3>
+          <p>This versatile Easter egg silicone mold is perfect for candle making, resin casting, soy wax, and more! Flexible and easy to unmold, it creates beautiful Easter egg shapes ideal for handmade gifts, decorations, and craft projects. A must-have for candle and resin art lovers this Easter season.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Works for candles, resin, soy wax & more</li>
+            <li>Flexible silicone — easy to unmold</li>
+            <li>Perfect for Easter gifts & decorations</li>
+          </ul>
+          <a href="https://amzn.to/3PUBBi8" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 13 — Hanging Bunny Ornaments -->
+      <div class="card" id="bunny-ornaments" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/3PXsD3K" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/Easter Hanging Bunny Ornaments.png" alt="Easter Hanging Bunny Ornaments" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Easter Hanging Bunny Ornaments — Set of 10 Colorful Plush Bunny Gnomes</h3>
+          <p>This delightful set of 10 colorful plush bunny gnome ornaments are perfect for Easter tree decorations, wreaths and home décor. Each bunny features adorable gnome-style details in bright spring colors — making them a charming and unique Easter decoration that kids and adults absolutely love hanging around the home.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Set of 10 colorful plush bunny gnomes</li>
+            <li>Perfect Easter tree & wreath decorations</li>
+            <li>Adorable spring home décor accent</li>
+          </ul>
+          <a href="https://amzn.to/3PXsD3K" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 14 — Fun Express Plush Bunnies -->
+      <div class="card" id="fun-express-bunnies" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/41ZMYYA" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/Fun Express Plush Hugging Easter.png" alt="Fun Express Plush Hugging Easter Bunnies" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Fun Express Plush Hugging Easter Bunnies — 12 Pieces</h3>
+          <p>These adorable Fun Express plush hugging Easter bunnies come in a pack of 12 — perfect for Easter basket stuffers, classroom party favours, egg hunt prizes and Easter gifts for kids. Each soft plush bunny is beautifully made and irresistibly cute, making them a favourite Easter treat for children of all ages.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>12 pieces — great value bulk pack</li>
+            <li>Perfect Easter basket stuffers & party favours</li>
+            <li>Soft plush — kids absolutely love them</li>
+          </ul>
+          <a href="https://amzn.to/41ZMYYA" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 14 — Moved from Kids -->
+      <div class="card" id="playdoh-eggs" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/41nh8Vx" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/PlayDoh-Eggs.png" alt="Play-Doh Eggs" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Play-Doh Eggs 24-Pack — Dinosaur &amp; Dragon Egg Hunt</h3>
+          <p>This Amazon Exclusive Play-Doh set includes 24 colourful dinosaur and dragon egg-shaped tubs of modelling compound — perfect for Easter egg hunts, birthday party favours, and Easter basket stuffers! Kids aged 2 and up love cracking open each egg to discover a surprise colour inside, then using the soft, non-toxic Play-Doh to create their own dinosaur and dragon masterpieces.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>24 egg-shaped Play-Doh tubs — great value</li>
+            <li>Perfect Easter basket stuffer for toddlers</li>
+            <li>Amazon Exclusive dinosaur &amp; dragon theme</li>
+          </ul>
+          <a href="https://amzn.to/41nh8Vx" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 14 — Moved from Kids -->
+      <div class="card" id="squishy-painting-kit" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/4tCLEa1" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/Dan&Darci Easter Egg Squishy Painting Kit.png" alt="Dan&amp;Darci Easter Egg Squishy Painting Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Dan&amp;Darci Easter Egg Squishy Painting Kit</h3>
+          <p>This awesome Easter craft kit by Dan&amp;Darci lets kids decorate 6 slow-rising squishy Easter eggs with vibrant paints — combining the satisfying squeezy fun of squishies with a creative painting activity. Perfect for boys and girls aged 6-10, it makes a fantastic Easter gift and a screen-free activity that keeps kids entertained for hours!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Decorate 6 slow-rising Easter egg squishies</li>
+            <li>Perfect gift for kids aged 6-10</li>
+            <li>Fun screen-free Easter activity</li>
+          </ul>
+          <a href="https://amzn.to/4tCLEa1" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 15 — Moved from Handcrafted -->
+      <div class="card" id="bunny-basket-bag" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/4t2cdpi" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/Easter Bunny Basket Bag for Kids, Canvas Cotton Egg Hunt Tote with Rabbit Print.png" alt="Easter Bunny Basket Bag for Kids, Canvas Cotton Egg Hunt Tote with Rabbit Print" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Easter Bunny Basket Bag for Kids — Canvas Cotton Egg Hunt Tote</h3>
+          <p>This adorable Easter bunny basket bag is made from soft canvas cotton with a charming rabbit print design — perfect for egg hunts, candy collecting, and Easter gifting. Lightweight and fully reusable year after year, it comes in multiple colours to suit every child. A wonderful Easter gift for boys and girls that families treasure every Easter season.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Soft canvas cotton with cute rabbit print</li>
+            <li>Lightweight &amp; reusable — great value</li>
+            <li>Available in multiple colours for kids</li>
+          </ul>
+          <a href="https://amzn.to/4t2cdpi" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 17 — Move2Play Easter Egg Toss Game -->
+      <div class="card" id="egg-toss-game" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(144,238,144,0.2))"></div><a href="https://amzn.to/4t25YSv" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/Move2Play, Easter Egg Toss Kids Game.png" alt="Move2Play Easter Egg Toss Kids Game" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Move2Play Easter Egg Toss Kids Game — Indoor & Outdoor Fun</h3>
+          <p>The Move2Play Easter Egg Toss Game is a hilarious and active Easter game perfect for toddlers, boys, and girls ages 3-8+! Great as an Easter basket stuffer or gift, this fun indoor/outdoor game gets kids moving and laughing together. A perfect Easter toy that the whole family can enjoy!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Hilarious indoor & outdoor Easter egg toss game</li>
+            <li>Perfect Easter basket stuffer for ages 3-8+</li>
+            <li>Fun for toddlers, boys & girls</li>
+          </ul>
+          <a href="https://amzn.to/4t25YSv" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product 16 — EggMazing Decorator Kit -->
+      <div class="card" id="eggmazing-kit" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(255,182,193,0.2),rgba(255,255,153,0.2))"></div><a href="https://amzn.to/4vjKq5c" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/EggMazing Easter Egg Mini Decorator Kit Arts and Crafts Set.png" alt="EggMazing Easter Egg Mini Decorator Kit Arts and Crafts Set" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>EggMazing Easter Egg Mini Decorator Kit — Spinner + 6 Markers</h3>
+          <p>The EggMazing Egg Decorator Kit makes decorating Easter eggs incredibly fun and mess-free! Simply place a real egg on the spinning stand, hold a marker to it, and watch beautiful swirling patterns appear in seconds. Includes 6 vibrant markers — perfect for kids ages 3 and up and the whole family to enjoy together!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Spinning egg decorator — no mess, no dye</li>
+            <li>Includes 6 colorful markers</li>
+            <li>Fun for kids ages 3+ and the whole family</li>
+          </ul>
+          <a href="https://amzn.to/4vjKq5c" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Easter Product — GirlZone Unicorn Sand Art Kit -->
+      <div class="card" id="girlzone-sand-art" data-cat="easter">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(216,180,254,0.2),rgba(252,211,77,0.2))"></div><a href="https://amzn.to/3O3utzn" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Easter Crafts/GirlZone Unicorn Sensory Bin Kingdom Sand Art Kit, 2lbs Moldable Colored Sand,.png" alt="GirlZone Unicorn Sensory Bin Kingdom Sand Art Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#ec4899;background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.2);">Easter Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>GirlZone Unicorn Sensory Bin Kingdom Sand Art Kit — 2lbs Moldable Colored Sand</h3>
+          <p>Unleash your little girl's imagination with this magical Unicorn Kingdom Sand Art Kit! Comes with 2lbs of moldable rainbow colored sand, 7 fun tools, and everything needed for hours of sensory play and creative fun. A perfect birthday, holiday, or Easter gift for girls!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>2lbs of moldable rainbow colored sand</li>
+            <li>Includes 7 fun tools for creative play</li>
+            <li>Perfect Easter & birthday gift for girls</li>
+          </ul>
+          <a href="https://amzn.to/3O3utzn" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       CATEGORY 5 — KIDS CRAFTS
+  ══════════════════════════════ -->
+  <section class="category-section" id="kids-crafts" data-category="kids">
+    <div class="section-header">
+      <div class="section-tag">Category 5</div>
+      <h2>🧒 Kids Crafts</h2>
+      <p>Fun & creative craft supplies perfect for kids of all ages!</p>
+    </div>
+    <div class="grid">
+
+      <div class="card" id="crayola-art-case" data-cat="kids">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(34,197,94,0.2),rgba(134,239,172,0.2))"></div><a href="https://amzn.to/4srm4Uy" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kids Crafts/Crayola Inspiration Art Case Space Coloring Set (140pcs).png" alt="Crayola Inspiration Art Case 140pcs" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#22c55e;background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.2);">Kids Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Crayola Inspiration Art Case Space Coloring Set — 140pcs Easter Basket Gift</h3>
+          <p>The ultimate Easter basket stuffer for kids! 140 pieces including crayons, markers, pencils and more — all in a handy carry case. A perfect Amazon Exclusive art kit for kids ages 5+ that sparks creativity and imagination!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>140 pieces — crayons, markers &amp; pencils</li>
+            <li>Perfect Easter basket stuffer for kids 5+</li>
+            <li>Trusted Crayola quality — non-toxic &amp; safe</li>
+          </ul>
+          <a href="https://amzn.to/4srm4Uy" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="melissa-doug-easel" data-cat="kids">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(34,197,94,0.2),rgba(134,239,172,0.2))"></div><a href="https://amzn.to/4mgd2rM" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kids Crafts/Melissa & Doug Deluxe Double-Sided Tabletop Easel, Arts & Crafts, 42 Pieces,.png" alt="Melissa & Doug Deluxe Tabletop Easel 42 Pieces" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#22c55e;background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.2);">Kids Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Melissa &amp; Doug Deluxe Double-Sided Tabletop Easel — 42 Pieces</h3>
+          <p>A deluxe double-sided tabletop easel with 42 art pieces — perfect for girls and boys ages 3 and up! Sturdy, portable and packed with everything kids need to create. A wonderful gift that encourages creativity and fine motor skills.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>42 pieces — complete art set included</li>
+            <li>Double-sided easel — chalk &amp; dry-erase</li>
+            <li>Great gift for girls &amp; boys ages 3+</li>
+          </ul>
+          <a href="https://amzn.to/4mgd2rM" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="faber-do-art" data-cat="kids">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(34,197,94,0.2),rgba(134,239,172,0.2))"></div><a href="https://amzn.to/4eadaXN" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kids Crafts/Faber-Castell Young Artist Learn to Watercolor - Watercolor Paint Set for Kids Ages 5+, Kid-friendly and Washable Watercolor Paint.png" alt="Faber-Castell Young Artist Watercolor Paint Set" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#22c55e;background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.2);">Kids Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Faber-Castell Young Artist Learn to Watercolor — Kids Paint Set Ages 5+</h3>
+          <p>A kid-friendly and washable watercolor paint set designed for young artists ages 5+! Easy to use, vibrant colors and completely washable — parents love it too! A great introduction to painting for beginners.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Washable &amp; kid-friendly formula</li>
+            <li>Vibrant colors — perfect for ages 5+</li>
+            <li>Premium Faber-Castell quality</li>
+          </ul>
+          <a href="https://amzn.to/4eadaXN" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="alex-paper-craft" data-cat="kids">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(34,197,94,0.2),rgba(134,239,172,0.2))"></div><a href="https://amzn.to/41Tvmh5" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kids Crafts/Alex Little Hands Paper Plate Bugs Kids Toddler Art and Craft Activity.png" alt="Alex Little Hands Paper Plate Bugs Craft Activity" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#22c55e;background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.2);">Kids Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Alex Little Hands Paper Plate Bugs — Toddler Art &amp; Craft Activity</h3>
+          <p>A super fun paper plate bug craft activity for toddlers! Kids create adorable bugs using paper plates — builds fine motor skills and creativity through hands-on play. A perfect screen-free toddler activity that parents love!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Fun bug-themed paper plate crafts</li>
+            <li>Builds fine motor skills in toddlers</li>
+            <li>Perfect screen-free activity for little hands</li>
+          </ul>
+          <a href="https://amzn.to/41Tvmh5" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="friendship-bracelet-kit" data-cat="kids">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(34,197,94,0.2),rgba(134,239,172,0.2))"></div><a href="https://amzn.to/3OeglmW" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kids Crafts/Creativity for Kids Best Friends Bracelets Mini Craft Kit Create 10 Friendship Bracelets - Bracelet Making Kit, Great Easter Basket Stuffers (Ages 6+).png" alt="Creativity for Kids Best Friends Bracelets Mini Craft Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#22c55e;background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.2);">Kids Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Creativity for Kids Best Friends Bracelets — Make 10 Friendship Bracelets</h3>
+          <p>Create 10 beautiful friendship bracelets with this mini craft kit! A great Easter basket stuffer for kids ages 6+. Everything included — fun, creative and perfect for sharing with best friends!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Makes 10 friendship bracelets — great value</li>
+            <li>Perfect Easter basket stuffer ages 6+</li>
+            <li>Fun activity to share with best friends</li>
+          </ul>
+          <a href="https://amzn.to/3OeglmW" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Kids Product 8 — Play-Doh Eggs 24-Pack -->
+
+      <div class="card" id="pompom-kit" data-cat="kids">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(34,197,94,0.2),rgba(134,239,172,0.2))"></div><a href="https://amzn.to/4t3WW7s" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kids Crafts/Educational Insights Pom Pom Kit Animal Dress Up - Arts and Crafts for Kids 4-6, DIY Arts & Crafts Kits, Kids No Mess Activities, Preschool and Kindergarten Crafting Set, Toddler Craft Supplies.png" alt="Educational Insights Pom Pom Kit Animal Dress Up" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#22c55e;background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.2);">Kids Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Educational Insights Pom Pom Kit — Animal Dress Up Arts &amp; Crafts for Kids 4-6</h3>
+          <p>A fun no-mess DIY craft kit for kids ages 4-6! Dress up adorable animals with colorful pom poms — perfect for preschool and kindergarten. Keeps toddlers creatively busy with hands-on crafting fun!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Animal dress-up pom pom craft — kids love it</li>
+            <li>No mess — perfect for ages 4-6</li>
+            <li>Great for preschool &amp; kindergarten</li>
+          </ul>
+          <a href="https://amzn.to/4t3WW7s" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+      <div class="card" id="charm-bracelet-kit" data-cat="kids">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(34,197,94,0.2),rgba(134,239,172,0.2))"></div><a href="https://amzn.to/4cfd5j9" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/Kids Crafts/COO&KOO Girls Charm Bracelet Making Kit Crafts for Girl 8-12 A Perfect Gifts Unicorn Toy Girls for Ages 6 7 8 9 10 Girl Jewelry Making Kit That Imagination Self-Expression and Inspires Creativity (1).png" alt="COO&KOO Girls Charm Bracelet Making Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Kids Crafts</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>COO&KOO Girls Charm Bracelet Making Kit</h3>
+          <p>Let girls ages 6-12 design their own beautiful unicorn charm bracelets! Inspires creativity & self-expression — perfect birthday, Easter & holiday gift!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>💎 Unicorn themed charms included</li>
+            <li>✨ Inspires creativity & self-expression</li>
+            <li>🎁 Perfect gift for girls ages 6-12</li>
+          </ul>
+          <a href="https://amzn.to/4cfd5j9" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       CATEGORY 6 — DRAWING & SKETCHING
+  ══════════════════════════════ -->
+  <section class="category-section" id="drawing-sketching" data-category="drawing">
+    <div class="section-header">
+      <div class="section-tag">Category 6</div>
+      <h2>✏️ Drawing & Sketching</h2>
+      <p>Professional drawing tools for artists of every skill level!</p>
+    </div>
+    <div class="grid">
+
+      <!-- Drawing Product 1 -->
+      <div class="card" id="arteza-drawing-pencils" data-cat="drawing">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(99,102,241,0.2),rgba(165,180,252,0.2))"></div><span class="card-top-emoji">✏️</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#6366f1;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2);">Drawing & Sketching</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Arteza Professional Drawing Pencils Set — 33 Pieces</h3>
+          <p>This Arteza professional drawing set includes 33 essential drawing tools — graphite pencils from 6H to 8B, charcoal sticks, blending stumps, and a kneaded eraser — all housed in a premium zip case. It covers every drawing technique from light sketching to deep dramatic shadows, making it perfect for beginners and professionals alike.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>33 pieces covering all drawing techniques</li>
+            <li>Premium zip carry case included</li>
+            <li>Smooth consistent lead — no skipping</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=arteza+professional+drawing+pencils+set+33+piece&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Drawing Product 2 -->
+      <div class="card" id="strathmore-sketch-pad" data-cat="drawing">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(99,102,241,0.2),rgba(165,180,252,0.2))"></div><span class="card-top-emoji">🗒️</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#6366f1;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2);">Drawing & Sketching</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Strathmore 400 Series Sketch Pad — 100 Sheets</h3>
+          <p>Strathmore's 400 Series Sketch Pad is a firm favourite among professional artists and students, featuring 100 sheets of medium-surface paper that works beautifully with pencil, charcoal, and marker. The micro-perforated pages tear out cleanly, and the sturdy back board provides a solid drawing surface anywhere.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>100 sheets of premium medium-surface paper</li>
+            <li>Micro-perforated for clean tear-out pages</li>
+            <li>Works with pencil, charcoal & markers</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=strathmore+400+series+sketch+pad+100+sheets&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Drawing Product 3 -->
+      <div class="card" id="staedtler-pencils" data-cat="drawing">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(99,102,241,0.2),rgba(165,180,252,0.2))"></div><span class="card-top-emoji">📝</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#6366f1;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2);">Drawing & Sketching</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Staedtler Mars Lumograph Drawing Pencils — 12 Pack</h3>
+          <p>Staedtler's Mars Lumograph pencils are legendary among professional artists for their incredibly smooth, consistent graphite that glides effortlessly across paper without tearing or scratching. The break-resistant bonded lead and premium cedar wood casing make these the most reliable sketching pencils available on Amazon.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Legendary smooth graphite quality</li>
+            <li>Break-resistant bonded lead technology</li>
+            <li>Premium cedar wood — easy to sharpen</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=staedtler+mars+lumograph+drawing+pencils+12+pack&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Drawing Product 4 -->
+      <div class="card" id="charcoal-drawing-kit" data-cat="drawing">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(99,102,241,0.2),rgba(165,180,252,0.2))"></div><span class="card-top-emoji">🪨</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#6366f1;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2);">Drawing & Sketching</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>General Pencil Charcoal Drawing Kit — 30 Pieces</h3>
+          <p>General Pencil's charcoal drawing kit is the go-to set for life drawing, portraiture, and expressive sketching — with 30 pieces including charcoal pencils, vine charcoal sticks, compressed charcoal, and blending tools. The range of hard, medium, and soft charcoal gives artists complete tonal control from delicate highlights to bold shadows.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>30 pieces covering all charcoal techniques</li>
+            <li>Hard, medium & soft charcoal included</li>
+            <li>Perfect for portraits & life drawing</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=general+pencil+charcoal+drawing+kit+30+piece&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Drawing Product 5 -->
+      <div class="card" id="micron-fineliner" data-cat="drawing">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(99,102,241,0.2),rgba(165,180,252,0.2))"></div><span class="card-top-emoji">🖋️</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#6366f1;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2);">Drawing & Sketching</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Micron Pigma Fineliner Pen Set — 8 Sizes</h3>
+          <p>Sakura Micron Pigma fineliners are the industry standard for ink drawing, illustration, and comic art — used by professional illustrators worldwide for their ultra-precise lines and fade-proof archival ink. This 8-pen set covers every line weight from ultra-fine 0.20mm to bold 0.80mm, perfect for detailed technical drawings and expressive illustrations.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Archival pigment ink — waterproof & fade-proof</li>
+            <li>8 nib sizes for every line weight</li>
+            <li>Industry standard for illustrators worldwide</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=sakura+micron+pigma+fineliner+pen+set+8&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Drawing Product 6 -->
+      <div class="card" id="artify-drawing-kit" data-cat="drawing">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(99,102,241,0.2),rgba(165,180,252,0.2))"></div><span class="card-top-emoji">🎒</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#6366f1;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2);">Drawing & Sketching</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Artify Complete Drawing & Sketching Kit — 52 Pieces</h3>
+          <p>The Artify 52-piece complete drawing kit has everything an artist needs to master sketching from day one — graphite pencils, charcoal sticks, pastel pencils, blending stumps, erasers, and a sharpener all in a professional zippered canvas case. It's the most comprehensive beginner drawing kit available on Amazon at this price point.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>52 pieces — the most complete kit available</li>
+            <li>Includes pastels, charcoal & graphite</li>
+            <li>Professional canvas carry case included</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=artify+complete+drawing+sketching+kit+52+piece&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       CATEGORY 7 — HANDCRAFTED
+  ══════════════════════════════ -->
+  <section class="category-section" id="handcrafted" data-category="handcrafted">
+    <div class="section-header">
+      <div class="section-tag">Category 7</div>
+      <h2>🧺 Handcrafted</h2>
+      <p>Beautiful handmade items & kits to create your own unique crafts!</p>
+    </div>
+    <div class="grid">
+
+
+      <!-- Handcrafted Product 2 — Macrame Wall Hanging -->
+      <div class="card" id="macrame-kit" data-cat="handcrafted">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(217,119,6,0.2),rgba(252,211,77,0.2))"></div><span class="card-top-emoji">🪢</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#d97706;background:rgba(217,119,6,0.1);border-color:rgba(217,119,6,0.2);">Handcrafted</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Macrame Wall Hanging Kit — Beginner Friendly</h3>
+          <p>This complete macrame kit includes 100% natural cotton rope, a wooden dowel, step-by-step pattern cards, and scissors — everything needed to create a stunning boho wall hanging. It's one of the most popular handcraft trends of 2026, loved by beginners and experienced crafters alike for its relaxing, meditative process.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>100% natural cotton rope included</li>
+            <li>Step-by-step beginner pattern cards</li>
+            <li>Beautiful boho home décor result</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=macrame+wall+hanging+kit+beginner+cotton+rope&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Handcrafted Product 3 — Hand Embroidery Kit -->
+      <div class="card" id="embroidery-kit" data-cat="handcrafted">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(217,119,6,0.2),rgba(252,211,77,0.2))"></div><span class="card-top-emoji">🪡</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#d97706;background:rgba(217,119,6,0.1);border-color:rgba(217,119,6,0.2);">Handcrafted</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Hand Embroidery Starter Kit — Floral Design</h3>
+          <p>This beautiful hand embroidery kit includes a pre-printed floral hoop design on premium cotton fabric, colourful embroidery floss in 20 shades, two needles, a bamboo hoop, and detailed stitch instructions. The finished embroidery hoop makes a gorgeous handmade wall decoration or a thoughtful personalised gift.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Pre-printed design — easy to follow</li>
+            <li>20 colourful embroidery floss shades</li>
+            <li>Beautiful framed wall art when finished</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=hand+embroidery+starter+kit+floral+hoop&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Handcrafted Product 4 — Crochet Starter Kit -->
+      <div class="card" id="crochet-kit" data-cat="handcrafted">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(217,119,6,0.2),rgba(252,211,77,0.2))"></div><span class="card-top-emoji">🧶</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#d97706;background:rgba(217,119,6,0.1);border-color:rgba(217,119,6,0.2);">Handcrafted</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Crochet Starter Kit — Learn to Crochet Set</h3>
+          <p>This bestselling crochet starter kit includes 9 ergonomic hooks in all essential sizes, premium yarn in 6 colours, stitch markers, a tapestry needle, and a beginner's guide with 10 easy projects. It's the #1 rated crochet kit for beginners on Amazon — perfect for learning this relaxing and rewarding handcraft skill.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>9 ergonomic crochet hooks included</li>
+            <li>Yarn in 6 colours + 10 beginner projects</li>
+            <li>#1 rated beginner crochet kit on Amazon</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=crochet+starter+kit+beginner+hooks+yarn+set&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Handcrafted Product 5 — Felt Flower Making Kit -->
+      <div class="card" id="felt-flower-kit" data-cat="handcrafted">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(217,119,6,0.2),rgba(252,211,77,0.2))"></div><span class="card-top-emoji">🌸</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#d97706;background:rgba(217,119,6,0.1);border-color:rgba(217,119,6,0.2);">Handcrafted</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Felt Flower Making Kit — 60 Piece Bouquet Set</h3>
+          <p>This stunning felt flower kit includes 60 pre-cut felt pieces in 12 pastel colours, wire stems, floral tape, and step-by-step instructions to create 12 beautiful handmade flowers — roses, daisies, and peonies. The finished bouquet never wilts and makes an incredibly beautiful home decoration or heartfelt handmade gift.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>60 pre-cut felt pieces in 12 colours</li>
+            <li>Makes 12 beautiful handmade flowers</li>
+            <li>Everlasting bouquet — never wilts!</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=felt+flower+making+kit+bouquet+handmade&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Handcrafted Product 6 — Resin Art Kit -->
+      <div class="card" id="resin-jewellery-kit" data-cat="handcrafted">
+        <div class="card-top"><div class="card-top-bg" style="background:linear-gradient(135deg,rgba(217,119,6,0.2),rgba(252,211,77,0.2))"></div><span class="card-top-emoji">💎</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#d97706;background:rgba(217,119,6,0.1);border-color:rgba(217,119,6,0.2);">Handcrafted</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Resin Art Starter Kit — Jewellery & Decorations</h3>
+          <p>This complete resin art kit includes crystal-clear epoxy resin, 10 silicone moulds for jewellery and decorations, glitter, dried flowers, pigment powders, mixing cups, and gloves — everything needed to create stunning handmade resin pieces. Resin art is the hottest handcraft trend of 2026, perfect for making unique gifts and home décor.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Crystal-clear epoxy resin included</li>
+            <li>10 silicone moulds for jewellery & décor</li>
+            <li>Hottest handcraft trend of 2026!</li>
+          </ul>
+          <a href="https://www.amazon.com/s?k=resin+art+starter+kit+jewellery+silicone+moulds&tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Check Price on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       CATEGORY 8 — AMAZON HAUL
+  ══════════════════════════════ -->
+  <section class="category-section" id="amazon-haul" data-category="haul">
+    <div class="section-header">
+      <div class="section-tag">Category 08</div>
+      <h2>🛍️ Amazon Haul Deals</h2>
+      <p>Top-rated art &amp; craft picks — all under $20 with fast Amazon delivery!</p>
+    </div>
+
+    <!-- Haul Banner -->
+    <div style="background:linear-gradient(135deg,rgba(255,153,0,0.15),rgba(255,107,53,0.1));border:1px solid rgba(255,153,0,0.3);border-radius:16px;padding:1.5rem 2rem;margin-bottom:2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+      <div style="font-size:2.5rem;">🛍️</div>
+      <div>
+        <div style="font-size:1.1rem;font-weight:700;color:#FF9900;margin-bottom:0.3rem;">What is Amazon Haul?</div>
+        <p style="color:var(--muted);margin:0;font-size:0.9rem;">Amazon Haul is Amazon's budget shopping section — everything under $20 with fast delivery &amp; easy returns. Shop the best art &amp; craft deals below!</p>
+      </div>
+      <a href="https://www.amazon.com/haul?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" style="margin-left:auto;background:#FF9900;color:#000;font-weight:700;padding:0.65rem 1.4rem;border-radius:10px;text-decoration:none;white-space:nowrap;font-size:0.9rem;">Shop All Haul Deals →</a>
+    </div>
+
+    <div class="grid">
+
+      <!-- Haul Product 2 — Acrylic Pour Painting Kit -->
+      <div class="card" id="pour-painting-kit" data-cat="haul">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4fcgcLQ" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/amazon-Haul/Acrylic pour kit.jpg" alt="Acrylic Pour Painting Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#FF9900;background:rgba(255,153,0,0.1);border-color:rgba(255,153,0,0.2);">🛍️ Haul Deal</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Acrylic Pour Painting Kit — Fluid Art for Beginners</h3>
+          <p>Create stunning fluid art masterpieces with this beginner-friendly acrylic pour kit. Includes pre-mixed pouring paints in vivid colours, canvases, a silicone mat, gloves, and step-by-step instructions. One of Pinterest's most viral crafts — and under $19!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Pre-mixed paints — no prep needed</li>
+            <li>Everything included — canvases &amp; tools</li>
+            <li>Viral Pinterest craft with stunning results</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"I was blown away by how beautiful my first pour turned out! Such a fun and relaxing activity."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+            <span style="background:rgba(255,153,0,0.15);color:#FF9900;border:1px solid rgba(255,153,0,0.3);padding:0.25rem 0.75rem;border-radius:99px;font-size:0.78rem;font-weight:700;">Under $20 🛍️</span>
+            <span style="color:var(--muted);font-size:0.85rem;">~$18.99</span>
+          </div>
+          <a href="https://amzn.to/4fcgcLQ" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon Haul</a>
+        </div>
+      </div>
+
+      <!-- Haul Product 3 — HIMI Gouache Paint Set -->
+      <div class="card" id="himi-gouache-set" data-cat="haul">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4uuprMa" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/amazon-Haul/metallic jelly Gouache paint set.jpg" alt="HIMI Metallic Jelly Gouache Paint Set" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#FF9900;background:rgba(255,153,0,0.1);border-color:rgba(255,153,0,0.2);">🛍️ Haul Deal</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>HIMI Metallic Jelly Gouache Paint Set — 12 Colors</h3>
+          <p>HIMI's stunning Metallic Jelly Gouache Paint Set features 12 richly pigmented metallic colours in the iconic jelly cup design — perfect for professionals and beginners alike. Non-toxic, travel-friendly carry case, and works beautifully on canvas and paper. The hottest gouache set of 2026!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>12 metallic colours in jelly cup design</li>
+            <li>Non-toxic — safe for all artists</li>
+            <li>Travel-friendly carry case included</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"The colours are gorgeous and the jelly cup packaging keeps everything fresh. I'm completely obsessed!"</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+            <span style="background:rgba(255,153,0,0.15);color:#FF9900;border:1px solid rgba(255,153,0,0.3);padding:0.25rem 0.75rem;border-radius:99px;font-size:0.78rem;font-weight:700;">Under $20 🛍️</span>
+            <span style="color:var(--muted);font-size:0.85rem;">Check price on Amazon</span>
+          </div>
+          <a href="https://amzn.to/4uuprMa" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon Haul</a>
+        </div>
+      </div>
+
+      <!-- Haul Product 4 — Glow in the Dark Rock Painting Kit -->
+      <div class="card" id="rock-painting-kit" data-cat="haul">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4fG43Pu" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/amazon-Haul/glow in the dark rock painting.jpg" alt="Glow in the Dark Rock Painting Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#FF9900;background:rgba(255,153,0,0.1);border-color:rgba(255,153,0,0.2);">🛍️ Haul Deal</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Glow in the Dark Rock Painting Kit — Kids &amp; Adults</h3>
+          <p>This bestselling rock painting kit includes 10 smooth river rocks, 14 glow-in-the-dark and UV paints, brushes, and a handy storage bag. A fantastic activity for kids aged 6-12 and adults — paint beautiful designs by day and watch them glow at night! Perfect for gift-giving under $15.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>10 smooth river rocks included</li>
+            <li>14 glow-in-the-dark UV paints</li>
+            <li>Perfect for kids aged 6-12 &amp; adults</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"My kids absolutely love this! They painted for hours and were so excited to see them glow at night."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+            <span style="background:rgba(255,153,0,0.15);color:#FF9900;border:1px solid rgba(255,153,0,0.3);padding:0.25rem 0.75rem;border-radius:99px;font-size:0.78rem;font-weight:700;">Under $20 🛍️</span>
+            <span style="color:var(--muted);font-size:0.85rem;">~$14.99</span>
+          </div>
+          <a href="https://amzn.to/4fG43Pu" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon Haul</a>
+        </div>
+      </div>
+
+      <!-- Haul Product 5 — 5D Diamond Painting Kit -->
+      <div class="card" id="diamond-painting-haul" data-cat="haul">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4dTCgsr" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/amazon-Haul/daimand painting kit.jpg" alt="5D Diamond Painting Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#FF9900;background:rgba(255,153,0,0.1);border-color:rgba(255,153,0,0.2);">🛍️ Haul Deal</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>5D Diamond Painting Kit — Full Drill Beginner Set</h3>
+          <p>The most addictive craft on Pinterest! This full-drill 5D diamond painting kit includes a pre-printed canvas, 3500+ sparkling resin diamonds, a diamond pen, wax, and tray — everything needed to create a stunning, sparkling artwork. Incredibly relaxing and deeply satisfying to complete.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Full drill — every inch sparkles!</li>
+            <li>3500+ resin diamonds included</li>
+            <li>Most addictive craft on Pinterest 2026</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"I cannot stop doing these! They are so relaxing and the finished result is absolutely stunning."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+            <span style="background:rgba(255,153,0,0.15);color:#FF9900;border:1px solid rgba(255,153,0,0.3);padding:0.25rem 0.75rem;border-radius:99px;font-size:0.78rem;font-weight:700;">Under $20 🛍️</span>
+            <span style="color:var(--muted);font-size:0.85rem;">~$12.99</span>
+          </div>
+          <a href="https://amzn.to/4dTCgsr" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon Haul</a>
+        </div>
+      </div>
+
+      <!-- Haul Product 5b — Diamond Painting Kit 2 -->
+      <div class="card" id="diamond-painting-haul-2" data-cat="haul">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4wOM2EJ" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/amazon-Haul/daimand painting.jpg" alt="Diamond Painting Kit" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#FF9900;background:rgba(255,153,0,0.1);border-color:rgba(255,153,0,0.2);">🛍️ Haul Deal</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>5D Diamond Painting Kit — Sparkling Art Set</h3>
+          <p>Another stunning diamond painting kit perfect for beginners and experienced crafters! Place hundreds of sparkling resin diamonds onto a pre-printed canvas to create a dazzling piece of art. One of the most relaxing and rewarding crafts available — and a perfect budget gift under $20!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>Sparkling resin diamonds included</li>
+            <li>Pre-printed canvas — easy to follow</li>
+            <li>Perfect relaxing gift under $20</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Such a relaxing and fun activity! The finished result looks absolutely stunning on the wall."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+            <span style="background:rgba(255,153,0,0.15);color:#FF9900;border:1px solid rgba(255,153,0,0.3);padding:0.25rem 0.75rem;border-radius:99px;font-size:0.78rem;font-weight:700;">Under $20 🛍️</span>
+            <span style="color:var(--muted);font-size:0.85rem;">Check price on Amazon</span>
+          </div>
+          <a href="https://amzn.to/4wOM2EJ" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon Haul</a>
+        </div>
+      </div>
+
+      <!-- Haul Product 7 — Calligraphy Brush Pens -->
+      <div class="card" id="calligraphy-brush-pens" data-cat="haul">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4xo790R" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/amazon-Haul/Watercolor Brush Pens.jpg" alt="36 Dual Brush Markers for Adult Coloring Books" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#FF9900;background:rgba(255,153,0,0.1);border-color:rgba(255,153,0,0.2);">🛍️ Haul Deal</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>36 Dual Brush Markers — Fine &amp; Brush Tips for Journaling &amp; Calligraphy</h3>
+          <p>Perfect for adult colouring books, journaling, calligraphy, and drawing — these 36 dual-tip markers feature both a fine tip and a brush tip on every pen. A fantastic gift idea and trendy art supply loved by beginners and professionals. Great for bullet journals, greeting cards, and all your creative projects!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>36 colours — fine &amp; brush double tips</li>
+            <li>Perfect for journaling &amp; calligraphy</li>
+            <li>Makes a great gift for art lovers!</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"These pens are absolutely beautiful to write with. The brush tips are so smooth and the colours are stunning."</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+            <span style="background:rgba(255,153,0,0.15);color:#FF9900;border:1px solid rgba(255,153,0,0.3);padding:0.25rem 0.75rem;border-radius:99px;font-size:0.78rem;font-weight:700;">Under $20 🛍️</span>
+            <span style="color:var(--muted);font-size:0.85rem;">Check price on Amazon</span>
+          </div>
+          <a href="https://amzn.to/4xo790R" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon Haul</a>
+        </div>
+      </div>
+
+      <!-- Haul Product 8 — Alcohol Ink Set -->
+      <div class="card" id="alcohol-ink-set" data-cat="haul">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/3Smcd5X" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/amazon-Haul/24 metallic acrylic paint markers.jpg" alt="Alcohol Ink Art Set 24 Colors" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#FF9900;background:rgba(255,153,0,0.1);border-color:rgba(255,153,0,0.2);">🛍️ Haul Deal</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Alcohol Ink Art Set — 24 Vivid Colors</h3>
+          <p>Create breathtaking fluid art with this 24-colour alcohol ink set. The highly pigmented, fast-drying inks blend beautifully on yupo paper, glass, ceramic, and resin surfaces to create stunning one-of-a-kind abstract art. One of the hottest viral art trends on Pinterest and Instagram in 2026!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>24 highly pigmented alcohol ink colours</li>
+            <li>Works on glass, resin, ceramic &amp; paper</li>
+            <li>Hottest viral art trend on Pinterest!</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"The colours are incredibly vibrant and the way they blend is just magical. I'm totally hooked on alcohol ink art!"</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+            <span style="background:rgba(255,153,0,0.15);color:#FF9900;border:1px solid rgba(255,153,0,0.3);padding:0.25rem 0.75rem;border-radius:99px;font-size:0.78rem;font-weight:700;">Under $20 🛍️</span>
+            <span style="color:var(--muted);font-size:0.85rem;">~$16.99</span>
+          </div>
+          <a href="https://amzn.to/3Smcd5X" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon Haul</a>
+        </div>
+      </div>
+
+      <!-- Haul Product 9 — Crayola Super Tips -->
+      <div class="card" id="crayola-super-tips" data-cat="haul">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4ooEzZn" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/amazon-Haul/Crayola super tips.jpg" alt="Crayola Super Tips Washable Markers 50 Count" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#FF9900;background:rgba(255,153,0,0.1);border-color:rgba(255,153,0,0.2);">🛍️ Haul Deal</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Crayola Super Tips Washable Markers — 50 Count</h3>
+          <p>Amazon's all-time top-selling art product with over 100,000 five-star reviews! Crayola's Super Tips markers feature a versatile tip that creates both thick and thin lines — perfect for colouring, lettering, and detailed art. Washable formula makes them ideal for kids and mess-free creativity at home.</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>50 bright colours — thick &amp; thin tips</li>
+            <li>Washable — perfect for kids &amp; families</li>
+            <li>100,000+ five-star reviews on Amazon!</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"We have bought these 3 times now. The colours are bright, they wash off everything, and the kids absolutely love them!"</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+            <span style="background:rgba(255,153,0,0.15);color:#FF9900;border:1px solid rgba(255,153,0,0.3);padding:0.25rem 0.75rem;border-radius:99px;font-size:0.78rem;font-weight:700;">Under $20 🛍️</span>
+            <span style="color:var(--muted);font-size:0.85rem;">~$9.99</span>
+          </div>
+          <a href="https://amzn.to/4ooEzZn" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon Haul</a>
+        </div>
+      </div>
+
+      <!-- Haul Product 10 — Mixed Media Art Journal -->
+      <div class="card" id="mixed-media-journal" data-cat="haul">
+        <div class="card-top"><div class="card-top-bg"></div><a href="https://amzn.to/4eDqfZz" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a><img src="images/amazon-Haul/Sketch Book Mixed Media Pad.jpg" alt="Mixed Media Art Journal Sketchbook" class="card-product-img"/></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge" style="color:#FF9900;background:rgba(255,153,0,0.1);border-color:rgba(255,153,0,0.2);">🛍️ Haul Deal</span>
+            <span class="card-stars">★★★★★</span>
+          </div>
+          <h3>Mixed Media Art Journal — Hardcover Spiral 90lb</h3>
+          <p>The ultimate journal for creative explorers — this 90lb thick-paper mixed media art journal handles watercolour, acrylic, ink, markers, collage, and more without bleed-through. A gorgeous hardcover spiral-bound journal that's the perfect companion for artists, journalers, and scrapbookers. Journaling is the #1 trending hobby of 2026!</p>
+          <div class="pros-label">Why We Love It</div>
+          <ul class="pros">
+            <li>90lb thick paper — no bleed-through</li>
+            <li>Works with paints, markers &amp; collage</li>
+            <li>Journaling is the #1 hobby trend 2026!</li>
+          </ul>
+          <div class="review-section">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"This journal is absolutely gorgeous. The paper handles everything I throw at it — watercolour, acrylics, markers — no bleed at all!"</p>
+            <span class="review-author">✅ Verified Amazon Buyer</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+            <span style="background:rgba(255,153,0,0.15);color:#FF9900;border:1px solid rgba(255,153,0,0.3);padding:0.25rem 0.75rem;border-radius:99px;font-size:0.78rem;font-weight:700;">Under $20 🛍️</span>
+            <span style="color:var(--muted);font-size:0.85rem;">~$11.99</span>
+          </div>
+          <a href="https://amzn.to/4eDqfZz" target="_blank" rel="noopener noreferrer" class="btn-amazon">🛒 Shop on Amazon Haul</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       BUYING GUIDE
+  ══════════════════════════════ -->
+  <div class="buying-guide" id="buying-guide">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="section-header">
+        <div class="section-tag">Helpful Resource</div>
+        <h2>🛒 Beginner's Buying Guide</h2>
+        <p>Not sure where to start? We've got you covered.</p>
+      </div>
+      <div class="guide-grid">
+
+        <div class="guide-card">
+          <div class="guide-accent" style="background:#e85d04;"></div>
+          <div class="guide-icon">🎨</div>
+          <h3>Are You a Complete Beginner?</h3>
+          <p>Start with a watercolor set or an all-in-one acrylic kit. They are forgiving, easy to clean, and budget-friendly. Avoid oil paints at first — they require solvents and long drying times.</p>
+          <a href="#basic-supplies" class="guide-link" style="color:#e85d04;">→ See Basic Supplies</a>
         </div>
 
-        <!-- Product 8 -->
-        <div class="card">
-          <div class="card-top">🧶</div>
-          <div class="card-body">
-            <div class="card-badge">Kits &amp; Bundles</div>
-            <h3>Boye Learn-to-Knit Starter Kit for Beginners</h3>
-            <p>The Boye Beginner Knitting Kit includes two pairs of aluminum needles, a chunky skein of super-soft yarn, stitch markers, and a 20-page illustrated instruction booklet covering casting on, knitting, purling, and binding off. Everything fits neatly in a reusable zip pouch, making it a perfect gift for aspiring knitters of all ages.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>Detailed beginner instructions included</li>
-              <li>High-quality aluminum needles — snag-free</li>
-              <li>Compact carry pouch for on-the-go crafting</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=boye+learn+to+knit+starter+kit&tag=youraffid-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
+        <div class="guide-card">
+          <div class="guide-accent" style="background:#7c3aed;"></div>
+          <div class="guide-icon">✂️</div>
+          <h3>Into DIY &amp; Crafts?</h3>
+          <p>Go for embroidery floss, iron-on vinyl, or air-dry clay. These materials are versatile, affordable, and need no special equipment — just your hands and imagination.</p>
+          <a href="#craft-materials" class="guide-link" style="color:#a78bfa;">→ See Craft Materials</a>
         </div>
 
-        <!-- Product 9 -->
-        <div class="card">
-          <div class="card-top">🖋️</div>
-          <div class="card-body">
-            <div class="card-badge">Kits &amp; Bundles</div>
-            <h3>Mont Marte Complete Acrylic Painting Kit (83 Pieces)</h3>
-            <p>Mont Marte's all-inclusive 83-piece acrylic kit bundles 24 vibrant acrylic tubes, 10 brushes, 3 stretched canvases, a palette, and a painting knife into one impressive set. It's thoughtfully curated for beginners stepping into canvas painting for the first time, while still offering enough range for intermediate artists.</p>
-            <div class="pros-label">Why We Love It</div>
-            <ul class="pros">
-              <li>83 pieces — nothing else to buy</li>
-              <li>Vibrant, richly pigmented acrylic paints</li>
-              <li>Great value — makes an outstanding gift</li>
-            </ul>
-            <a href="https://www.amazon.com/s?k=mont+marte+acrylic+painting+kit&tag=youraffid-20" target="_blank" rel="noopener noreferrer" class="btn">
-              <span class="btn-icon">🛒</span>Check Price on Amazon
-            </a>
-          </div>
+        <div class="guide-card">
+          <div class="guide-accent" style="background:#f48c06;"></div>
+          <div class="guide-icon">🎁</div>
+          <h3>Buying as a Gift?</h3>
+          <p>You can't go wrong with a complete kit or bundle. They include everything the recipient needs and feel impressive to unbox. Pick one based on their hobby — knitting, painting, or diamond art.</p>
+          <a href="#kits-bundles" class="guide-link" style="color:#f48c06;">→ See Kits &amp; Bundles</a>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-accent" style="background:#10b981;"></div>
+          <div class="guide-icon">💰</div>
+          <h3>On a Tight Budget?</h3>
+          <p>The embroidery floss kit and graphite pencil set are both under $15 and incredibly high value. Skill matters more than price — you don't need expensive supplies to create beautiful art.</p>
+          <a href="#craft-materials" class="guide-link" style="color:#10b981;">→ Shop Budget Picks</a>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-accent" style="background:#3b82f6;"></div>
+          <div class="guide-icon">👧</div>
+          <h3>Buying for Kids?</h3>
+          <p>Choose non-toxic options like air-dry clay or watercolors. Avoid products with small parts for children under 5. Kits with step-by-step instructions keep kids engaged and learning independently.</p>
+          <a href="#kits-bundles" class="guide-link" style="color:#3b82f6;">→ See Kid-Friendly Kits</a>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-accent" style="background:#ec4899;"></div>
+          <div class="guide-icon">📦</div>
+          <h3>What to Check Before Buying</h3>
+          <p>Always check: number of pieces, age recommendation, material quality, and Amazon reviews with photos. A 4.5★ rating with 500+ reviews is a reliable indicator of a great product.</p>
+          <a href="#basic-supplies" class="guide-link" style="color:#ec4899;">→ Browse All Products</a>
         </div>
 
       </div>
     </div>
   </div>
 
-  <!-- ── Footer ── -->
+  <!-- ══════════════════════════════
+       BLOG / TIPS
+  ══════════════════════════════ -->
+  <div class="blog-section" id="blog">
+    <div class="section-header">
+      <div class="section-tag">Tips &amp; Inspiration</div>
+      <h2>📖 Artist's Blog</h2>
+      <p>Quick reads to help you create better art</p>
+    </div>
+    <div class="blog-grid">
+
+      <div class="blog-card">
+        <div class="blog-card-top">🖌️</div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Painting Tips</div>
+          <h3>5 Mistakes Beginners Make with Acrylic Paint (And How to Fix Them)</h3>
+          <p>Acrylic paint dries fast — that's both its superpower and its biggest trap. The #1 mistake beginners make is using too little water, leading to streaky, unblended colors. Always keep a spray bottle nearby to keep your palette moist, and thin your paint slightly for smoother coverage.</p>
+          <div class="blog-meta">
+            <span>⏱ 3 min read</span>
+            <span>🎨 Beginner Friendly</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-card-top">✏️</div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Sketching Guide</div>
+          <h3>How to Use Different Pencil Grades: From 6H to 6B Explained</h3>
+          <p>Not all pencils are equal — knowing which grade to use makes a huge difference in your drawings. H pencils produce light, crisp lines ideal for technical work. B pencils lay down rich, dark marks perfect for shading. Start with 2H for structure, HB for mid-tones, and 4B for deep shadows.</p>
+          <div class="blog-meta">
+            <span>⏱ 4 min read</span>
+            <span>✏️ All Levels</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-card-top">🧵</div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Craft Ideas</div>
+          <h3>10 Easy Embroidery Projects You Can Finish in a Weekend</h3>
+          <p>Embroidery doesn't have to mean complex patterns that take months. Some of the most beautiful pieces are simple and fast — a floral hoop, a personalised name on a tote bag, or a tiny cactus on a denim jacket. All you need is a basic floss kit, a hoop, fabric, and a needle.</p>
+          <div class="blog-meta">
+            <span>⏱ 5 min read</span>
+            <span>🧵 Beginner Friendly</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       BACK TO TOP
+  ══════════════════════════════ -->
+  <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
   <footer>
-    <div class="footer-logo">🎨 ArtCraft Picks</div>
-    <p>
-      <strong style="color:#f9fafb;">Affiliate Disclosure:</strong> ArtCraft Picks is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. When you click "Check Price on Amazon" and make a purchase, we may earn a small commission at no extra cost to you. We only recommend products we genuinely believe offer great value for crafters and artists.
-    </p>
-    <p class="footer-name">Curated with ❤️ by <span style="color:var(--secondary);">Kalpana</span></p>
-    <p class="footer-copy">© 2025 ArtCraft Picks · All product names and trademarks are the property of their respective owners.</p>
+    <div class="footer-logo"><img src="logo.png" alt="ArtCraft Deals" style="height:220px;width:auto;display:block;margin:0 auto 0.5rem;"></div>
+    <div class="footer-disclosure" id="footer-disclosure">
+      <strong>⚠️ Affiliate Disclosure:</strong> As an Amazon Associate I earn from qualifying purchases. ArtCraft Deals is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. When you click any product link and make a purchase, we may earn a small commission at <strong>no extra cost to you</strong>. We only recommend products we genuinely believe offer great value for crafters and artists.
+    </div>
+    <p class="footer-name">Curated with ❤️ by <span>Kalpana</span></p>
+    <p class="footer-copy">© 2026 ArtCraft Deals · All product names and trademarks are the property of their respective owners.</p>
   </footer>
+
+  <!-- ══════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════ -->
+  <script>
+    /* ── Scroll Animations ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+    /* ── Back to Top ── */
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+
+    /* ── Category Filter ── */
+    function filterProducts(cat) {
+      // Update tab buttons
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Show/hide cards
+      document.querySelectorAll('.card').forEach(card => {
+        const match = cat === 'all' || card.dataset.cat === cat;
+        card.style.display = match ? 'flex' : 'none';
+      });
+
+      // Show/hide section headers
+      document.querySelectorAll('.category-section').forEach(sec => {
+        const match = cat === 'all' || sec.dataset.category === cat;
+        sec.style.display = match ? 'block' : 'none';
+      });
+
+      // Show/hide dividers
+      document.querySelectorAll('.cat-divider').forEach(d => {
+        d.style.display = cat === 'all' ? 'block' : 'none';
+      });
+
+      // Scroll to first visible section
+      if (cat !== 'all') {
+        const target = document.querySelector(`[data-category="${cat}"]`);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    /* ── Active Nav on Scroll ── */
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--primary)' : '';
+      });
+    });
+  </script>
+
+  <!-- Product Click Tracking -->
+  <script>
+    document.querySelectorAll('.btn-amazon').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var card = btn.closest('.card');
+        var productName = card ? (card.querySelector('h3') ? card.querySelector('h3').innerText : 'Unknown Product') : 'Unknown Product';
+        var category = card ? (card.getAttribute('data-cat') || 'unknown') : 'unknown';
+        gtag('event', 'amazon_click', {
+          'event_category': 'Product',
+          'event_label': productName,
+          'product_category': category
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
