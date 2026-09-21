@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halloween Art & Craft Deals 2026 — Decorations, Face Paint, DIY Costumes | ArtCraftDeals</title>
+  <meta name="description" content="Best Halloween deals on Amazon 2026 — face paint kits, spooky decorations, DIY costume supplies and more. All hand-picked with fast Prime shipping." />
+  <meta name="keywords" content="halloween art supplies, halloween face paint, halloween decorations amazon, diy halloween costume supplies, halloween craft ideas 2026" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0D0D1A;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    /* ── NAV ── */
+    nav {
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,153,0,0.2);
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-logo { text-decoration: none; }
+    .back-link { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.88rem; font-weight: 500; }
+    .back-link:hover { color: #FF9900; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0D0D1A 0%, #1a0d2e 40%, #2d1200 100%);
+      border-bottom: 1px solid rgba(200, 80, 0, 0.25);
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 20% 60%, rgba(120,0,200,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 40%, rgba(255,90,0,0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+    .badge {
+      display: inline-block;
+      background: rgba(200,80,0,0.15);
+      border: 1px solid rgba(255,100,0,0.4);
+      border-radius: 999px; padding: 0.4rem 1.2rem;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #FF9900; margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      font-weight: 900; line-height: 1.1; margin-bottom: 1rem;
+    }
+    .hero h1 span { color: #FF9900; }
+    .hero p { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 560px; margin: 0 auto 2rem; line-height: 1.7; }
+    .hero-stats { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat .num { font-size: 1.6rem; font-weight: 900; color: #FF9900; }
+    .stat .lbl { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.45); margin-top: 0.2rem; }
+
+    /* ── CONTENT ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem; flex: 1; }
+    .disclosure {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px; padding: 0.85rem 1.2rem;
+      font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-bottom: 2.5rem;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header { margin: 3rem 0 1.75rem; }
+    .section-header h2 {
+      font-size: 1.6rem; font-weight: 800;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .section-header p { font-size: 0.92rem; color: rgba(255,255,255,0.5); margin-top: 0.4rem; }
+    .section-divider { height: 1px; background: rgba(255,153,0,0.15); margin-bottom: 1.75rem; }
+
+    /* ── PRODUCT GRID ── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .product-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,153,0,0.18);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .product-card:hover { border-color: rgba(255,153,0,0.5); transform: translateY(-3px); }
+    .product-icon {
+      font-size: 2.5rem; text-align: center;
+      background: rgba(255,153,0,0.07);
+      border-radius: 12px; padding: 0.85rem;
+    }
+    .product-name {
+      font-size: 0.95rem; font-weight: 700; color: #fff; line-height: 1.4;
+    }
+    .product-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .rating { font-size: 0.8rem; color: #FF9900; font-weight: 700; }
+    .price {
+      font-size: 1.1rem; font-weight: 800; color: #FF9900;
+    }
+    .buy-btn {
+      display: block; text-align: center;
+      background: linear-gradient(135deg, #FF9900, #cc6600);
+      color: #fff; font-weight: 700; font-size: 0.88rem;
+      text-decoration: none; padding: 0.7rem 1rem;
+      border-radius: 10px; margin-top: auto;
+      transition: opacity 0.2s;
+    }
+    .buy-btn:hover { opacity: 0.88; }
+    .tag-hot {
+      display: inline-block;
+      background: rgba(255,80,0,0.2); border: 1px solid rgba(255,80,0,0.4);
+      color: #FF6B35; font-size: 0.68rem; font-weight: 800;
+      letter-spacing: 0.06em; padding: 0.15rem 0.55rem; border-radius: 999px;
+    }
+    .tag-best {
+      display: inline-block;
+      background: rgba(56,232,138,0.12); border: 1px solid rgba(56,232,138,0.3);
+      color: #38E88A; font-size: 0.68rem; font-weight: 800;
+      letter-spacing: 0.06em; padding: 0.15rem 0.55rem; border-radius: 999px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: rgba(0,0,0,0.5);
+      border-top: 1px solid rgba(255,153,0,0.15);
+      text-align: center; padding: 1.5rem 1.25rem;
+    }
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.35); max-width: 600px; margin: 0 auto; }
+    footer a { color: #FF9900; text-decoration: none; }
+
+    @media (max-width: 540px) {
+      .hero { padding: 3rem 1rem 2rem; }
+      .container { padding: 2rem 1rem; }
+      .hero-stats { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="ArtCraftDeals" style="height:60px;width:auto;display:block;filter:drop-shadow(0 0 8px rgba(255,255,255,0.4)) brightness(1.3);">
+  </a>
+  <a href="index.html" class="back-link">← Back to Home</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="badge">🎃 Halloween 2026 · Amazon Deals</div>
+    <h1>Best <span>Halloween</span> Picks<br>on Amazon</h1>
+    <p>Face paints, spooky decorations, and DIY costume supplies — all hand-picked and available with Prime shipping.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">12</div><div class="lbl">Products</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">Categories</div></div>
+      <div class="stat"><div class="num">⭐ 4.5</div><div class="lbl">Avg. Rating</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MAIN CONTENT ── -->
+<div class="container">
+
+  <div class="disclosure"><strong style="color:rgba(255,255,255,0.5);">Disclosure:</strong> As an Amazon Associate I earn from qualifying purchases at no extra cost to you. Prices shown are approximate and may vary.</div>
+
+  <!-- ══ CATEGORY 1: ART & CRAFT ══ -->
+  <div class="section-header">
+    <h2>🎨 Art & Craft Supplies</h2>
+    <p>Face paints, craft stems and accessories to create spooky looks and Halloween artwork.</p>
+  </div>
+  <div class="section-divider"></div>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <div class="product-icon">🎭</div>
+      <div class="product-name">UCANBE Face Body Paint 18 Colors — Water Based Halloween Makeup Kit</div>
+      <div class="product-meta">
+        <span class="rating">⭐ 4.3</span>
+        <span class="tag-best">BEST SELLER</span>
+      </div>
+      <div class="price">$13.49</div>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5;">Large white &amp; black pans, neon UV colours, safe for kids &amp; adults. Great for parties and costume makeup.</p>
+      <a class="buy-btn" href="https://www.amazon.com/dp/B0CZNJKR39?tag=artcraftdeals-20" target="_blank" rel="noopener">View on Amazon →</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">👻</div>
+      <div class="product-name">BOBISUKA 18 Color Water-Activated Cream Face Paint Palette</div>
+      <div class="product-meta">
+        <span class="rating">⭐ 4.3</span>
+      </div>
+      <div class="price">$17.99</div>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5;">Washable face &amp; body paint. Creamy texture blends smoothly for detailed Halloween designs.</p>
+      <a class="buy-btn" href="https://www.amazon.com/dp/B0F1KDW2NX?tag=artcraftdeals-20" target="_blank" rel="noopener">View on Amazon →</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">🧟</div>
+      <div class="product-name">Goth White + Black &amp; Red Face &amp; Body Paint — Halloween SFX Makeup</div>
+      <div class="product-meta">
+        <span class="rating">⭐ 4.5</span>
+        <span class="tag-hot">POPULAR</span>
+      </div>
+      <div class="price">$17.99</div>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5;">Professional-quality white foundation + black &amp; red face paint. Perfect for zombie, vampire &amp; ghost looks.</p>
+      <a class="buy-btn" href="https://www.amazon.com/dp/B0DZ26PXRS?tag=artcraftdeals-20" target="_blank" rel="noopener">View on Amazon →</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">🕷️</div>
+      <div class="product-name">Halloween Pipe Cleaners 200 PCS — Chenille Stems for Crafts</div>
+      <div class="product-meta">
+        <span class="rating">⭐ 4.7</span>
+        <span class="tag-best">TOP RATED</span>
+      </div>
+      <div class="price">$6.99</div>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5;">200 Halloween-coloured pipe cleaners — make spiders, bats, skeletons and wreaths with the kids.</p>
+      <a class="buy-btn" href="https://www.amazon.com/dp/B0H7M9GCLQ?tag=artcraftdeals-20" target="_blank" rel="noopener">View on Amazon →</a>
+    </div>
+
+  </div>
+
+  <!-- ══ CATEGORY 2: DECORATIONS ══ -->
+  <div class="section-header" style="margin-top:4rem;">
+    <h2>🎃 Spooky Decorations</h2>
+    <p>Transform your home for Halloween — spider webs, skeletons, bats and more.</p>
+  </div>
+  <div class="section-divider"></div>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <div class="product-icon">🕸️</div>
+      <div class="product-name">OCATO 200" Giant Halloween Spider Web + 59" Giant Spider Décor</div>
+      <div class="product-meta">
+        <span class="rating">⭐ 4.5</span>
+        <span class="tag-best">BEST VALUE</span>
+      </div>
+      <div class="price">$9.99</div>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5;">Huge stretch spider web plus a massive 59" spider prop. Covers your whole yard or porch for under $10.</p>
+      <a class="buy-btn" href="https://www.amazon.com/dp/B07TWF8JZ1?tag=artcraftdeals-20" target="_blank" rel="noopener">View on Amazon →</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">🕸️</div>
+      <div class="product-name">1000 sqft Halloween Spider Webs with 30 Fake Spiders</div>
+      <div class="product-meta">
+        <span class="rating">⭐ 4.5</span>
+        <span class="tag-hot">POPULAR</span>
+      </div>
+      <div class="price">$6.99</div>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5;">Massive 1000 sqft stretchable web with 30 realistic spiders. Drapes over bushes, railings &amp; furniture.</p>
+      <a class="buy-btn" href="https://www.amazon.com/dp/B07HMRZSWT?tag=artcraftdeals-20" target="_blank" rel="noopener">View on Amazon →</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">💀</div>
+      <div class="product-name">Abakuku 36" Halloween Skeleton with Movable Joints</div>
+      <div class="product-meta">
+        <span class="rating">⭐ 4.5</span>
+        <span class="tag-best">TOP RATED</span>
+      </div>
+      <div class="price">$15.99</div>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5;">Full-size 36" skeleton prop with poseable joints. Hang it from a tree or prop it at your front door.</p>
+      <a class="buy-btn" href="https://www.amazon.com/dp/B0FDLBLXMY?tag=artcraftdeals-20" target="_blank" rel="noopener">View on Amazon →</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">🦇</div>
+      <div class="product-name">18PCS Hanging Bats Halloween Decorations — Realistic Flying Bats</div>
+      <div class="product-meta">
+        <span class="rating">⭐ 4.2</span>
+      </div>
+      <div class="price">$13.99</div>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5;">18 realistic hanging bats in different sizes. Hang from ceilings, trees or windows for a dramatic effect.</p>
+      <a class="buy-btn" href="https://www.amazon.com/dp/B0CBTJLP1F?tag=artcraftdeals-20" target="_blank" rel="noopener">View on Amazon →</a>
+    </div>
+
+  </div>
+
+  <!-- ══ CATEGORY 3: DIY COSTUMES ══ -->
+  <div class="section-header" style="margin-top:4rem;">
+    <h2>🧵 DIY Costume Supplies</h2>
+    <p>Craft your own costume — foam sheets, resin charms, faux leather and more.</p>
+  </div>
+  <div class="section-divider"></div>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <div class="product-icon">🧱</div>
+      <div class="product-name">The Foamory Black EVA Foam Sheet 5mm — Cosplay &amp; Costume Craft</div>
+      <div class="product-meta">
+        <span class="rating">⭐ 4.7</span>
+        <span class="tag-best">TOP RATED</span>
+      </div>
+      <div class="price">$18.99</div>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5;">Premium 5mm black EVA foam (14×39 in). Easy to cut, shape and glue into armour, wings and props.</p>
+      <a class="buy-btn" href="https://www.amazon.com/dp/B08YXXCG6J?tag=artcraftdeals-20" target="_blank" rel="noopener">View on Amazon →</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">💎</div>
+      <div class="product-name">HADDIY Halloween Resin Charms 100 Pcs — Pumpkin, Ghost, Spider</div>
+      <div class="product-meta">
+        <span class="rating">⭐ 4.5</span>
+        <span class="tag-hot">POPULAR</span>
+      </div>
+      <div class="price">$7.99</div>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5;">100 Halloween flatback miniature charms — perfect for slime, resin art, keychains and costume accessories.</p>
+      <a class="buy-btn" href="https://www.amazon.com/dp/B0C72MQTKY?tag=artcraftdeals-20" target="_blank" rel="noopener">View on Amazon →</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">🪡</div>
+      <div class="product-name">15 Pcs Halloween Faux Leather Glitter Sheets for DIY Crafts</div>
+      <div class="product-meta">
+        <span class="rating">⭐ 4.4</span>
+      </div>
+      <div class="price">$11.99</div>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5;">Glittery faux leather sheets in Halloween colours. Great for bows, earrings, bags and costume accents.</p>
+      <a class="buy-btn" href="https://www.amazon.com/dp/B099NFW353?tag=artcraftdeals-20" target="_blank" rel="noopener">View on Amazon →</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">🎀</div>
+      <div class="product-name">Halloween Felt Fabric Sheets 20 Pcs — Pumpkin, Ghost &amp; Witch Colours</div>
+      <div class="product-meta">
+        <span class="rating">⭐ 4.3</span>
+      </div>
+      <div class="price">$7.99</div>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.5;">20 Halloween-themed felt sheets — orange, black, purple, green. Use for masks, decorations &amp; accessories.</p>
+      <a class="buy-btn" href="https://www.amazon.com/s?k=halloween+felt+fabric+sheets+diy&tag=artcraftdeals-20" target="_blank" rel="noopener">View on Amazon →</a>
+    </div>
+
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>ArtCraftDeals is a participant in the Amazon Services LLC Associates Program. <a href="index.html">← Back to ArtCraftDeals Home</a></p>
+</footer>
+
+</body>
+</html>
